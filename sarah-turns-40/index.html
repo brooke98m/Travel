@@ -6,7 +6,7 @@
 <title>Happy 40th, Sarah</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Cpath d='M16.2 4.5c-3.8 0-6.8 1.9-6.8 5.2 0 3.2 2.4 4.4 5.8 5.6 2.8 1 4.2 1.8 4.2 3.6 0 2.1-1.8 3.4-4.4 3.4-2.8 0-4.8-1.4-5.6-3.8l-0.4-1.2-2.4 1.2 0.4 1.1c1.2 3.2 4 5.2 8 5.2 4.2 0 7.2-2.2 7.2-5.8 0-3.4-2.6-4.8-6.2-6-2.6-0.9-3.8-1.7-3.8-3.2 0-1.8 1.6-2.8 3.8-2.8 2.2 0 3.8 1 4.8 2.8l0.4 0.8 2.2-1.2-0.4-0.8C21.8 6.2 19.4 4.5 16.2 4.5z' fill='%23C4785A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital, wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital, wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
   :root {
     --primary:    #C4785A;
@@ -27,7 +27,7 @@
   .grain { position:fixed; inset:0; pointer-events:none; z-index:999; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:128px; }
 
   /* HERO */
-  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; background:linear-gradient(155deg,var(--bg) 0%,var(--primary-lt) 55%,#e8cfc3 100%); overflow:hidden; padding:80px 20px 120px; }
+  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; background:linear-gradient(155deg, var(--bg) 0%, var(--primary-lt) 55%,#e8cfc3 100%); overflow:hidden; padding:80px 20px 120px; }
   .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 45% at 85% 12%, rgba(143,163,160,0.2) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 12% 88%, rgba(196,120,90,0.12) 0%, transparent 60%); }
   .hero::after { content:'40'; position:absolute; font-family:'Playfair Display', serif; font-size:50vw; color:rgba(196,120,90,0.07); top:50%; left:50%; transform:translate(-50%,-50%); line-height:1; pointer-events:none; }
   .hero-eyebrow { font-family:'Jost', sans-serif; font-weight:200; font-size:clamp(0.6rem,1.4vw,0.76rem); letter-spacing:0.38em; text-transform:uppercase; color:var(--primary); margin-bottom:28px; position:relative; opacity:0; animation:fadeUp 1s ease 0.3s forwards; }
@@ -37,16 +37,16 @@
   .hero-date { font-size:0.85rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--light-mid); margin-top:50px; opacity:0; animation:fadeUp 1s ease 1s forwards; position:relative; line-height:1.6; }
   .scroll-hint { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:fadeIn 1s ease 2s forwards; }
   .scroll-hint span { font-size:0.57rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--light-mid); }
-  .scroll-line { width:1px; height:44px; background:linear-gradient(to bottom,var(--primary),transparent); animation:scrollLine 2s ease-in-out 2.5s infinite; }
+  .scroll-line { width:1px; height:44px; background:linear-gradient(to bottom, var(--primary), transparent); animation:scrollLine 2s ease-in-out 2.5s infinite; }
 
   /* PHOTO STRIP */
   .photo-strip { display:flex; gap:0; overflow:hidden; height:280px; background:var(--bg2); }
   .photo-strip-item { flex:1; min-width:0; overflow:hidden; }
-  .photo-strip-item img { width:100%; height:100%; object-fit:cover; object-position:center top; filter:saturate(0.88) brightness(1.02); transition:transform 0.6s ease,filter 0.4s ease; display:block; }
+  .photo-strip-item img { width:100%; height:100%; object-fit:cover; object-position:center top; filter:saturate(0.88) brightness(1.02); transition:transform 0.6s ease, filter 0.4s ease; display:block; }
   .photo-strip-item:hover img { transform:scale(1.04); filter:saturate(1) brightness(1.04); }
 
   /* QUOTE */
-  .quote-section { padding:90px 20px; text-align:center; background:linear-gradient(160deg,var(--primary) 0%,var(--primary-dk) 100%); position:relative; overflow:hidden; }
+  .quote-section { padding:90px 20px; text-align:center; background:linear-gradient(160deg, var(--primary) 0%, var(--primary-dk) 100%); position:relative; overflow:hidden; }
   .quote-text { font-family:'Playfair Display', serif; font-size:clamp(1.4rem,3.5vw,2.6rem); font-style:italic; color:#fff; font-weight:400; max-width:780px; margin:0 auto; line-height:1.5; position:relative; }
   .quote-attr { font-family:'Jost', sans-serif; font-weight:200; font-size:0.7rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-top:28px; position:relative; }
 
@@ -54,7 +54,7 @@
   .days-wrapper { padding:80px 20px 40px; max-width:1060px; margin:0 auto; }
   .section-label { font-family:'Jost', sans-serif; font-weight:200; font-size:0.82rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--primary); margin-bottom:60px; text-align:center; }
   .day-block { margin-bottom:90px; display:grid; grid-template-columns:190px 1fr; gap:0 56px; position:relative; }
-  .day-block::before { content:''; position:absolute; left:190px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--contrast-lt),rgba(197,212,210,0)); }
+  .day-block::before { content:''; position:absolute; left:190px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom, var(--contrast-lt), rgba(197,212,210,0)); }
   .day-label-col { padding-top:4px; position:sticky; top:40px; align-self:start; text-align:right; padding-right:36px; }
   .day-number { font-family:'Playfair Display', serif; font-size:clamp(2.8rem,5.5vw,4.8rem); font-weight:400; color:var(--primary-lt); line-height:1; font-style:italic; filter:saturate(1.3) brightness(0.9); }
   .day-name { font-family:'Jost', sans-serif; font-weight:200; font-size:0.75rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--light-mid); margin-top:4px; }
@@ -65,7 +65,7 @@
   .event-dot.highlight { background:var(--primary); width:9px; height:9px; box-shadow:0 0 0 3px rgba(196,120,90,0.22); margin-top:5px; }
   .event-time { font-family:'Jost', sans-serif; font-weight:200; font-size:0.82rem; letter-spacing:0.2em; color:var(--light-mid); min-width:68px; padding-top:3px; flex-shrink:0; }
   .event-title { font-family:'Playfair Display', serif; font-size:1.25rem; font-weight:400; color:var(--deep); line-height:1.3; }
-  .event-title a { color:inherit; text-decoration:none; border-bottom:1px solid var(--primary-lt); transition:border-color 0.2s,color 0.2s; }
+  .event-title a { color:inherit; text-decoration:none; border-bottom:1px solid var(--primary-lt); transition:border-color 0.2s, color 0.2s; }
   .event-title a:hover { color:var(--primary); border-color:var(--primary); }
   .event-desc { font-family:'Jost', sans-serif; font-weight:300; font-size:0.92rem; color:var(--mid); margin-top:5px; line-height:1.65; }
   .event-tag { display:inline-block; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 10px; border-radius:20px; margin-top:5px; font-family:'Jost', sans-serif; font-weight:300; margin-right:4px; }
@@ -78,8 +78,8 @@
   .shop-hours { font-size:0.7rem; letter-spacing:0.18em; color:var(--contrast-dk); margin-top:3px; font-family:'Jost', sans-serif; font-weight:200; font-style:normal; }
 
   /* PHOTO COLLAGES */
-  .photo-collage { display:flex; gap:0; overflow:hidden; height:280px; background:var(--bg2); margin-bottom:70px; width:100vw; position:relative; left:50%; transform:translateX(-50%); }
-  .photo-collage img { flex:1; min-width:0; width:100%; height:100%; object-fit:cover; object-position:center top; filter:saturate(0.85) brightness(1.02); display:block; transition:transform 0.6s ease,filter 0.4s ease; }
+  .photo-collage { display:flex; gap:0; overflow:hidden; height:280px; background:var(--bg2); margin-bottom:70px; width:100vw; position:relative; left:50%; transform:translateX(-50%); align-items:stretch; }
+  .photo-collage img { flex:1; min-width:0; width:100%; height:100%; object-fit:cover; object-position:center top; filter:saturate(0.85) brightness(1.02); display:block; transition:transform 0.6s ease, filter 0.4s ease; }
   .photo-collage img:hover { transform:scale(1.04); filter:saturate(1) brightness(1.05); }
   .photo-collage img.portrait { object-position:center 20%; }
 
@@ -88,19 +88,19 @@
   .shopping-inner { max-width:960px; margin:0 auto; }
   .shopping-eyebrow { font-size:0.8rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--primary-dk); margin-bottom:18px; font-family:'Jost', sans-serif; font-weight:200; }
   .shopping-title { font-family:'Playfair Display', serif; font-size:clamp(2.0rem,5vw,3.6rem); color:var(--deep); font-style:italic; font-weight:400; margin-bottom:50px; }
-  .shops-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2px; }
+  .shops-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:2px; }
   .shop-card { background:rgba(255,255,255,0.6); border:1px solid rgba(196,120,90,0.15); padding:28px 24px; transition:background 0.3s; cursor:pointer; position:relative; }
   .shop-card:hover { background:rgba(255,255,255,0.9); }
   .shop-card-link { position:absolute; inset:0; z-index:1; }
   .shop-name { font-family:'Playfair Display', serif; font-size:1.35rem; color:var(--deep); font-style:italic; }
-  .shop-name a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(196,120,90,0.3); transition:border-color 0.2s,color 0.2s; }
+  .shop-name a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(196,120,90,0.3); transition:border-color 0.2s, color 0.2s; }
   .shop-name a:hover { color:var(--primary); border-color:var(--primary); }
   .shop-neighborhood { font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--primary); margin-top:4px; font-family:'Jost', sans-serif; font-weight:200; }
   .shop-vibe { font-family:'Cormorant Garamond', serif; font-size:1.05rem; color:var(--mid); margin-top:10px; line-height:1.65; }
 
   /* PICNIC */
   .picnic-section { padding:90px 20px; background:var(--bg); }
-  .picnic-inner { max-width:920px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start; }
+  .picnic-inner { max-width:920px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:end; }
   .big-star { font-family:'Playfair Display', serif; font-size:clamp(4rem,12vw,9rem); color:var(--primary-lt); line-height:0.85; font-style:italic; font-weight:400; filter:saturate(1.3) brightness(0.92); }
   .picnic-title { font-family:'Playfair Display', serif; font-size:clamp(1.6rem,3.5vw,2.5rem); font-weight:400; color:var(--deep); line-height:1.2; }
   .picnic-body { font-family:'Cormorant Garamond', serif; font-size:1.12rem; color:var(--mid); line-height:1.85; margin-top:18px; }
@@ -122,12 +122,12 @@
   .recs-title { font-family:'Playfair Display', serif; font-size:clamp(2.0rem,5vw,3.4rem); color:var(--deep); font-style:italic; font-weight:400; margin-bottom:50px; }
   .recs-categories { display:flex; flex-direction:column; gap:48px; }
   .recs-cat-label { font-family:'Jost', sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--contrast-dk); margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--contrast-lt); }
-  .recs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; }
+  .recs-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:2px; }
   .rec-card { background:rgba(255,255,255,0.55); border:1px solid rgba(196,120,90,0.12); padding:22px 20px; transition:background 0.3s; cursor:pointer; position:relative; }
   .rec-card:hover { background:rgba(255,255,255,0.9); }
   .rec-card-link { position:absolute; inset:0; z-index:1; }
   .rec-name { font-family:'Playfair Display', serif; font-size:1.2rem; color:var(--deep); font-style:italic; }
-  .rec-name a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(196,120,90,0.28); transition:color 0.2s,border-color 0.2s; }
+  .rec-name a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(196,120,90,0.28); transition:color 0.2s, border-color 0.2s; }
   .rec-name a:hover { color:var(--primary); border-color:var(--primary); }
   .rec-loc { font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--primary); margin-top:3px; font-family:'Jost', sans-serif; font-weight:200; }
   .rec-desc { font-family:'Cormorant Garamond', serif; font-size:1.0rem; color:var(--mid); margin-top:8px; line-height:1.6; }
@@ -193,7 +193,7 @@
 </div>
 
 <section class="quote-section">
-  <p class="quote-text">&ldquo;Life begins at forty &mdash; and so does the best version of everything.&rdquo;</p>
+  <p class="quote-text">&ldquo;Life begins at forty, and so does the best version of everything.&rdquo;</p>
   <p class="quote-attr">This one&rsquo;s for you, Sarah</p>
 </section>
 
@@ -212,7 +212,7 @@
       <div class="event"><div class="event-dot"></div><div class="event-time">12:20p</div><div class="event-content"><div class="event-title">Arrive LAX</div><div class="event-desc">Sunglasses on, windows down. California air hits different.</div><span class="event-tag tag-travel">Arrive</span></div></div>
       <div class="event"><div class="event-dot"></div><div class="event-time">1:00p</div><div class="event-content"><div class="event-title">Pick Up the Car</div><div class="event-desc">Keys in hand, heading to the coast.</div></div></div>
       <div class="event"><div class="event-dot"></div><div class="event-time">1:30p</div><div class="event-content"><div class="event-title">Settle into the Airbnb</div><div class="event-desc">The fridge is stocked, the space is ready. Sarah just needs to walk in and exhale.</div><span class="event-tag tag-vibe">Home Base</span></div></div>
-      <div class="event"><div class="event-dot highlight"></div><div class="event-time">2:00p</div><div class="event-content"><div class="event-title">Shopping Day &mdash; The Route</div><div class="event-desc">Platform (Culver City) &rarr; The Dig (Abbot Kinney) &rarr; DOEN (Brentwood Country Mart) &rarr; Favorite Daughter (Beverly Hills). Three and a half hours of pure joy.</div><span class="event-tag tag-shop">Shopping</span></div></div>
+      <div class="event"><div class="event-dot highlight"></div><div class="event-time">2:00p</div><div class="event-content"><div class="event-title">Shopping Day, The Route</div><div class="event-desc">Platform (Culver City) &rarr; The Dig (Abbot Kinney) &rarr; DOEN (Brentwood Country Mart) &rarr; Favorite Daughter (Beverly Hills). Three and a half hours of pure joy.</div><span class="event-tag tag-shop">Shopping</span></div></div>
       <div class="event"><div class="event-dot highlight"></div><div class="event-time">5:45p</div><div class="event-content"><div class="event-title"><a href="https://elephante.com" target="_blank">&Eacute;lephante &nearr;</a></div><div class="event-desc">Rooftop Italian above Santa Monica with ocean views. Reservations are made, the table is waiting. Vodka pasta, whipped eggplant, golden hour light. &#9733; 4.3</div><span class="event-tag tag-food">Dinner</span></div></div>
     </div>
   </div>
@@ -235,11 +235,11 @@
     </div>
     <div class="events-col">
       <div class="event"><div class="event-dot"></div><div class="event-time">Morning</div><div class="event-content"><div class="event-title">Breakfast at Home</div><div class="event-desc">A slow, beautiful morning. The groceries are already in. Coffee, good light, Sarah&rsquo;s call on everything else. The robe-and-towel era is officially open.</div><span class="event-tag tag-vibe">Home Morning</span></div></div>
-      <div class="event"><div class="event-dot highlight"></div><div class="event-time">10:00a</div><div class="event-content"><div class="event-title">Shopping &mdash; Abbot Kinney</div><div class="event-desc"><strong>The Dig</strong> &mdash; vintage jeans and cool-girl pieces, right on Abbot Kinney.<br><br><strong>Ozma</strong> &mdash; slow luxury in conscious fabrics, open noon&ndash;5pm. Timed perfectly.<br><br>Wander the rest of Abbot Kinney &mdash; iced coffee, pop-in shops, all of it.</div><span class="event-tag tag-shop">Shopping</span></div></div>
+      <div class="event"><div class="event-dot highlight"></div><div class="event-time">10:00a</div><div class="event-content"><div class="event-title">Shopping, Abbot Kinney</div><div class="event-desc"><strong>The Dig</strong>, vintage jeans and cool-girl pieces, right on Abbot Kinney.<br><br><strong>Ozma</strong>, slow luxury in conscious fabrics, open noon&ndash;5pm. Timed perfectly.<br><br>Wander the rest of Abbot Kinney, iced coffee, pop-in shops, all of it.</div><span class="event-tag tag-shop">Shopping</span></div></div>
       <div class="event"><div class="event-dot"></div><div class="event-time">1:00p</div><div class="event-content"><div class="event-title">Home to Refresh + Pack the Picnic</div><div class="event-desc">Head home, pack up, and head to a picture-perfect picnic on the beach.</div></div></div>
       <div class="event"><div class="event-dot highlight"></div><div class="event-time">2:00p</div><div class="event-content"><div class="event-title">&#127796; The Birthday Beach Picnic</div><div class="event-desc">Blanket on Venice Beach. Champagne, a full cheese board, grapes, music, afternoon light. Three glorious hours of doing absolutely nothing on purpose. Except taking photos of course.</div><span class="event-tag tag-photo">Photo Moment</span><span class="event-tag tag-vibe">Champagne Picnic</span></div></div>
       <div class="event"><div class="event-dot"></div><div class="event-time">5:30p</div><div class="event-content"><div class="event-title">Back Home to Get Ready</div><div class="event-desc">Golden hour has done its thing. Time for the golden girls to get ready.</div><span class="event-tag tag-vibe">Getting Ready</span></div></div>
-      <div class="event"><div class="event-dot highlight"></div><div class="event-time">7:15p</div><div class="event-content"><div class="event-title"><a href="https://gjelina.com" target="_blank">Gjelina &mdash; Dinner &nearr;</a></div><div class="event-desc">A Venice institution since 2008. Brick floors, candlelight, garden patio. Reservations locked in. Japanese sweet potato, lamb pizza, warm date cake with ginger ice cream. &#9733; 4.2</div><span class="event-tag tag-food">Dinner</span></div></div>
+      <div class="event"><div class="event-dot highlight"></div><div class="event-time">7:15p</div><div class="event-content"><div class="event-title"><a href="https://gjelina.com" target="_blank">Gjelina, Dinner &nearr;</a></div><div class="event-desc">A Venice institution since 2008. Brick floors, candlelight, garden patio. Reservations locked in. Japanese sweet potato, lamb pizza, warm date cake with ginger ice cream. &#9733; 4.2</div><span class="event-tag tag-food">Dinner</span></div></div>
     </div>
   </div>
 
@@ -260,8 +260,8 @@
       <div class="day-theme">Sarah&rsquo;s shoot day. Her moment.</div>
     </div>
     <div class="events-col">
-      <div class="event"><div class="event-dot"></div><div class="event-time">Morning</div><div class="event-content"><div class="event-title">Free Morning &mdash; Sarah&rsquo;s Call</div><div class="event-desc">Pilates, a long beach walk, a solo caf&eacute; sit &mdash; whatever Sarah wants before the main event.</div><span class="event-tag tag-vibe">Free Time</span></div></div>
-      <div class="event"><div class="event-dot highlight"></div><div class="event-time">3:00p</div><div class="event-content"><div class="event-title">&#128247; Private Shoot with <a href="https://garrettlobaugh.com" target="_blank">Garrett Lobaugh &nearr;</a></div><div class="event-desc">This is the gift. A private, four-hour golden hour session with Garrett Lobaugh &mdash; one of LA&rsquo;s most talented photographers, based in Santa Monica and known for his stunning portraiture work. As a photographer herself, Sarah will feel completely at ease in front of Garrett&rsquo;s lens. Multiple looks, multiple locations &mdash; Venice Beach, Abbot Kinney, wherever the light leads. Golden hour hits ~7:15pm and Garrett will chase every last ray of it. These photos will be some of the best she&rsquo;s ever had taken.</div><span class="event-tag tag-photo">Private Shoot</span></div></div>
+      <div class="event"><div class="event-dot"></div><div class="event-time">Morning</div><div class="event-content"><div class="event-title">Free Morning, Sarah&rsquo;s Call</div><div class="event-desc">Pilates, a long beach walk, a solo caf&eacute; sit, whatever Sarah wants before the main event.</div><span class="event-tag tag-vibe">Free Time</span></div></div>
+      <div class="event"><div class="event-dot highlight"></div><div class="event-time">3:00p</div><div class="event-content"><div class="event-title">&#128247; Private Shoot with <a href="https://garrettlobaugh.com" target="_blank">Garrett Lobaugh &nearr;</a></div><div class="event-desc">This is the gift. A private, four-hour golden hour session with Garrett Lobaugh, one of LA&rsquo;s most talented photographers, based in Santa Monica and known for his stunning portraiture work. As a photographer herself, Sarah will feel completely at ease in front of Garrett&rsquo;s lens. Multiple looks, multiple locations, Venice Beach, Abbot Kinney, wherever the light leads. Golden hour hits ~7:15pm and Garrett will chase every last ray of it. These photos will be some of the best she&rsquo;s ever had taken.</div><span class="event-tag tag-photo">Private Shoot</span></div></div>
       <div class="event"><div class="event-dot highlight"></div><div class="event-time">7:30p</div><div class="event-content"><div class="event-title"><a href="https://sohohouse.com/houses/soho-house-west-hollywood" target="_blank">Soho House West Hollywood &nearr;</a></div><div class="event-desc">Members-only rooftop with panoramic LA views behind glass. Good wine, great company, the city glowing below. &#9733; 4.6</div><span class="event-tag tag-food">Evening</span><span class="event-tag tag-vibe">The Moment</span></div></div>
     </div>
   </div>
@@ -296,12 +296,12 @@
     <p class="shopping-eyebrow">The Shopping Edit</p>
     <h2 class="shopping-title">Our top spots</h2>
     <div class="shops-grid">
-      <div class="shop-card"><div class="shop-name"><a href="https://platformla.com" target="_blank">Platform</a></div><div class="shop-neighborhood">Culver City &middot; Washington Blvd</div><div class="shop-hours">Mon–Sun 7am–10pm</div><div class="shop-vibe">Architecturally stunning open-air market. First stop Tuesday &mdash; sets the tone for the whole trip.</div></div>
+      <div class="shop-card"><div class="shop-name"><a href="https://platformla.com" target="_blank">Platform</a></div><div class="shop-neighborhood">Culver City &middot; Washington Blvd</div><div class="shop-hours">Mon–Sun 7am–10pm</div><div class="shop-vibe">Architecturally stunning open-air market. First stop Tuesday, sets the tone for the whole trip.</div></div>
       <div class="shop-card"><div class="shop-name"><a href="https://www.instagram.com/thedigclothing/" target="_blank">The Dig</a></div><div class="shop-neighborhood">Venice &middot; Abbot Kinney Blvd</div><div class="shop-hours">Mon–Thu 10am–6pm &nbsp;&middot;&nbsp; Fri–Sun 10am–7pm</div><div class="shop-vibe">Curated vintage jeans and cool-girl pieces. Right on the best street in LA. Sarah&rsquo;s vintage denim list was made for this place.</div></div>
-      <div class="shop-card"><div class="shop-name"><a href="https://ozmaofca.com" target="_blank">Ozma</a></div><div class="shop-neighborhood">Atwater Village &middot; Knox Ave (Wed&ndash;Sat only)</div><div class="shop-hours">Wed–Sat 12pm–5pm &nbsp;&middot;&nbsp; Closed Sun–Tue</div><div class="shop-vibe">Slow luxury in beautiful, conscious fabrics. Open Wed noon&ndash;5pm &mdash; timed perfectly for Wednesday morning.</div></div>
+      <div class="shop-card"><div class="shop-name"><a href="https://ozmaofca.com" target="_blank">Ozma</a></div><div class="shop-neighborhood">Atwater Village &middot; Knox Ave (Wed&ndash;Sat only)</div><div class="shop-hours">Wed–Sat 12pm–5pm &nbsp;&middot;&nbsp; Closed Sun–Tue</div><div class="shop-vibe">Slow luxury in beautiful, conscious fabrics. Open Wed noon&ndash;5pm, timed perfectly for Wednesday morning.</div></div>
       <div class="shop-card"><div class="shop-name"><a href="https://doen.com" target="_blank">D&Ocirc;EN</a></div><div class="shop-neighborhood">Santa Monica &middot; Brentwood Country Mart</div><div class="shop-hours">Mon–Sat 10am–6pm &nbsp;&middot;&nbsp; Sun 11am–5pm</div><div class="shop-vibe">Romantic, heirloom-quality pieces. The lace shorts, the slip skirt, the throw-on dresses. This is Sarah&rsquo;s store.</div></div>
       <div class="shop-card"><div class="shop-name"><a href="https://favoritedaughter.com" target="_blank">Favorite Daughter</a></div><div class="shop-neighborhood">Beverly Hills &middot; N Beverly Dr</div><div class="shop-hours">Mon–Sat 10am–6pm &nbsp;&middot;&nbsp; Sun 12pm–5pm</div><div class="shop-vibe">Design-forward, elevated basics. The sexy go-to outfit lives here. The store itself is a whole moment.</div></div>
-      <div class="shop-card"><div class="shop-name"><a href="https://guildla.com" target="_blank">Guild</a></div><div class="shop-neighborhood">Venice &middot; Abbot Kinney + Platform</div><div class="shop-hours">Mon–Sat 11am–7pm &nbsp;&middot;&nbsp; Sun 11am–6pm</div><div class="shop-vibe">Women&rsquo;s boutique with two LA locations &mdash; one right on Abbot Kinney, one at Platform. Beautiful, effortless California pieces.</div></div>
+      <div class="shop-card"><div class="shop-name"><a href="https://guildla.com" target="_blank">Guild</a></div><div class="shop-neighborhood">Venice &middot; Abbot Kinney + Platform</div><div class="shop-hours">Mon–Sat 11am–7pm &nbsp;&middot;&nbsp; Sun 11am–6pm</div><div class="shop-vibe">Women&rsquo;s boutique with two LA locations, one right on Abbot Kinney, one at Platform. Beautiful, effortless California pieces.</div></div>
       <div class="shop-card"><div class="shop-name"><a href="https://www.skylarkla.com" target="_blank">Skylark</a></div><div class="shop-neighborhood">Venice &middot; Abbot Kinney Blvd</div><div class="shop-hours">Mon–Sat 11am–7pm &nbsp;&middot;&nbsp; Sun 11am–6pm</div><div class="shop-vibe">Feminine, fashion-forward boutique with a distinctive edge. One of the most-loved stops on the strip for a reason.</div></div>
       <div class="shop-card"><div class="shop-name"><a href="https://whimsyandrow.com" target="_blank">Whimsy + Row</a></div><div class="shop-neighborhood">Abbot Kinney &middot; Venice</div><div class="shop-hours">Mon–Sat 11am–7pm &nbsp;&middot;&nbsp; Sun 12pm–6pm</div><div class="shop-vibe">Sustainably made women&rsquo;s essentials with a breezy LA spirit. Easy, beautiful, completely Sarah&rsquo;s vibe.</div></div>
     </div>
@@ -313,7 +313,7 @@
   <div class="picnic-inner">
     <div>
       <h2 class="picnic-title">The Champagne Picnic</h2>
-      <p class="picnic-body">The centerpiece of Wednesday afternoon. Giggles, champagne, cheese, blankets &mdash; is there anything better?</p>
+      <p class="picnic-body">The centerpiece of Wednesday afternoon. Giggles, champagne, cheese, blankets, is there anything better?</p>
       <ul class="checklist">
         <li>Blankets, several</li>
         <li>Champagne &amp; ros&eacute;, obviously</li>
@@ -353,10 +353,10 @@
       <div>
         <div class="recs-cat-label">Restaurants &amp; Dinners</div>
         <div class="recs-grid">
-          <div class="rec-card"><div class="rec-name"><a href="https://elephante.com" target="_blank">&Eacute;lephante &nearr;</a></div><div class="rec-loc">Santa Monica &middot; Rooftop Italian</div><div class="rec-desc">Rooftop ocean views, vodka pasta, golden hour light through the windows. Sarah&rsquo;s Tuesday night &mdash; already booked.</div></div>
-          <div class="rec-card"><div class="rec-name"><a href="https://gjelina.com" target="_blank">Gjelina &nearr;</a></div><div class="rec-loc">Venice &middot; Abbot Kinney</div><div class="rec-desc">The Venice institution. Candlelit, gorgeous, garden patio. Lamb pizza, Japanese sweet potato, date cake. Wednesday dinner &mdash; reserved.</div></div>
-          <div class="rec-card"><div class="rec-name"><a href="https://gjelina.com/gjelina-take-away" target="_blank">Gjusta &nearr;</a></div><div class="rec-loc">Venice &middot; Bakery &amp; Deli</div><div class="rec-desc">Gjelina&rsquo;s legendary sister spot. An incredible bakery, deli and caf&eacute; &mdash; perfect for a morning coffee run or grabbing picnic supplies.</div></div>
-          <div class="rec-card"><div class="rec-name"><a href="https://sohohouse.com/houses/soho-house-west-hollywood" target="_blank">Soho House WeHo &nearr;</a></div><div class="rec-loc">West Hollywood &middot; Rooftop</div><div class="rec-desc">Members-only panoramic rooftop. Thursday evening &mdash; the perfect way to close out Sarah&rsquo;s birthday night.</div></div>
+          <div class="rec-card"><div class="rec-name"><a href="https://elephante.com" target="_blank">&Eacute;lephante &nearr;</a></div><div class="rec-loc">Santa Monica &middot; Rooftop Italian</div><div class="rec-desc">Rooftop ocean views, vodka pasta, golden hour light through the windows. Sarah&rsquo;s Tuesday night, already booked.</div></div>
+          <div class="rec-card"><div class="rec-name"><a href="https://gjelina.com" target="_blank">Gjelina &nearr;</a></div><div class="rec-loc">Venice &middot; Abbot Kinney</div><div class="rec-desc">The Venice institution. Candlelit, gorgeous, garden patio. Lamb pizza, Japanese sweet potato, date cake. Wednesday dinner, reserved.</div></div>
+          <div class="rec-card"><div class="rec-name"><a href="https://gjelina.com/gjelina-take-away" target="_blank">Gjusta &nearr;</a></div><div class="rec-loc">Venice &middot; Bakery &amp; Deli</div><div class="rec-desc">Gjelina&rsquo;s legendary sister spot. An incredible bakery, deli and caf&eacute;, perfect for a morning coffee run or grabbing picnic supplies.</div></div>
+          <div class="rec-card"><div class="rec-name"><a href="https://sohohouse.com/houses/soho-house-west-hollywood" target="_blank">Soho House WeHo &nearr;</a></div><div class="rec-loc">West Hollywood &middot; Rooftop</div><div class="rec-desc">Members-only panoramic rooftop. Thursday evening, the perfect way to close out Sarah&rsquo;s birthday night.</div></div>
         </div>
       </div>
 
@@ -373,7 +373,7 @@
       <div>
         <div class="recs-cat-label">Bars &amp; Evening Drinks</div>
         <div class="recs-grid">
-          <div class="rec-card"><div class="rec-name"><a href="https://elephante.com" target="_blank">&Eacute;lephante Bar &nearr;</a></div><div class="rec-loc">Santa Monica &middot; Rooftop</div><div class="rec-desc">The rooftop bar above the restaurant is as good as the restaurant itself. Cocktails with a view &mdash; stay after dinner or come just for drinks.</div></div>
+          <div class="rec-card"><div class="rec-name"><a href="https://elephante.com" target="_blank">&Eacute;lephante Bar &nearr;</a></div><div class="rec-loc">Santa Monica &middot; Rooftop</div><div class="rec-desc">The rooftop bar above the restaurant is as good as the restaurant itself. Cocktails with a view, stay after dinner or come just for drinks.</div></div>
           <div class="rec-card"><div class="rec-name"><a href="https://www.instagram.com/townehousevenice" target="_blank">Townehouse &nearr;</a></div><div class="rec-loc">Venice &middot; Windward Ave</div><div class="rec-desc">Venice&rsquo;s oldest bar. Dive-bar cozy, deeply local, and the kind of place that feels genuinely LA in the best way.</div></div>
           <div class="rec-card"><div class="rec-name"><a href="https://cielovenice.com" target="_blank">Ci&eacute;lo &nearr;</a></div><div class="rec-loc">Venice &middot; Abbot Kinney</div><div class="rec-desc">Wine bar with a beautiful, intimate atmosphere on Abbot Kinney. Natural wines, small plates, low-key gorgeous. Perfect for a Tuesday nightcap.</div></div>
           <div class="rec-card"><div class="rec-name"><a href="https://www.theabbotkinney.com" target="_blank">The Abbot&rsquo;s Habit &nearr;</a></div><div class="rec-loc">Venice &middot; Abbot Kinney</div><div class="rec-desc">Cozy neighborhood wine bar and caf&eacute; right on the strip. Good wine, good company, completely Sarah&rsquo;s pace.</div></div>
@@ -390,10 +390,10 @@
     <p class="notes-eyebrow">Just So You Know, Sarah</p>
     <h2 class="notes-title">Everything is already done</h2>
     <div class="notes-grid">
-      <div class="note-card"><div class="note-icon">&#127968;</div><div class="note-label">The Airbnb</div><div class="note-text">Booked and beautiful. We&rsquo;ll order groceries ahead of time to save every second for the fun &mdash; Sarah walks in and it&rsquo;s already home.</div></div>
-      <div class="note-card"><div class="note-icon">&#128663;</div><div class="note-label">Getting Around</div><div class="note-text">The car is reserved and ready at LAX. Sarah just needs to pick it up. Venice, Santa Monica, Culver City &mdash; all within easy reach.</div></div>
-      <div class="note-card"><div class="note-icon">&#127860;</div><div class="note-label">Every Dinner</div><div class="note-text">&Eacute;lephante on Tuesday, Gjelina on Wednesday &mdash; both reserved. Thursday&rsquo;s Soho House evening is confirmed. Friday brunch is chosen and waiting.</div></div>
-      <div class="note-card"><div class="note-icon">&#128247;</div><div class="note-label">The Photoshoot</div><div class="note-text">Garrett Lobaugh is booked for Thursday afternoon. Four hours, golden hour, private session. Sarah just shows up and looks incredible &mdash; which we know she will.</div></div>
+      <div class="note-card"><div class="note-icon">&#127968;</div><div class="note-label">The Airbnb</div><div class="note-text">Booked and beautiful. We&rsquo;ll order groceries ahead of time to save every second for the fun, Sarah walks in and it&rsquo;s already home.</div></div>
+      <div class="note-card"><div class="note-icon">&#128663;</div><div class="note-label">Getting Around</div><div class="note-text">The car is reserved and ready at LAX. Sarah just needs to pick it up. Venice, Santa Monica, Culver City, all within easy reach.</div></div>
+      <div class="note-card"><div class="note-icon">&#127860;</div><div class="note-label">Every Dinner</div><div class="note-text">&Eacute;lephante on Tuesday, Gjelina on Wednesday, both reserved. Thursday&rsquo;s Soho House evening is confirmed. Friday brunch is chosen and waiting.</div></div>
+      <div class="note-card"><div class="note-icon">&#128247;</div><div class="note-label">The Photoshoot</div><div class="note-text">Garrett Lobaugh is booked for Thursday afternoon. Four hours, golden hour, private session. Sarah just shows up and looks incredible, which we know she will.</div></div>
       <div class="note-card"><div class="note-icon">&#127870;</div><div class="note-label">The Picnic</div><div class="note-text">Blanket, champagne, cheese board, flowers. People will want to be us.</div></div>
       <div class="note-card"><div class="note-icon">&#127801;</div><div class="note-label">The Only Rule</div><div class="note-text">Sarah does not plan, organize, or stress about a single thing this trip. That&rsquo;s already been done. She just shows up and lets it be the birthday she deserves.</div></div>
     </div>
