@@ -166,6 +166,14 @@
   .footer { background:var(--contrast); padding:70px 20px; text-align:center; }
   .footer-title { font-family:'Playfair Display', serif; font-size:clamp(2rem,5vw,3.5rem); color:#fff; font-style:italic; font-weight:400; }
   .footer-sub { font-size:0.8rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-top:14px; font-family:'Jost', sans-serif; font-weight:200; }
+  .footer-contact { margin-top:32px; display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .footer-contact-label { font-size:0.68rem; letter-spacing:0.36em; text-transform:uppercase; color:rgba(255,255,255,0.55); font-family:'Jost', sans-serif; font-weight:200; }
+  .footer-contact-link { display:inline-flex; flex-direction:column; align-items:center; gap:3px; color:#fff; text-decoration:none; padding:14px 26px; border:1px solid rgba(255,255,255,0.28); border-radius:4px; transition:background 0.2s, border-color 0.2s; }
+  .footer-contact-link:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.55); }
+  .fc-name { font-family:'Playfair Display', serif; font-style:italic; font-size:1.15rem; color:#fff; }
+  .fc-phone { font-family:'Jost', sans-serif; font-weight:300; font-size:0.95rem; letter-spacing:0.06em; color:rgba(255,255,255,0.92); margin-top:2px; }
+  .fc-wa { display:inline-flex; align-items:center; gap:6px; font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-top:6px; font-family:'Jost', sans-serif; font-weight:300; }
+  .fc-wa::before { content:''; width:7px; height:7px; border-radius:50%; background:#25D366; box-shadow:0 0 0 2px rgba(37,211,102,0.25); }
   .footer-copy { font-size:0.65rem; letter-spacing:0.2em; color:rgba(255,255,255,0.4); margin-top:30px; font-family:'Jost', sans-serif; font-weight:200; }
 
   /* TOP NAV */
@@ -899,6 +907,14 @@
 <footer class="footer">
   <h2 class="footer-title">&Agrave; bient&ocirc;t, la France.</h2>
   <p class="footer-sub">JetStream EO Forum &nbsp;&middot;&nbsp; June 2026</p>
+  <div class="footer-contact">
+    <p class="footer-contact-label">Sur place &nbsp;&middot;&nbsp; On the Ground</p>
+    <a class="footer-contact-link" href="https://wa.me/33650199349" target="_blank" rel="noopener">
+      <span class="fc-name">Sebastian Bierko</span>
+      <span class="fc-phone">+33 6 50 19 93 49</span>
+      <span class="fc-wa">WhatsApp</span>
+    </a>
+  </div>
   <p class="footer-copy">&copy; 2026 JetStream takes France</p>
 </footer>
 

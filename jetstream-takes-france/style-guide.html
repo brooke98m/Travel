@@ -151,6 +151,14 @@
   .footer-links { margin-top:22px; display:flex; gap:24px; justify-content:center; }
   .footer-links a { font-size:0.7rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.85); text-decoration:none; font-family:'Jost', sans-serif; font-weight:300; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:3px; transition:border-color 0.2s; }
   .footer-links a:hover { border-color:#fff; }
+  .footer-contact { margin-top:32px; display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .footer-contact-label { font-size:0.68rem; letter-spacing:0.36em; text-transform:uppercase; color:rgba(255,255,255,0.55); font-family:'Jost', sans-serif; font-weight:200; }
+  .footer-contact-link { display:inline-flex; flex-direction:column; align-items:center; gap:3px; color:#fff; text-decoration:none; padding:14px 26px; border:1px solid rgba(255,255,255,0.28); border-radius:4px; transition:background 0.2s, border-color 0.2s; }
+  .footer-contact-link:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.55); }
+  .fc-name { font-family:'Playfair Display', serif; font-style:italic; font-size:1.15rem; color:#fff; }
+  .fc-phone { font-family:'Jost', sans-serif; font-weight:300; font-size:0.95rem; letter-spacing:0.06em; color:rgba(255,255,255,0.92); margin-top:2px; }
+  .fc-wa { display:inline-flex; align-items:center; gap:6px; font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-top:6px; font-family:'Jost', sans-serif; font-weight:300; }
+  .fc-wa::before { content:''; width:7px; height:7px; border-radius:50%; background:#25D366; box-shadow:0 0 0 2px rgba(37,211,102,0.25); }
   .footer-copy { font-size:0.62rem; letter-spacing:0.2em; color:rgba(255,255,255,0.4); margin-top:24px; font-family:'Jost', sans-serif; font-weight:200; }
 
   @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
@@ -244,15 +252,7 @@
   <a class="pin" href="https://www.pinterest.com/pin/275071489737927131/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/1c/ca/ad/1ccaad10ef612a4f093969c8059b13d2.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/1098878377850218940/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/37/5e/43/375e43585e30febeceef46eee4b3c8e6.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/68749212039/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/17/a5/07/17a507c59367deeff9625ab6372794a1.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
-  <a class="pin shop-card sezane" href="https://www.sezane.com/us-en/product/le-crop/middle-grey" target="_blank" rel="noopener">
-    <div>
-      <div class="sc-brand">S&eacute;zane</div>
-      <div class="sc-product">Le Crop</div>
-      <div class="sc-color">Middle Grey</div>
-      <div class="sc-cta">Shop</div>
-    </div>
-    <span class="pin-tag">S&eacute;zane</span>
-  </a>
+  <a class="pin" href="https://www.sezane.com/us-en/product/le-crop/middle-grey" target="_blank" rel="noopener"><img src="img/sezane-le-crop.avif" alt="S&eacute;zane Le Crop sweater" loading="lazy"><span class="pin-tag">S&eacute;zane</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/914862421650537/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/23/05/fe/2305fe37ad7d707d7da4d636208ebdbd.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/1149895717381134092/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/ad/d9/5a/add95a096d928740581b7796b509188c.jpg" alt="Parisian style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/429741989455355910/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/34/27/7c/34277c15e719d3ad7c95b1583b7afdd5.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
@@ -322,15 +322,6 @@
   <a class="pin" href="https://www.pinterest.com/pin/5066618331217909/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/36/95/a6/3695a66cf39de4bbf676b583ef23faaa.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/1618549865071836/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/c1/f4/c1/c1f4c188e798772f3982a41387fffb1f.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.olivergrace-boutique.com/products/lucila-eccentric-maxi-dress" target="_blank" rel="noopener"><img src="https://www.olivergrace-boutique.com/cdn/shop/files/rm2.webp?v=1772631317" alt="Oliver Grace Lucila Eccentric Maxi Dress" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Oliver Grace</span></a>
-  <a class="pin shop-card albshear" href="https://www.albshear.com/products/chic-elegant-white-colorblock-v-neck-sleeveless-slim-fit-waist-tie-a-line-ribbed-knit-maxi-dress" target="_blank" rel="noopener">
-    <div>
-      <div class="sc-brand">Albshear</div>
-      <div class="sc-product">White Colorblock<br>Maxi</div>
-      <div class="sc-color">V-Neck &middot; Ribbed Knit</div>
-      <div class="sc-cta">Shop</div>
-    </div>
-    <span class="pin-tag">Albshear</span>
-  </a>
   <a class="pin" href="https://www.pinterest.com/pin/2603712282667991/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/1b/78/f1/1b78f14e17dffe5c77b383acc4df30be.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/73746512644205864/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/e2/97/6c/e2976c9cefabe988c8ba5a2652ff12f0.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
   <a class="pin" href="https://www.pinterest.com/pin/18577417209669658/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/76/5f/da/765fdafe8da461abc4e6824bffdaf430.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
@@ -433,11 +424,19 @@
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
-  <h2 class="footer-title">We will turn heads.</h2>
+  <h2 class="footer-title">Sant&eacute; to an incredible week.</h2>
   <p class="footer-sub">JetStream EO Forum &nbsp;&middot;&nbsp; June 2026</p>
   <div class="footer-links">
     <a href="index.html">Itinerary</a>
     <a href="style-guide.html">Style Guide</a>
+  </div>
+  <div class="footer-contact">
+    <p class="footer-contact-label">Sur place &nbsp;&middot;&nbsp; On the Ground</p>
+    <a class="footer-contact-link" href="https://wa.me/33650199349" target="_blank" rel="noopener">
+      <span class="fc-name">Sebastian Bierko</span>
+      <span class="fc-phone">+33 6 50 19 93 49</span>
+      <span class="fc-wa">WhatsApp</span>
+    </a>
   </div>
   <p class="footer-copy">&copy; 2026 JetStream takes France</p>
 </footer>
