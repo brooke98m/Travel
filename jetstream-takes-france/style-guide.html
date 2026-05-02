@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Guide &middot; JetStream Takes France</title>
+<meta name="referrer" content="no-referrer">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Ctext y='24' x='4' font-size='24'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:    #B8965A;
+    --primary-lt: #E8D5B5;
+    --primary-dk: #8A6D3B;
+    --contrast:   #2D5046;
+    --contrast-lt:#C4D4CD;
+    --contrast-dk:#1B362E;
+    --bg:         #F8F5F0;
+    --bg2:        #EDE8E0;
+    --deep:       #2A2520;
+    --mid:        #6F6A5C;
+    --light-mid:  #A8A296;
+    --riviera-soft:#E2ECE4;
+    --french-green:    #2D5046;
+    --french-green-lt: #6B8B7E;
+    --french-green-dk: #1B362E;
+    --terracotta:      #B5734A;
+    --terracotta-lt:   #E8C8AE;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--deep); font-family:'Jost', sans-serif; font-weight:300; overflow-x:hidden; }
+  .grain { position:fixed; inset:0; pointer-events:none; z-index:999; opacity:0.022; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:128px; }
+
+  /* PALETTE BAR */
+  .palette-bar { display:flex; height:5px; }
+  .palette-bar span { flex:1; }
+  .pb1 { background:var(--primary-lt); } .pb2 { background:var(--primary); } .pb3 { background:var(--contrast); } .pb4 { background:var(--bg2); }
+
+  /* TOP NAV */
+  .top-nav { position:fixed; top:5px; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:14px 32px; background:rgba(248,245,240,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(74,124,155,0.08); }
+  .nav-brand { font-family:'Playfair Display', serif; font-size:1.05rem; color:var(--deep); text-decoration:none; letter-spacing:0.01em; font-weight:400; }
+  .nav-brand em { color:var(--contrast); font-style:italic; }
+  .nav-links { display:flex; gap:30px; }
+  .nav-links a { font-family:'Jost', sans-serif; font-weight:300; font-size:0.74rem; letter-spacing:0.34em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color 0.2s; padding:6px 2px; border-bottom:1px solid transparent; }
+  .nav-links a:hover { color:var(--contrast); }
+  .nav-links a.active { color:var(--contrast); border-bottom-color:var(--contrast-lt); }
+  @media (max-width:600px) { .top-nav { padding:12px 18px; } .nav-links { gap:18px; } .nav-links a { font-size:0.66rem; letter-spacing:0.24em; } .nav-brand { font-size:0.95rem; } }
+
+  /* HERO */
+  .hero { min-height:80vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; background:linear-gradient(160deg, #eef2ec 0%, #c8d8cd 38%, #d6d2bf 70%, var(--primary-lt) 100%); overflow:hidden; padding:120px 20px 100px; }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 50% at 16% 18%, rgba(45,80,70,0.28) 0%, transparent 60%), radial-gradient(ellipse 55% 50% at 88% 82%, rgba(184,150,90,0.18) 0%, transparent 60%), radial-gradient(ellipse 40% 35% at 50% 50%, rgba(45,80,70,0.10) 0%, transparent 70%); }
+  .hero::after { content:'STYLE'; position:absolute; font-family:'Playfair Display', serif; font-size:28vw; color:rgba(45,80,70,0.10); top:50%; left:50%; transform:translate(-50%,-50%); line-height:1; pointer-events:none; letter-spacing:-0.02em; font-style:italic; }
+  .hero-eyebrow { font-family:'Jost', sans-serif; font-weight:200; font-size:clamp(0.6rem,1.4vw,0.76rem); letter-spacing:0.38em; text-transform:uppercase; color:var(--contrast); margin-bottom:28px; position:relative; opacity:0; animation:fadeUp 1s ease 0.3s forwards; }
+  .hero-title { font-family:'Playfair Display', serif; font-size:clamp(3.2rem,9vw,7.5rem); line-height:0.92; font-weight:500; text-align:center; color:var(--deep); opacity:0; animation:fadeUp 1.1s ease 0.5s forwards; position:relative; letter-spacing:-0.01em; }
+  .hero-title em { font-style:italic; color:var(--french-green); font-weight:500; }
+  .hero-sub { font-family:'Cormorant Garamond', serif; font-size:clamp(1.05rem,2.2vw,1.55rem); font-weight:300; font-style:italic; color:var(--mid); margin-top:30px; text-align:center; max-width:540px; line-height:1.6; opacity:0; animation:fadeUp 1.1s ease 0.8s forwards; position:relative; }
+  .hero-cities { display:flex; gap:30px; align-items:center; margin-top:42px; opacity:0; animation:fadeUp 1s ease 1s forwards; position:relative; }
+  .hero-city { font-size:0.78rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--light-mid); font-family:'Jost', sans-serif; font-weight:200; }
+  .hero-dot { width:6px; height:6px; border-radius:50%; background:var(--french-green); }
+  .hero-rule { position:absolute; top:0; left:50%; transform:translateX(-50%); width:1px; height:60px; background:linear-gradient(to bottom, transparent, var(--french-green)); opacity:0.6; }
+
+  /* RULES CALLOUT */
+  .rules-section { padding:70px 20px 50px; max-width:1060px; margin:0 auto; }
+  .rules-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .rule-card { background:linear-gradient(155deg, rgba(255,255,255,0.7) 0%, rgba(232,213,181,0.25) 100%); border:1px solid rgba(184,150,90,0.28); padding:28px 28px; position:relative; overflow:hidden; }
+  .rule-card.alt { background:linear-gradient(155deg, rgba(255,255,255,0.72) 0%, rgba(45,80,70,0.16) 100%); border-color:rgba(45,80,70,0.32); }
+  .rule-card::before { content:'!'; position:absolute; top:14px; right:22px; font-family:'Playfair Display', serif; font-size:3.4rem; color:rgba(184,150,90,0.18); font-style:italic; line-height:1; }
+  .rule-card.alt::before { color:rgba(74,124,155,0.18); }
+  .rule-label { font-size:0.7rem; letter-spacing:0.34em; text-transform:uppercase; color:var(--primary); font-family:'Jost', sans-serif; font-weight:200; margin-bottom:12px; }
+  .rule-card.alt .rule-label { color:var(--contrast); }
+  .rule-title { font-family:'Playfair Display', serif; font-size:1.4rem; font-style:italic; color:var(--deep); margin-bottom:10px; line-height:1.3; }
+  .rule-text { font-family:'Cormorant Garamond', serif; font-size:1.0rem; color:var(--mid); line-height:1.65; }
+  .rule-text strong { color:var(--deep); font-weight:500; font-style:italic; }
+  .rule-locations { margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; }
+  .rule-loc { font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; padding:3px 9px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; background:rgba(184,150,90,0.15); color:var(--primary-dk); }
+  .rule-card.alt .rule-loc { background:rgba(45,80,70,0.14); color:var(--contrast-dk); }
+
+  /* CITY HEADER */
+  .city-header { padding:80px 20px 30px; text-align:center; position:relative; }
+  .city-header.paris { background:linear-gradient(180deg, var(--bg) 0%, #ece6dd 100%); }
+  .city-header.riviera { background:linear-gradient(180deg, var(--bg) 0%, var(--riviera-soft) 100%); }
+  .city-eyebrow { font-size:0.78rem; letter-spacing:0.42em; text-transform:uppercase; font-family:'Jost', sans-serif; font-weight:300; margin-bottom:16px; color:var(--french-green); }
+  .city-title { font-family:'Playfair Display', serif; font-size:clamp(2.8rem,7.5vw,6rem); font-weight:500; line-height:0.98; color:var(--deep); letter-spacing:-0.005em; }
+  .city-title em { font-style:italic; color:var(--french-green); font-weight:500; }
+  .city-mood { font-family:'Cormorant Garamond', serif; font-size:clamp(1.1rem,2vw,1.45rem); font-style:italic; color:var(--mid); margin-top:18px; max-width:680px; margin-left:auto; margin-right:auto; line-height:1.6; }
+
+  /* PALETTE STRIP */
+  .palette-strip { max-width:680px; margin:30px auto 0; }
+  .palette-strip-label { font-size:0.66rem; letter-spacing:0.36em; text-transform:uppercase; color:var(--light-mid); font-family:'Jost', sans-serif; font-weight:200; margin-bottom:12px; }
+  .palette-swatches { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .swatch { display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .swatch-color { width:42px; height:42px; border-radius:50%; border:1px solid rgba(0,0,0,0.06); }
+  .swatch-name { font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--mid); font-family:'Jost', sans-serif; font-weight:300; }
+
+  /* GENDER BAND */
+  .gender-band { padding:50px 20px 14px; max-width:1320px; margin:0 auto; }
+  .gender-row { display:flex; align-items:baseline; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .gender-title { font-family:'Playfair Display', serif; font-size:clamp(1.5rem,2.8vw,2.05rem); font-style:italic; font-weight:500; color:var(--deep); }
+  .gender-title em { color:var(--french-green); }
+  .gender-tag { font-size:0.68rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--light-mid); font-family:'Jost', sans-serif; font-weight:200; }
+  .gender-flag { display:inline-block; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; background:rgba(184,150,90,0.18); color:var(--primary-dk); margin-left:10px; vertical-align:middle; }
+  .gender-flag.alt { background:rgba(74,124,155,0.15); color:var(--contrast-dk); }
+
+  /* MASONRY */
+  .inspo-masonry { column-count:4; column-gap:10px; max-width:1320px; margin:0 auto; padding:14px 20px 20px; }
+  .inspo-masonry .pin { break-inside:avoid; margin-bottom:10px; overflow:hidden; border-radius:4px; background:var(--bg2); position:relative; transition:transform 0.4s ease; display:block; }
+  .inspo-masonry .pin img { width:100%; display:block; transition:filter 0.4s ease, transform 0.6s ease; filter:saturate(0.95); }
+  .inspo-masonry .pin:hover img { filter:saturate(1.05); transform:scale(1.02); }
+  .inspo-masonry a.pin { text-decoration:none; cursor:pointer; }
+  .inspo-masonry a.pin::after { content:''; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(255,255,255,0); transition:box-shadow 0.3s ease; pointer-events:none; }
+  .inspo-masonry a.pin:hover::after { box-shadow:inset 0 0 0 2px rgba(255,255,255,0.5); }
+  .inspo-masonry .pin-tag { position:absolute; top:8px; right:8px; font-size:0.55rem; letter-spacing:0.18em; text-transform:uppercase; padding:3px 8px; border-radius:20px; background:rgba(255,255,255,0.85); color:var(--deep); font-family:'Jost', sans-serif; font-weight:300; opacity:0; transition:opacity 0.3s ease; pointer-events:none; }
+  .inspo-masonry a.pin:hover .pin-tag { opacity:1; }
+  .inspo-masonry a.pin.shop-card { aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; padding:30px 24px; text-align:center; }
+  .inspo-masonry a.pin.shop-card.sezane { background:linear-gradient(155deg, #8E8E8E 0%, #6e6e6e 100%); }
+  .inspo-masonry a.pin.shop-card.albshear { background:linear-gradient(155deg, #faf6ee 0%, #e8e2d4 100%); border:1px solid rgba(184,150,90,0.25); }
+  .inspo-masonry a.pin.shop-card.albshear .sc-brand { color:var(--primary-dk); }
+  .inspo-masonry a.pin.shop-card.albshear .sc-product { color:var(--deep); }
+  .inspo-masonry a.pin.shop-card.albshear .sc-color { color:var(--mid); }
+  .inspo-masonry a.pin.shop-card.albshear .sc-cta { color:var(--deep); border-bottom-color:rgba(30,45,61,0.4); }
+  .inspo-masonry a.pin.shop-card .sc-brand { font-family:'Playfair Display', serif; font-style:italic; font-size:0.78rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.78); margin-bottom:14px; }
+  .inspo-masonry a.pin.shop-card .sc-product { font-family:'Playfair Display', serif; font-size:1.7rem; font-style:italic; color:#fff; line-height:1.15; }
+  .inspo-masonry a.pin.shop-card .sc-color { font-size:0.62rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-top:14px; font-family:'Jost', sans-serif; font-weight:300; }
+  .inspo-masonry a.pin.shop-card .sc-cta { margin-top:18px; font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase; color:#fff; padding-bottom:3px; border-bottom:1px solid rgba(255,255,255,0.5); font-family:'Jost', sans-serif; font-weight:300; }
+  @media (max-width:1100px) { .inspo-masonry { column-count:3; } }
+  @media (max-width:720px)  { .inspo-masonry { column-count:2; column-gap:8px; padding:12px; } .inspo-masonry .pin { margin-bottom:8px; } }
+
+  /* SECTION DIVIDER */
+  .section-divider { display:flex; align-items:center; justify-content:center; padding:70px 20px; gap:18px; }
+  .section-divider .line { flex:1; max-width:160px; height:1px; background:linear-gradient(to right, transparent, var(--contrast-lt), transparent); }
+  .section-divider .icon { font-family:'Playfair Display', serif; font-style:italic; color:var(--contrast); font-size:1.1rem; letter-spacing:0.18em; }
+
+  /* OCCASION CHEAT SHEET */
+  .occasion-section { background:var(--bg2); padding:80px 20px; }
+  .occasion-inner { max-width:1060px; margin:0 auto; }
+  .occasion-eyebrow { font-size:0.78rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--primary-dk); margin-bottom:14px; font-family:'Jost', sans-serif; font-weight:200; text-align:center; }
+  .occasion-title { font-family:'Playfair Display', serif; font-size:clamp(1.8rem,3.8vw,2.6rem); font-style:italic; font-weight:400; color:var(--deep); text-align:center; margin-bottom:46px; }
+  .occasion-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:14px; }
+  .occasion-card { background:rgba(255,255,255,0.72); padding:22px 22px; border:1px solid rgba(184,150,90,0.18); }
+  .occasion-day { font-size:0.62rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--primary); font-family:'Jost', sans-serif; font-weight:200; margin-bottom:6px; }
+  .occasion-name { font-family:'Playfair Display', serif; font-size:1.18rem; font-style:italic; color:var(--deep); margin-bottom:10px; line-height:1.3; }
+  .occasion-row { display:flex; gap:8px; padding:8px 0; border-top:1px solid rgba(74,124,155,0.1); font-family:'Cormorant Garamond', serif; font-size:0.98rem; color:var(--mid); line-height:1.5; }
+  .occasion-row span:first-child { font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--contrast); font-family:'Jost', sans-serif; font-weight:300; min-width:30px; padding-top:3px; flex-shrink:0; }
+
+  /* FOOTER */
+  .footer { background:var(--contrast); padding:60px 20px; text-align:center; }
+  .footer-title { font-family:'Playfair Display', serif; font-size:clamp(1.6rem,3.4vw,2.4rem); color:#fff; font-style:italic; font-weight:400; }
+  .footer-sub { font-size:0.78rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-top:14px; font-family:'Jost', sans-serif; font-weight:200; }
+  .footer-links { margin-top:22px; display:flex; gap:24px; justify-content:center; }
+  .footer-links a { font-size:0.7rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.85); text-decoration:none; font-family:'Jost', sans-serif; font-weight:300; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:3px; transition:border-color 0.2s; }
+  .footer-links a:hover { border-color:#fff; }
+  .footer-copy { font-size:0.62rem; letter-spacing:0.2em; color:rgba(255,255,255,0.4); margin-top:24px; font-family:'Jost', sans-serif; font-weight:200; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  @media (max-width:680px) {
+    .rules-grid { grid-template-columns:1fr; }
+    .hero-cities { flex-wrap:wrap; gap:12px 20px; justify-content:center; }
+    .occasion-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="palette-bar"><span class="pb1"></span><span class="pb2"></span><span class="pb3"></span><span class="pb4"></span></div>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">JetStream <em>France</em></a>
+  <div class="nav-links">
+    <a href="index.html">Itinerary</a>
+    <a href="style-guide.html" class="active">Style Guide</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <p class="hero-eyebrow">What to Wear &nbsp;&middot;&nbsp; June 7 to 13, 2026</p>
+  <h1 class="hero-title">The <em>Style</em><br>Guide</h1>
+  <p class="hero-sub">A mood board for two cities, two completely different wardrobes.</p>
+  <div class="hero-cities">
+    <span class="hero-city">Paris</span>
+    <span class="hero-dot"></span>
+    <span class="hero-city">C&ocirc;te d'Azur</span>
+  </div>
+</section>
+
+<!-- ===================== RULES ===================== -->
+<section class="rules-section">
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-label">For Her &nbsp;&middot;&nbsp; Riviera</div>
+      <div class="rule-title">Bring proper heels.</div>
+      <div class="rule-text">Several Riviera venues require <strong>heels for women</strong>. Pack at least two pairs (one strappy, one closed-toe stiletto) for evenings.</div>
+      <div class="rule-locations">
+        <span class="rule-loc">La Gu&eacute;rite</span>
+        <span class="rule-loc">Baoli</span>
+        <span class="rule-loc">Medusa</span>
+        <span class="rule-loc">Group Dinners</span>
+      </div>
+    </div>
+    <div class="rule-card alt">
+      <div class="rule-label">For Him &nbsp;&middot;&nbsp; Riviera</div>
+      <div class="rule-title">No hats indoors.</div>
+      <div class="rule-text">Several Riviera venues do not allow <strong>men to wear hats</strong>. Caps are great for the boat and beach. They come off the moment you step inside.</div>
+      <div class="rule-locations">
+        <span class="rule-loc">La Gu&eacute;rite</span>
+        <span class="rule-loc">Baoli</span>
+        <span class="rule-loc">Medusa</span>
+        <span class="rule-loc">Fine Dining</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARIS ===================== -->
+<section class="city-header paris">
+  <p class="city-eyebrow">City One</p>
+  <h2 class="city-title"><em>Paris</em>, in Layers</h2>
+  <p class="city-mood">Effortless, polished, a little undone. Tailored coats, ballet flats, and the right scarf.</p>
+
+  <div class="palette-strip">
+    <div class="palette-strip-label">The Palette</div>
+    <div class="palette-swatches">
+      <div class="swatch"><div class="swatch-color" style="background:#1a1a1a"></div><div class="swatch-name">Noir</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f4ede0"></div><div class="swatch-name">Cream</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#a78863"></div><div class="swatch-name">Camel</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#1f2e3d"></div><div class="swatch-name">Navy</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#5a4a3a"></div><div class="swatch-name">Cocoa</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7a1f2e"></div><div class="swatch-name">Oxblood</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARIS WOMEN -->
+<div class="gender-band">
+  <div class="gender-row">
+    <h3 class="gender-title">For <em>Her</em>, in Paris</h3>
+    <span class="gender-tag">Mood &nbsp;&middot;&nbsp; Tailored, layered, polished</span>
+  </div>
+</div>
+<div class="inspo-masonry">
+  <a class="pin" href="https://www.pinterest.com/pin/827747606556280040/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/e5/f2/d2/e5f2d29bc0cac2581d69f61b5da8b854.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/275071489737927131/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/1c/ca/ad/1ccaad10ef612a4f093969c8059b13d2.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/1098878377850218940/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/37/5e/43/375e43585e30febeceef46eee4b3c8e6.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/68749212039/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/17/a5/07/17a507c59367deeff9625ab6372794a1.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin shop-card sezane" href="https://www.sezane.com/us-en/product/le-crop/middle-grey" target="_blank" rel="noopener">
+    <div>
+      <div class="sc-brand">S&eacute;zane</div>
+      <div class="sc-product">Le Crop</div>
+      <div class="sc-color">Middle Grey</div>
+      <div class="sc-cta">Shop</div>
+    </div>
+    <span class="pin-tag">S&eacute;zane</span>
+  </a>
+  <a class="pin" href="https://www.pinterest.com/pin/914862421650537/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/23/05/fe/2305fe37ad7d707d7da4d636208ebdbd.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/1149895717381134092/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/ad/d9/5a/add95a096d928740581b7796b509188c.jpg" alt="Parisian style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/429741989455355910/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/34/27/7c/34277c15e719d3ad7c95b1583b7afdd5.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/434527064063031098/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/6b/94/37/6b943736b71263ca0c579041ff1afadf.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.speedhor.com/products/round-neck-sweater-vest-autumn-sleeveless-pullover-knitted-sweater76f1e1df-9364-47b4-9ade-7ba10ae988d4" target="_blank" rel="noopener"><img src="https://img.staticdj.com/455aceb640eab2350d5bc4c6f303ebf5.jpeg" alt="Knitted sweater vest" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Speedhor</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/7529524373320997/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/a9/fb/e5/a9fbe5c33f73692bf68abfd701ca0dff.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/985231165456976/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/e9/5a/3c/e95a3c2b2134d308768492521bd596fd.jpg" alt="Paris style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/351912467312502/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/5e/2c/c2/5e2cc2efe37f46b3c27ec40b0cc6c290.jpg" alt="Stylish blazer outfit" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+</div>
+
+<!-- PARIS MEN -->
+<div class="gender-band">
+  <div class="gender-row">
+    <h3 class="gender-title">For <em>Him</em>, in Paris</h3>
+    <span class="gender-tag">Mood &nbsp;&middot;&nbsp; Soft tailoring, real walking shoes</span>
+  </div>
+</div>
+<div class="inspo-masonry">
+  <a class="pin" href="https://www.pinterest.com/pin/489555422017838394/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/87/20/1f/87201f37cf46c45b23fb960debf2c723.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/651755377357852153/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/4d/c6/e8/4dc6e86ef6f8b9ec1cd11a393fc89af6.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/1118722363707931143/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/31/d0/42/31d0425bdc48c25a073a80640668eb9c.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/702491241915282964/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/f0/5f/03/f05f03fb83db52c7acc5d95c316e2140.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/15199717490845214/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/38/31/70/383170a068ef12ecf04afd4b5c57ea3f.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/4605071429596519040/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/0d/60/47/0d60470650a99876945b64620fbb270e.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.brooksbrothers.com/the-linen-cotton-pants/MR00786_____DKGR_40___30__.html" target="_blank" rel="noopener"><img src="https://brooksbrothers.bynder.com/match/WebName/MR00786_OLIVE/THE_LINEN_COTTON_PANTS_OLIVE?preset=lg" alt="Brooks Brothers Linen-Cotton Pants in Olive" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Brooks Brothers</span></a>
+  <a class="pin" href="https://www.brooksbrothers.com/the-pleated-linen-cotton-pants/MR00787_____BLCK_36___32__.html" target="_blank" rel="noopener"><img src="https://brooksbrothers.bynder.com/match/WebName/MR00787_BLACK/THE_PLEATED_LINEN_COTTON_PANTS_BLACK?preset=lg" alt="Brooks Brothers Pleated Linen-Cotton Pants in Black" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Brooks Brothers</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/492649953163267/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/14/56/e8/1456e86f7299af2d636f74a4784fac4e.jpg" alt="Paris menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+</div>
+
+<div class="section-divider">
+  <span class="line"></span>
+  <span class="icon">en route</span>
+  <span class="line"></span>
+</div>
+
+<!-- ===================== RIVIERA ===================== -->
+<section class="city-header riviera">
+  <p class="city-eyebrow">City Two</p>
+  <h2 class="city-title"><em>C&ocirc;te</em> d'Azur</h2>
+  <p class="city-mood">White, linen, gold, sun-bleached. Save your color for one bright dinner dress.</p>
+
+  <div class="palette-strip">
+    <div class="palette-strip-label">The Palette</div>
+    <div class="palette-swatches">
+      <div class="swatch"><div class="swatch-color" style="background:#fefcf7"></div><div class="swatch-name">White</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f1e7d4"></div><div class="swatch-name">Sand</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#e8d5b5"></div><div class="swatch-name">Raffia</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#a8c8da"></div><div class="swatch-name">Sky</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f5d6cf"></div><div class="swatch-name">Coral</div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#d4a849"></div><div class="swatch-name">Gold</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- RIVIERA WOMEN -->
+<div class="gender-band">
+  <div class="gender-row">
+    <h3 class="gender-title">For <em>Her</em>, on the Riviera <span class="gender-flag">heels for evenings</span></h3>
+    <span class="gender-tag">Mood &nbsp;&middot;&nbsp; White, airy, weightless</span>
+  </div>
+</div>
+<div class="inspo-masonry">
+  <a class="pin" href="https://www.pinterest.com/pin/68749945631/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/a6/dd/8c/a6dd8cc8a30c3b2950340f5c302d2bb3.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/774124931438383/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/c7/9e/81/c79e81fa0be4f2a0a6b60676b0f9068f.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://mercerandbloom.com/products/womens-red-linen-dress-with-spaghetti-straps-square-neck-timeless-boho-resort-style-dress-mdz0924c3i" target="_blank" rel="noopener"><img src="https://mercerandbloom.com/cdn/shop/files/c0176ec7c3f980e3e054b11d99071ef8_1800x1800.png?v=1773336218" alt="Mercer &amp; Bloom red linen dress" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Mercer &amp; Bloom</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/134263632639504473/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/b2/36/61/b23661932a96b758fe2a6ff58ed4a507.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/5066618331217909/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/36/95/a6/3695a66cf39de4bbf676b583ef23faaa.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/1618549865071836/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/c1/f4/c1/c1f4c188e798772f3982a41387fffb1f.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.olivergrace-boutique.com/products/lucila-eccentric-maxi-dress" target="_blank" rel="noopener"><img src="https://www.olivergrace-boutique.com/cdn/shop/files/rm2.webp?v=1772631317" alt="Oliver Grace Lucila Eccentric Maxi Dress" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Oliver Grace</span></a>
+  <a class="pin shop-card albshear" href="https://www.albshear.com/products/chic-elegant-white-colorblock-v-neck-sleeveless-slim-fit-waist-tie-a-line-ribbed-knit-maxi-dress" target="_blank" rel="noopener">
+    <div>
+      <div class="sc-brand">Albshear</div>
+      <div class="sc-product">White Colorblock<br>Maxi</div>
+      <div class="sc-color">V-Neck &middot; Ribbed Knit</div>
+      <div class="sc-cta">Shop</div>
+    </div>
+    <span class="pin-tag">Albshear</span>
+  </a>
+  <a class="pin" href="https://www.pinterest.com/pin/2603712282667991/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/1b/78/f1/1b78f14e17dffe5c77b383acc4df30be.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/73746512644205864/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/e2/97/6c/e2976c9cefabe988c8ba5a2652ff12f0.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/18577417209669658/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/76/5f/da/765fdafe8da461abc4e6824bffdaf430.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/12947917675905971/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/a4/ed/63/a4ed637a5f24df0d8adca6c4ccbe36a9.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/6051780746229363/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/a1/8b/85/a18b858dcb393d671a5360bd0fa33346.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/96545985756875352/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/3c/ee/17/3cee1761ab5d6c3b0661f3abf65f7d78.jpg" alt="French Riviera style inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+</div>
+
+<!-- RIVIERA MEN -->
+<div class="gender-band">
+  <div class="gender-row">
+    <h3 class="gender-title">For <em>Him</em>, on the Riviera <span class="gender-flag alt">no hats indoors</span></h3>
+    <span class="gender-tag">Mood &nbsp;&middot;&nbsp; Linen, loose, a little Mr. Ripley</span>
+  </div>
+</div>
+<div class="inspo-masonry">
+  <a class="pin" href="https://www.pinterest.com/pin/1112107701754510748/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/35/f4/4b/35f44b6e81a62787a88068b4ac902ba1.jpg" alt="Riviera menswear linen inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/25121710418766369/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/ad/1a/83/ad1a835448d8a28395d10d72fa4c67c8.jpg" alt="Relaxed linen trousers" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/1109785533243197554/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/9c/c4/5d/9cc45d3f58454ae63e15139ef725f70f.jpg" alt="Riviera menswear linen inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/6825836929779992/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/d5/ec/7f/d5ec7f4eacfb45de50f37f3ee4be62dd.jpg" alt="Riviera menswear linen inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/1087267535065085331/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/21/64/c1/2164c1ea8074b475ffc9bee4f4d188fd.jpg" alt="Luxury casual menswear" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/79938962131728859/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/77/7e/0a/777e0a1c9b5e4a382b955a2b16030454.jpg" alt="Ralph Lauren tailored jacket" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/367465650869334179/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/73/ab/f2/73abf200e664f15334ece6a519edef73.jpg" alt="Casual elegante menswear" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/725290715017375884/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/9d/e0/75/9de0759f81c6c361f5275dbe534e3808.jpg" alt="Riviera menswear inspiration" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+  <a class="pin" href="https://www.pinterest.com/pin/798896421442549742/" target="_blank" rel="noopener"><img src="https://i.pinimg.com/736x/27/f6/86/27f686db984f434a13af480292684f38.jpg" alt="Sand crochet buttonless polo" loading="lazy" referrerpolicy="no-referrer"><span class="pin-tag">Pinterest</span></a>
+</div>
+
+<div class="section-divider">
+  <span class="line"></span>
+  <span class="icon">au quotidien</span>
+  <span class="line"></span>
+</div>
+
+<!-- ===================== OCCASION CHEAT SHEET ===================== -->
+<section class="occasion-section">
+  <div class="occasion-inner">
+    <p class="occasion-eyebrow">Cheat Sheet</p>
+    <h2 class="occasion-title">By occasion, at a glance.</h2>
+    <div class="occasion-grid">
+
+      <div class="occasion-card">
+        <div class="occasion-day">Sun, June 7 &nbsp;&middot;&nbsp; Paris</div>
+        <div class="occasion-name">Drinks on the Seine &amp; CoCo</div>
+        <div class="occasion-row"><span>Her</span>Slip dress, leather jacket, kitten heels.</div>
+        <div class="occasion-row"><span>Him</span>Navy blazer, cream chinos, leather loafers.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Mon, June 8 &nbsp;&middot;&nbsp; Champagne</div>
+        <div class="occasion-name">Ruinart, Pommery, Le R&eacute;fectoire</div>
+        <div class="occasion-row"><span>Her</span>Wide-leg trousers, knit, low heel or flats.</div>
+        <div class="occasion-row"><span>Him</span>Sport coat, trousers, suede chelseas.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Tue, June 9 &nbsp;&middot;&nbsp; Antibes</div>
+        <div class="occasion-name">Arrival on the Riviera</div>
+        <div class="occasion-row"><span>Her</span>White maxi, woven sandals, raffia tote.</div>
+        <div class="occasion-row"><span>Him</span>Linen shirt, cream trousers, loafers.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Wed, June 10 &nbsp;&middot;&nbsp; La Gu&eacute;rite <span class="gender-flag">heels &middot; no hat</span></div>
+        <div class="occasion-name">&Icirc;le Sainte-Marguerite Lunch</div>
+        <div class="occasion-row"><span>Her</span>Crochet or silk midi, strappy heels.</div>
+        <div class="occasion-row"><span>Him</span>Camp shirt, sand trousers, suede loafers.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Wed, June 10 &nbsp;&middot;&nbsp; Cannes <span class="gender-flag">heels &middot; no hat</span></div>
+        <div class="occasion-name">Baoli or Medusa</div>
+        <div class="occasion-row"><span>Her</span>Slip dress, stiletto, structured clutch.</div>
+        <div class="occasion-row"><span>Him</span>Silk shirt, navy trousers, loafers.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Thu, June 11 &nbsp;&middot;&nbsp; Mediterranean</div>
+        <div class="occasion-name">Lagoon 51 Catamaran</div>
+        <div class="occasion-row"><span>Her</span>Bathing suit, kaftan, straw hat, espadrilles.</div>
+        <div class="occasion-row"><span>Him</span>Swim trunks, white tee, cap on water.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Fri, June 12 &nbsp;&middot;&nbsp; Cap d'Antibes <span class="gender-flag">heels &middot; no hat</span></div>
+        <div class="occasion-name">Final Group Dinner</div>
+        <div class="occasion-row"><span>Her</span>Maxi dress or midi, heels, jewelry.</div>
+        <div class="occasion-row"><span>Him</span>Pale shirt, stone trousers, suede loafers.</div>
+      </div>
+
+      <div class="occasion-card">
+        <div class="occasion-day">Free Day &nbsp;&middot;&nbsp; Anywhere</div>
+        <div class="occasion-name">&Egrave;ze, Villefranche, the Beach</div>
+        <div class="occasion-row"><span>Her</span>Linen co-ord, flat sandals, sun hat.</div>
+        <div class="occasion-row"><span>Him</span>Polo, tailored shorts, driving loafers.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <h2 class="footer-title">We will turn heads.</h2>
+  <p class="footer-sub">JetStream EO Forum &nbsp;&middot;&nbsp; June 2026</p>
+  <div class="footer-links">
+    <a href="index.html">Itinerary</a>
+    <a href="style-guide.html">Style Guide</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 JetStream takes France</p>
+</footer>
+
+<div class="palette-bar"><span class="pb4"></span><span class="pb3"></span><span class="pb2"></span><span class="pb1"></span></div>
+
+</body>
+</html>

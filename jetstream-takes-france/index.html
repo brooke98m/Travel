@@ -168,6 +168,16 @@
   .footer-sub { font-size:0.8rem; letter-spacing:0.32em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-top:14px; font-family:'Jost', sans-serif; font-weight:200; }
   .footer-copy { font-size:0.65rem; letter-spacing:0.2em; color:rgba(255,255,255,0.4); margin-top:30px; font-family:'Jost', sans-serif; font-weight:200; }
 
+  /* TOP NAV */
+  .top-nav { position:fixed; top:5px; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:14px 32px; background:rgba(248,245,240,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(74,124,155,0.08); transition:background 0.3s; }
+  .nav-brand { font-family:'Playfair Display', serif; font-size:1.05rem; color:var(--deep); text-decoration:none; letter-spacing:0.01em; font-weight:400; }
+  .nav-brand em { color:var(--contrast); font-style:italic; }
+  .nav-links { display:flex; gap:30px; }
+  .nav-links a { font-family:'Jost', sans-serif; font-weight:300; font-size:0.74rem; letter-spacing:0.34em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color 0.2s; padding:6px 2px; border-bottom:1px solid transparent; }
+  .nav-links a:hover { color:var(--contrast); }
+  .nav-links a.active { color:var(--contrast); border-bottom-color:var(--contrast-lt); }
+  @media (max-width:600px) { .top-nav { padding:12px 18px; } .nav-links { gap:18px; } .nav-links a { font-size:0.66rem; letter-spacing:0.24em; } .nav-brand { font-size:0.95rem; } }
+
   /* PALETTE BAR */
   .palette-bar { display:flex; height:5px; }
   .palette-bar span { flex:1; }
@@ -199,6 +209,14 @@
 <body>
 <div class="grain"></div>
 <div class="palette-bar"><span class="pb1"></span><span class="pb2"></span><span class="pb3"></span><span class="pb4"></span></div>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand">JetStream <em>France</em></a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Itinerary</a>
+    <a href="style-guide.html">Style Guide</a>
+  </div>
+</nav>
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
