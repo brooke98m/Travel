@@ -38,31 +38,49 @@
   .conf-date-group { margin-bottom:50px; }
   .conf-date { font-family:'Jost', sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--contrast-dk); padding-bottom:10px; border-bottom:1px solid var(--contrast-lt); margin-bottom:18px; }
 
-  .conf-card { background:rgba(255,255,255,0.6); border:1px solid rgba(74,124,155,0.12); padding:22px 24px; margin-bottom:10px; }
-  .conf-card.confirmed { border-left:3px solid var(--primary); }
-  .conf-card.pending { border-left:3px solid var(--contrast-lt); }
+  /* Dropdown card */
+  details.conf-card { background:rgba(255,255,255,0.6); border:1px solid rgba(74,124,155,0.12); margin-bottom:10px; }
+  details.conf-card[open] { background:rgba(255,255,255,0.85); }
+  details.conf-card.confirmed { border-left:3px solid var(--primary); }
+  details.conf-card.pending { border-left:3px solid var(--contrast-lt); }
+  details.conf-card.self-book { border-left:3px solid var(--mid); }
+  details.conf-card.walk-in { border-left:3px solid var(--light-mid); }
 
-  .conf-top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
-  .conf-venue { font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--deep); font-style:italic; }
+  summary.conf-summary { padding:18px 24px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  summary.conf-summary::-webkit-details-marker { display:none; }
+  summary.conf-summary::after { content:'\25BC'; font-size:0.6rem; color:var(--light-mid); transition:transform 0.2s; flex-shrink:0; }
+  details.conf-card[open] summary.conf-summary::after { transform:rotate(180deg); }
+
+  .conf-summary-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .conf-venue { font-family:'Playfair Display', serif; font-size:1.1rem; color:var(--deep); font-style:italic; }
   .conf-venue a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(184,150,90,0.3); transition:border-color 0.2s, color 0.2s; }
   .conf-venue a:hover { color:var(--primary); border-color:var(--primary); }
-  .conf-status { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; }
-  .status-confirmed { background:rgba(90,140,90,0.15); color:#4A7A4A; }
+  .conf-time-badge { font-family:'Jost', sans-serif; font-weight:300; font-size:0.78rem; color:var(--contrast-dk); }
+  .conf-status { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; padding:3px 9px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; white-space:nowrap; }
+  .status-booked { background:rgba(90,140,90,0.15); color:#4A7A4A; }
   .status-pending { background:rgba(158,170,180,0.15); color:var(--light-mid); }
-  .status-booked { background:rgba(184,150,90,0.15); color:var(--primary-dk); }
+  .status-self-book { background:rgba(184,150,90,0.12); color:var(--primary-dk); }
+  .status-walk-in { background:rgba(107,123,138,0.12); color:var(--mid); }
 
-  .conf-details { font-family:'Jost', sans-serif; font-weight:300; font-size:0.88rem; color:var(--mid); margin-top:8px; line-height:1.7; }
+  .conf-body { padding:0 24px 20px; }
+  .conf-details { font-family:'Jost', sans-serif; font-weight:300; font-size:0.85rem; color:var(--mid); line-height:1.7; }
   .conf-details strong { font-weight:400; color:var(--deep); }
   .conf-ref { font-family:'Jost', sans-serif; font-weight:200; font-size:0.72rem; letter-spacing:0.15em; color:var(--light-mid); margin-top:6px; }
-
-  .conf-empty { text-align:center; padding:40px 20px; font-family:'Cormorant Garamond', serif; font-size:1.1rem; font-style:italic; color:var(--light-mid); }
+  .conf-note { font-family:'Cormorant Garamond', serif; font-size:0.95rem; font-style:italic; color:var(--mid); margin-top:8px; }
+  .conf-screenshot { margin-top:14px; border:1px solid rgba(74,124,155,0.12); border-radius:4px; overflow:hidden; }
+  .conf-screenshot img { width:100%; display:block; }
+  .conf-screenshot-placeholder { padding:28px 20px; text-align:center; background:rgba(74,124,155,0.04); font-family:'Jost', sans-serif; font-weight:200; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--light-mid); }
+  .conf-managed-by { font-family:'Jost', sans-serif; font-weight:200; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--contrast-lt); margin-top:8px; }
 
   .footer-mini { text-align:center; padding:40px 20px; }
   .footer-mini a { font-family:'Jost', sans-serif; font-weight:200; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--light-mid); text-decoration:none; transition:color 0.2s; }
   .footer-mini a:hover { color:var(--contrast); }
 
   @media (max-width:680px) {
-    .conf-top { flex-direction:column; align-items:flex-start; }
+    .conf-summary-left { flex-direction:column; align-items:flex-start; gap:4px; }
+    summary.conf-summary { flex-direction:column; align-items:flex-start; gap:8px; }
+    summary.conf-summary::after { position:absolute; right:20px; top:22px; }
+    details.conf-card { position:relative; }
   }
 </style>
 </head>
@@ -73,168 +91,414 @@
 <div class="page-header">
   <p class="page-eyebrow">JetStream Takes France</p>
   <h1 class="page-title">Confirmations</h1>
-  <p class="page-sub">Booking status for all reservations</p>
+  <p class="page-sub">Tap any booking to see details</p>
 </div>
 
 <div class="confirmations-wrapper">
 
-  <!-- JUNE 6 -->
+  <!-- ============ JUNE 6 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Saturday, June 6</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">DL84 ATL &rarr; CDG</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">DL84 ATL &rarr; CDG</div>
+          <div class="conf-time-badge">9:45pm</div>
+        </div>
+        <span class="conf-status status-self-book">self book</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Departs 9:45pm, arrives June 7 at 12:30pm local</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details">Departs 9:45pm, arrives June 7 at 12:30pm local</div>
-    </div>
+    </details>
   </div>
 
-  <!-- JUNE 7 -->
+  <!-- ============ JUNE 7 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Sunday, June 7</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://www.hoteldamedesarts.com" target="_blank">Hotel Dame des Arts</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.hoteldamedesarts.com" target="_blank">Hotel Dame des Arts</a></div>
+          <div class="conf-time-badge">Check-in</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Check-in:</strong> June 7 &nbsp;|&nbsp; <strong>Check-out:</strong> June 9<br>4 Rue Danton, 75006 Paris<br>7 rooms booked</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>Check-in:</strong> June 7 &nbsp;|&nbsp; <strong>Check-out:</strong> June 9<br>4 Rue Danton, 75006 Paris</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">Bateaux Parisiens</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Bateaux Parisiens</div>
+          <div class="conf-time-badge">5:30pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Sightseeing Cruise</div>
+        <div class="conf-ref">Conf #4565983</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>5:30pm</strong></div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">Caf&eacute; de l'Homme</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Drinks on the Seine</div>
+          <div class="conf-time-badge">EVE</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">10 + 2 guests</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>7:00pm &ndash; 10:00pm</strong></div>
-    </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Caf&eacute; de l'Homme</div>
+          <div class="conf-time-badge">7:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">11 guests &nbsp;|&nbsp; CC link sent for validation</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
+      </div>
+    </details>
+
+    <details class="conf-card walk-in">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Prescription Cocktail Club</div>
+          <div class="conf-time-badge">After dinner</div>
+        </div>
+        <span class="conf-status status-walk-in">walk-in</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">No reservation needed</div>
+      </div>
+    </details>
   </div>
 
-  <!-- JUNE 8 -->
+  <!-- ============ JUNE 8 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Monday, June 8</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">TGV INOUI 2719 &nbsp; Paris Est &rarr; Reims</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">TGV INOUI 2719 &nbsp; Paris Est &rarr; Reims</div>
+          <div class="conf-time-badge">10:20am</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests &nbsp;|&nbsp; 1st Class &nbsp;|&nbsp; Arrives 11:14am</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>10:20am</strong> &nbsp;|&nbsp; 1st Class &nbsp;|&nbsp; Arrives 11:14am</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://www.ruinart.com" target="_blank">Maison Ruinart</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.ruinart.com" target="_blank">Maison Ruinart</a></div>
+          <div class="conf-time-badge">12:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>12:00pm</strong></div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://www.pommery.com" target="_blank">Maison Pommery</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.pommery.com" target="_blank">Maison Pommery</a></div>
+          <div class="conf-time-badge">1:00pm gardens + visit</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests &nbsp;|&nbsp; 1pm gardens, 1:30pm lunch at Le R&eacute;fectoire, then full visit</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>2:30pm</strong> &nbsp;|&nbsp; Lunch at Le R&eacute;fectoire at 3:00pm</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">TGV INOUI 2752 &nbsp; Reims &rarr; Paris Est</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">TGV INOUI 2752 &nbsp; Reims &rarr; Paris Est</div>
+          <div class="conf-time-badge">4:59pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests &nbsp;|&nbsp; 1st Class &nbsp;|&nbsp; Transport to station at 4:30pm &nbsp;|&nbsp; Arrives 5:46pm</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>4:59pm</strong> &nbsp;|&nbsp; 1st Class &nbsp;|&nbsp; Arrives 5:46pm</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">Buddha Bar Paris</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Buddha Bar Paris</div>
+          <div class="conf-time-badge">8:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">11 guests</div>
+        <div class="conf-ref">Conf #6BPKAE3JFSFT</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>8:00pm</strong></div>
-    </div>
+    </details>
   </div>
 
-  <!-- JUNE 9 -->
+  <!-- ============ JUNE 9 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Tuesday, June 9</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">Flight CDG &rarr; NCE</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Pickup for Airport</div>
+          <div class="conf-time-badge">7:00am</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests &nbsp;|&nbsp; Check out of Hotel Dame des Arts, head to CDG</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>9:00am</strong> &nbsp;|&nbsp; Boarding 8:30am</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://www.le1932hotelspa.com/en/" target="_blank">The 1932 Hotel &amp; Spa</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Flight CDG &rarr; NCE</div>
+          <div class="conf-time-badge">9:00am</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests &nbsp;|&nbsp; Boarding 8:30am</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>Check-in:</strong> June 9 &nbsp;|&nbsp; <strong>Check-out:</strong> June 13<br>5 Avenue Saramartel, 06160 Antibes</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://mgallery.accor.com/en/hotels/B9Q4/R001.restaurant.html" target="_blank">Quinto Cielo Cocktails</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.le1932hotelspa.com/en/" target="_blank">The 1932 Hotel &amp; Spa</a></div>
+          <div class="conf-time-badge">Check-in</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Check-in:</strong> June 9 &nbsp;|&nbsp; <strong>Check-out:</strong> June 13<br>5 Avenue Saramartel, 06160 Antibes<br>7 rooms booked</div>
+        <div class="conf-ref">Conf #QFNHCGPB</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>5:00pm</strong></div>
-    </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://mgallery.accor.com/en/hotels/B9Q4/R001.restaurant.html" target="_blank">Quinto Cielo Cocktails</a></div>
+          <div class="conf-time-badge">5:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Rooftop cocktails at the hotel</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.yolo-plage.fr/" target="_blank">YOLO</a></div>
+          <div class="conf-time-badge">8:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">11 guests</div>
+        <div class="conf-note">La Passag&egrave;re not open on June 9</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
+      </div>
+    </details>
   </div>
 
-  <!-- JUNE 10 -->
+  <!-- ============ JUNE 10 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Wednesday, June 10</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://www.restaurantlaguerite.com/cannes/" target="_blank">La Gu&eacute;rite</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.restaurantlaguerite.com/cannes/" target="_blank">La Gu&eacute;rite</a></div>
+          <div class="conf-time-badge">3:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">11 guests &nbsp;|&nbsp; Check in 15 min before &nbsp;|&nbsp; &Icirc;le Sainte-Marguerite, Cannes</div>
+        <div class="conf-ref">Conf #AYDRTG48R5NK</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>3:00pm</strong> &nbsp;|&nbsp; Check in 20 min before &nbsp;|&nbsp; &Icirc;le Sainte-Marguerite, Cannes</div>
-    </div>
+    </details>
+
+    <details class="conf-card self-book">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Dinner on Your Own</div>
+          <div class="conf-time-badge">Evening</div>
+        </div>
+        <span class="conf-status status-self-book">self book</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Check the itinerary recommendations for ideas</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+      </div>
+    </details>
+
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Night Out in Cannes</div>
+          <div class="conf-time-badge">Late</div>
+        </div>
+        <span class="conf-status status-pending">unconfirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-note">Baoli or Medusa? Leaning Baoli.</div>
+      </div>
+    </details>
   </div>
 
-  <!-- JUNE 11 -->
+  <!-- ============ JUNE 11 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Thursday, June 11</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">Lagoon 51 Catamaran</div>
-        <span class="conf-status status-pending">details tbd</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Lagoon 51 Catamaran</div>
+          <div class="conf-time-badge">Day charter</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details">Day charter on the Mediterranean</div>
-    </div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://www.yolo-plage.fr/" target="_blank">YOLO Antibes</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://www.bellesrives.com/en/the-fitzgerald-bar.html" target="_blank">Bar Fitzgerald</a></div>
+          <div class="conf-time-badge">7:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">11 guests &nbsp;|&nbsp; H&ocirc;tel Belles Rives</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>8:00pm</strong></div>
-    </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">La Passag&egrave;re</div>
+          <div class="conf-time-badge">8:00pm</div>
+        </div>
+        <span class="conf-status status-booked">booked + prepaid</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">11 guests &nbsp;|&nbsp; H&ocirc;tel Belles Rives &nbsp;|&nbsp; Prepaid</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
+      </div>
+    </details>
   </div>
 
-  <!-- JUNE 12 -->
+  <!-- ============ JUNE 12 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Friday, June 12</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue"><a href="https://maisondebacon.fr/" target="_blank">La Maison de Bacon</a></div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue"><a href="https://maisondebacon.fr/" target="_blank">La Maison de Bacon</a></div>
+          <div class="conf-time-badge">7:00pm rooftop / 8:00pm dinner</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">12 guests &nbsp;|&nbsp; Rooftop appetizers at 7pm, dinner with a view at 8pm<br>+33 4 93 61 50 02</div>
+        <div class="conf-managed-by">Managed by Sebastian</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>7:00pm</strong> &nbsp;|&nbsp; Party of 12 &nbsp;|&nbsp; +33 4 93 61 50 02</div>
-    </div>
+    </details>
   </div>
 
-  <!-- JUNE 13 -->
+  <!-- ============ JUNE 13 ============ -->
   <div class="conf-date-group">
     <div class="conf-date">Saturday, June 13</div>
-    <div class="conf-card confirmed">
-      <div class="conf-top">
-        <div class="conf-venue">DL25 NCE &rarr; ATL</div>
-        <span class="conf-status status-confirmed">confirmed</span>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Transport to Airport</div>
+          <div class="conf-time-badge">Morning</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Depart The 1932 Hotel for Nice C&ocirc;te d'Azur Airport</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
       </div>
-      <div class="conf-details"><strong>10:15am</strong> &nbsp;|&nbsp; Arrives 12:33pm local</div>
-    </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">DL25 NCE &rarr; ATL</div>
+          <div class="conf-time-badge">10:15am</div>
+        </div>
+        <span class="conf-status status-booked">booked</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Arrives 12:33pm local</div>
+        <div class="conf-screenshot"><div class="conf-screenshot-placeholder">Screenshot pending</div></div>
+      </div>
+    </details>
   </div>
 
 </div>
