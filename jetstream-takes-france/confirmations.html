@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JetStream France - Confirmations</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Ctext y='24' x='4' font-size='24'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:    #B8965A;
+    --primary-lt: #E8D5B5;
+    --primary-dk: #8A6D3B;
+    --contrast:   #4A7C9B;
+    --contrast-lt:#A8C8DA;
+    --contrast-dk:#2E5A73;
+    --bg:         #F8F5F0;
+    --bg2:        #EDE8E0;
+    --deep:       #1E2D3D;
+    --mid:        #6B7B8A;
+    --light-mid:  #9EAAB4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--deep); font-family:'Jost', sans-serif; font-weight:300; }
+
+  .back-link { display:inline-block; padding:28px 32px; font-family:'Jost', sans-serif; font-weight:200; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--contrast); text-decoration:none; transition:color 0.2s; }
+  .back-link:hover { color:var(--primary); }
+
+  .page-header { padding:60px 20px 50px; text-align:center; }
+  .page-eyebrow { font-family:'Jost', sans-serif; font-weight:200; font-size:0.7rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--contrast); margin-bottom:16px; }
+  .page-title { font-family:'Playfair Display', serif; font-size:clamp(2rem,5vw,3.5rem); font-style:italic; font-weight:400; color:var(--deep); }
+  .page-sub { font-family:'Cormorant Garamond', serif; font-size:1.1rem; font-weight:300; font-style:italic; color:var(--mid); margin-top:12px; }
+
+  .confirmations-wrapper { max-width:780px; margin:0 auto; padding:0 20px 80px; }
+
+  .conf-date-group { margin-bottom:50px; }
+  .conf-date { font-family:'Jost', sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--contrast-dk); padding-bottom:10px; border-bottom:1px solid var(--contrast-lt); margin-bottom:18px; }
+
+  .conf-card { background:rgba(255,255,255,0.6); border:1px solid rgba(74,124,155,0.12); padding:22px 24px; margin-bottom:10px; }
+  .conf-card.confirmed { border-left:3px solid var(--primary); }
+  .conf-card.pending { border-left:3px solid var(--contrast-lt); }
+
+  .conf-top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .conf-venue { font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--deep); font-style:italic; }
+  .conf-venue a { color:inherit; text-decoration:none; border-bottom:1px solid rgba(184,150,90,0.3); transition:border-color 0.2s, color 0.2s; }
+  .conf-venue a:hover { color:var(--primary); border-color:var(--primary); }
+  .conf-status { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; padding:4px 10px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; }
+  .status-confirmed { background:rgba(90,140,90,0.15); color:#4A7A4A; }
+  .status-pending { background:rgba(158,170,180,0.15); color:var(--light-mid); }
+  .status-booked { background:rgba(184,150,90,0.15); color:var(--primary-dk); }
+
+  .conf-details { font-family:'Jost', sans-serif; font-weight:300; font-size:0.88rem; color:var(--mid); margin-top:8px; line-height:1.7; }
+  .conf-details strong { font-weight:400; color:var(--deep); }
+  .conf-ref { font-family:'Jost', sans-serif; font-weight:200; font-size:0.72rem; letter-spacing:0.15em; color:var(--light-mid); margin-top:6px; }
+
+  .conf-empty { text-align:center; padding:40px 20px; font-family:'Cormorant Garamond', serif; font-size:1.1rem; font-style:italic; color:var(--light-mid); }
+
+  .footer-mini { text-align:center; padding:40px 20px; }
+  .footer-mini a { font-family:'Jost', sans-serif; font-weight:200; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--light-mid); text-decoration:none; transition:color 0.2s; }
+  .footer-mini a:hover { color:var(--contrast); }
+
+  @media (max-width:680px) {
+    .conf-top { flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">&larr; Back to Itinerary</a>
+
+<div class="page-header">
+  <p class="page-eyebrow">JetStream Takes France</p>
+  <h1 class="page-title">Confirmations</h1>
+  <p class="page-sub">Booking status for all reservations</p>
+</div>
+
+<div class="confirmations-wrapper">
+
+  <!-- JUNE 6 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Saturday, June 6</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">DL84 ATL &rarr; CDG</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details">Departs 9:45pm, arrives June 7 at 12:30pm local</div>
+    </div>
+  </div>
+
+  <!-- JUNE 7 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Sunday, June 7</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://www.hoteldamedesarts.com" target="_blank">Hotel Dame des Arts</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>Check-in:</strong> June 7 &nbsp;|&nbsp; <strong>Check-out:</strong> June 9<br>4 Rue Danton, 75006 Paris</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">Bateaux Parisiens</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>5:30pm</strong></div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">Caf&eacute; de l'Homme</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>7:00pm &ndash; 10:00pm</strong></div>
+    </div>
+  </div>
+
+  <!-- JUNE 8 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Monday, June 8</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">TGV INOUI 2719 &nbsp; Paris Est &rarr; Reims</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>10:20am</strong> &nbsp;|&nbsp; 1st Class &nbsp;|&nbsp; Arrives 11:14am</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://www.ruinart.com" target="_blank">Maison Ruinart</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>12:00pm</strong></div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://www.pommery.com" target="_blank">Maison Pommery</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>2:30pm</strong> &nbsp;|&nbsp; Lunch at Le R&eacute;fectoire at 3:00pm</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">TGV INOUI 2752 &nbsp; Reims &rarr; Paris Est</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>4:59pm</strong> &nbsp;|&nbsp; 1st Class &nbsp;|&nbsp; Arrives 5:46pm</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">Buddha Bar Paris</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>8:00pm</strong></div>
+    </div>
+  </div>
+
+  <!-- JUNE 9 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Tuesday, June 9</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">Flight CDG &rarr; NCE</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>9:00am</strong> &nbsp;|&nbsp; Boarding 8:30am</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://www.le1932hotelspa.com/en/" target="_blank">The 1932 Hotel &amp; Spa</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>Check-in:</strong> June 9 &nbsp;|&nbsp; <strong>Check-out:</strong> June 13<br>5 Avenue Saramartel, 06160 Antibes</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://mgallery.accor.com/en/hotels/B9Q4/R001.restaurant.html" target="_blank">Quinto Cielo Cocktails</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>5:00pm</strong></div>
+    </div>
+  </div>
+
+  <!-- JUNE 10 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Wednesday, June 10</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://www.restaurantlaguerite.com/cannes/" target="_blank">La Gu&eacute;rite</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>3:00pm</strong> &nbsp;|&nbsp; Check in 20 min before &nbsp;|&nbsp; &Icirc;le Sainte-Marguerite, Cannes</div>
+    </div>
+  </div>
+
+  <!-- JUNE 11 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Thursday, June 11</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">Lagoon 51 Catamaran</div>
+        <span class="conf-status status-pending">details tbd</span>
+      </div>
+      <div class="conf-details">Day charter on the Mediterranean</div>
+    </div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://www.yolo-plage.fr/" target="_blank">YOLO Antibes</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>8:00pm</strong></div>
+    </div>
+  </div>
+
+  <!-- JUNE 12 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Friday, June 12</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue"><a href="https://maisondebacon.fr/" target="_blank">La Maison de Bacon</a></div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>7:00pm</strong> &nbsp;|&nbsp; Party of 12 &nbsp;|&nbsp; +33 4 93 61 50 02</div>
+    </div>
+  </div>
+
+  <!-- JUNE 13 -->
+  <div class="conf-date-group">
+    <div class="conf-date">Saturday, June 13</div>
+    <div class="conf-card confirmed">
+      <div class="conf-top">
+        <div class="conf-venue">DL25 NCE &rarr; ATL</div>
+        <span class="conf-status status-confirmed">confirmed</span>
+      </div>
+      <div class="conf-details"><strong>10:15am</strong> &nbsp;|&nbsp; Arrives 12:33pm local</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-mini">
+  <a href="index.html">&larr; Back to Itinerary</a>
+</div>
+
+</body>
+</html>
