@@ -53,9 +53,11 @@
   .conf-summary-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
   .conf-venue { font-family:'Playfair Display', serif; font-size:1.1rem; color:var(--deep); font-style:italic; }
   .conf-time-badge { font-family:'Jost', sans-serif; font-weight:300; font-size:0.78rem; color:var(--contrast-dk); }
+  .conf-party { font-family:'Jost', sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:3px 9px; border-radius:20px; background:rgba(184,150,90,0.16); color:var(--primary-dk); white-space:nowrap; }
   .conf-status { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; padding:3px 9px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; white-space:nowrap; }
   .status-booked { background:rgba(90,140,90,0.15); color:#4A7A4A; }
   .status-pending { background:rgba(158,170,180,0.15); color:var(--light-mid); }
+  .status-info { background:rgba(74,124,155,0.15); color:var(--contrast-dk); }
 
   .conf-body { padding:0 24px 20px; }
   .conf-details { font-family:'Jost', sans-serif; font-weight:300; font-size:0.85rem; color:var(--mid); line-height:1.7; }
@@ -238,6 +240,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Baba Antibes</div>
           <div class="conf-time-badge">1:00pm</div>
+          <span class="conf-party">party of 2</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -257,6 +260,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Playamigos Ramatuelle</div>
           <div class="conf-time-badge">3:15pm</div>
+          <span class="conf-party">party of 2</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -276,6 +280,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Jardin Tropezina</div>
           <div class="conf-time-badge">12:15pm</div>
+          <span class="conf-party">party of 3</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -290,6 +295,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Zuma Saint-Tropez</div>
           <div class="conf-time-badge">8:15pm</div>
+          <span class="conf-party">party of 3</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -309,6 +315,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Casa Amor Saint-Tropez</div>
           <div class="conf-time-badge">2:00pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-pending">requested</span>
       </summary>
@@ -328,6 +335,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Verde Beach</div>
           <div class="conf-time-badge">12:00pm</div>
+          <span class="conf-party">party of 3</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -342,6 +350,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Nikki Beach Saint Tropez</div>
           <div class="conf-time-badge">12:00pm</div>
+          <span class="conf-party">party of 3</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -361,6 +370,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Plage Belle Plage</div>
           <div class="conf-time-badge">12:00pm &middot; Cannes</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -375,6 +385,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">La Petite Plage Saint-Tropez</div>
           <div class="conf-time-badge">12:30pm &middot; St Tropez</div>
+          <span class="conf-party">party of 3</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -404,11 +415,26 @@
       </div>
     </details>
 
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Salon Culture Conversations</div>
+          <div class="conf-time-badge">3:00pm</div>
+        </div>
+        <span class="conf-status status-info">find Crystal</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Crystal Foote (Digital Culture Group) speaking on <strong>"Trust, Bias &amp; The Black Box."</strong><br><strong>Where:</strong> Secret Garden at Hotel Jardin Croisette, 7 Rue Moli&egrave;re, Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec792ecf07e9df" target="_blank">Open Crystal's email &rarr;</a>
+      </div>
+    </details>
+
     <details class="conf-card confirmed">
       <summary class="conf-summary">
         <div class="conf-summary-left">
           <div class="conf-venue">La Muse</div>
           <div class="conf-time-badge">5:30pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -417,17 +443,46 @@
         <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e83ccd36f118a0" target="_blank">Open confirmation email &rarr;</a>
       </div>
     </details>
+
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Digital Fight Club</div>
+          <div class="conf-time-badge">7:30pm</div>
+        </div>
+        <span class="conf-status status-info">find Crystal</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Crystal in Fight 1: <strong>"Brand Identity &amp; Chasing Culture."</strong> Sponsored by Propeller Group.<br><strong>Where:</strong> Empower Caf&eacute; (next to Amazon Port), Cannes<br><strong>Details:</strong> digitalfightclub.co</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec792ecf07e9df" target="_blank">Open Crystal's email &rarr;</a>
+      </div>
+    </details>
   </div>
 
   <!-- ============ TUE JUN 23 ============ -->
   <div class="conf-date-group" id="jun23">
     <div class="conf-date">Tuesday, June 23 &middot; Cannes</div>
 
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">SIGNAL Leadership Brunch</div>
+          <div class="conf-time-badge">12:30pm</div>
+        </div>
+        <span class="conf-status status-info">find Crystal</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Crystal giving a live demo of ARI.<br><strong>Where:</strong> Hotel Le Suquet, Cannes<br>Registration closed</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec792ecf07e9df" target="_blank">Open Crystal's email &rarr;</a>
+      </div>
+    </details>
+
     <details class="conf-card confirmed">
       <summary class="conf-summary">
         <div class="conf-summary-left">
           <div class="conf-venue">Le 24 Suquet</div>
           <div class="conf-time-badge">8:00pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -442,6 +497,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Le Speakeasy Cannes</div>
           <div class="conf-time-badge">10:00pm</div>
+          <span class="conf-party">party of 5</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -456,11 +512,26 @@
   <div class="conf-date-group" id="jun24">
     <div class="conf-date">Wednesday, June 24 &middot; Cannes</div>
 
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">SIGNAL Sessions Panel</div>
+          <div class="conf-time-badge">12:45pm</div>
+        </div>
+        <span class="conf-status status-info">find Crystal</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Crystal on the panel <strong>"The Human Layer of Innovation."</strong><br><strong>Where:</strong> Hotel Le Suquet, Cannes<br><strong>RSVP:</strong> luma.com/yeh4oq9c</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec792ecf07e9df" target="_blank">Open Crystal's email &rarr;</a>
+      </div>
+    </details>
+
     <details class="conf-card confirmed">
       <summary class="conf-summary">
         <div class="conf-summary-left">
           <div class="conf-venue">L'Alba Beach Restaurant</div>
           <div class="conf-time-badge">4:30pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -475,6 +546,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Ragazzi Cannes</div>
           <div class="conf-time-badge">9:15pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -509,6 +581,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">UVA</div>
           <div class="conf-time-badge">7:00pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -523,6 +596,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">Medusa Cannes</div>
           <div class="conf-time-badge">11:00pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
@@ -542,6 +616,7 @@
         <div class="conf-summary-left">
           <div class="conf-venue">La Table du Chef</div>
           <div class="conf-time-badge">7:30pm</div>
+          <span class="conf-party">party of 4</span>
         </div>
         <span class="conf-status status-booked">reserved</span>
       </summary>
