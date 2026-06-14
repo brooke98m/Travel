@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cannes Lions 2026 - Confirmations</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Ctext y='24' x='4' font-size='24'%3E%F0%9F%A6%81%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:    #B8965A;
+    --primary-lt: #E8D5B5;
+    --primary-dk: #8A6D3B;
+    --contrast:   #4A7C9B;
+    --contrast-lt:#A8C8DA;
+    --contrast-dk:#2E5A73;
+    --bg:         #F8F5F0;
+    --bg2:        #EDE8E0;
+    --deep:       #1E2D3D;
+    --mid:        #6B7B8A;
+    --light-mid:  #9EAAB4;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--deep); font-family:'Jost', sans-serif; font-weight:300; }
+
+  .page-header { padding:70px 20px 50px; text-align:center; }
+  .page-eyebrow { font-family:'Jost', sans-serif; font-weight:200; font-size:0.7rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--contrast); margin-bottom:16px; }
+  .page-title { font-family:'Playfair Display', serif; font-size:clamp(2rem,5vw,3.5rem); font-style:italic; font-weight:400; color:var(--deep); }
+  .page-sub { font-family:'Cormorant Garamond', serif; font-size:1.15rem; font-weight:300; font-style:italic; color:var(--mid); margin-top:12px; }
+
+  .confirmations-wrapper { max-width:780px; margin:0 auto; padding:0 20px 80px; }
+
+  .conf-date-group { margin-bottom:50px; }
+  .conf-date { font-family:'Jost', sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--contrast-dk); padding-bottom:10px; border-bottom:1px solid var(--contrast-lt); margin-bottom:18px; }
+
+  details.conf-card { background:rgba(255,255,255,0.6); border:1px solid rgba(74,124,155,0.12); margin-bottom:10px; }
+  details.conf-card[open] { background:rgba(255,255,255,0.85); }
+  details.conf-card.confirmed { border-left:3px solid var(--primary); }
+  details.conf-card.pending { border-left:3px solid var(--contrast-lt); }
+
+  summary.conf-summary { padding:18px 24px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  summary.conf-summary::-webkit-details-marker { display:none; }
+  summary.conf-summary::after { content:'\25BC'; font-size:0.6rem; color:var(--light-mid); transition:transform 0.2s; flex-shrink:0; }
+  details.conf-card[open] summary.conf-summary::after { transform:rotate(180deg); }
+
+  .conf-summary-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .conf-venue { font-family:'Playfair Display', serif; font-size:1.1rem; color:var(--deep); font-style:italic; }
+  .conf-time-badge { font-family:'Jost', sans-serif; font-weight:300; font-size:0.78rem; color:var(--contrast-dk); }
+  .conf-status { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; padding:3px 9px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; white-space:nowrap; }
+  .status-booked { background:rgba(90,140,90,0.15); color:#4A7A4A; }
+  .status-pending { background:rgba(158,170,180,0.15); color:var(--light-mid); }
+
+  .conf-body { padding:0 24px 20px; }
+  .conf-details { font-family:'Jost', sans-serif; font-weight:300; font-size:0.85rem; color:var(--mid); line-height:1.7; }
+  .conf-details strong { font-weight:400; color:var(--deep); }
+  .conf-screenshot { margin-top:14px; border:1px solid rgba(74,124,155,0.12); border-radius:4px; overflow:hidden; }
+  .conf-screenshot iframe { width:100%; height:520px; border:none; display:block; background:#fff; }
+  .conf-email-link { display:inline-block; margin-top:12px; font-family:'Jost', sans-serif; font-weight:300; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--contrast); text-decoration:none; border-bottom:1px solid rgba(74,124,155,0.3); padding-bottom:2px; transition:color 0.2s, border-color 0.2s; }
+  .conf-email-link:hover { color:var(--primary); border-color:var(--primary); }
+
+  .footer-mini { text-align:center; padding:30px 20px 60px; }
+  .footer-mini p { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1rem; color:var(--light-mid); }
+
+  @media (max-width:680px) {
+    .conf-summary-left { flex-direction:column; align-items:flex-start; gap:4px; }
+    summary.conf-summary { flex-direction:column; align-items:flex-start; gap:8px; }
+    summary.conf-summary::after { position:absolute; right:20px; top:22px; }
+    details.conf-card { position:relative; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="page-eyebrow">Cannes Lions 2026 &middot; June 22 to 26</p>
+  <h1 class="page-title">Confirmations</h1>
+  <p class="page-sub">Tap any event to see the confirmation or open the email</p>
+</div>
+
+<div class="confirmations-wrapper">
+
+  <!-- ============ THE PASS ============ -->
+  <div class="conf-date-group">
+    <div class="conf-date">The Festival</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Cannes Lions Festival Pass</div>
+          <div class="conf-time-badge">All week</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>When:</strong> June 22 to 26 &nbsp;|&nbsp; <strong>Where:</strong> Palais des Festivals, 1 Bd de la Croisette<br><strong>Pass:</strong> Classic Challenger &middot; Ref REFCL/250-2410</div>
+        <div class="conf-screenshot"><iframe src="confirmations/cannes-pass.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19d0be32759a4f44" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ ALL-WEEK ACTIVATIONS ============ -->
+  <div class="conf-date-group">
+    <div class="conf-date">Activations &middot; All Week, June 22 to 26</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Pinterest Manifestival</div>
+          <div class="conf-time-badge">Mon, Jun 22 &middot; 10AM to 5PM</div>
+        </div>
+        <span class="conf-status status-booked">RSVP'd</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Carlton Beach Club, 58 Bd de la Croisette &nbsp;|&nbsp; check-in pass included</div>
+        <div class="conf-screenshot"><iframe src="confirmations/pinterest-manifestival.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec747dbcfcdaeb" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">TikTok Garden</div>
+          <div class="conf-time-badge">Mon&ndash;Thu 12&ndash;4pm, Fri 9am&ndash;12pm</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> The Carlton Hotel, 58 Bd de la Croisette &nbsp;|&nbsp; Code SPMCVV</div>
+        <div class="conf-screenshot"><iframe src="confirmations/tiktok-garden.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec74da964c8950" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Meta Beach</div>
+          <div class="conf-time-badge">Cannes Lions</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Meta Beach &middot; Cannes &nbsp;|&nbsp; invite is non-transferable</div>
+        <div class="conf-screenshot"><iframe src="confirmations/meta-beach.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec74cca7dbbe9c" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Microsoft Gardens</div>
+          <div class="conf-time-badge">Cannes Lions</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Ondine Cannes, 64 Bd de la Croisette &nbsp;|&nbsp; photo ID required at badge pick up</div>
+        <div class="conf-screenshot"><iframe src="confirmations/microsoft-gardens.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec75116f35548d" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Amazon Port</div>
+          <div class="conf-time-badge">Cannes Lions</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Esplanade Pantiero, Port de Cannes</div>
+        <div class="conf-screenshot"><iframe src="confirmations/amazon-port.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec74e8f962466d" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Canva Creative Cabana</div>
+          <div class="conf-time-badge">Cannes Lions</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Canva Creative Cabana &middot; seaside &nbsp;|&nbsp; scannable QR attached to email</div>
+        <div class="conf-screenshot"><iframe src="confirmations/canva-cabana.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec74f05e0e8837" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">ADWEEK House</div>
+          <div class="conf-time-badge">9am&ndash;5pm &middot; Jun 21&ndash;26</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Le Majestic Hotel, 10 Bd de la Croisette &nbsp;|&nbsp; first come, first served</div>
+        <div class="conf-screenshot"><iframe src="confirmations/adweek-house.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e5a876a137f695" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Sport Beach</div>
+          <div class="conf-time-badge">Jun 22&ndash;25</div>
+        </div>
+        <span class="conf-status status-booked">confirmed</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Sport Beach &middot; Cannes</div>
+        <div class="conf-screenshot"><iframe src="confirmations/sport-beach.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e9d4015d43af1f" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ WEDNESDAY NIGHT ============ -->
+  <div class="conf-date-group">
+    <div class="conf-date">Wednesday, June 24 &middot; Nightlife</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Yahoo presents Ti&euml;sto</div>
+          <div class="conf-time-badge">10:00pm &ndash; 2:00am</div>
+        </div>
+        <span class="conf-status status-booked">on the list</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> Yahoo Beach &middot; Cannes &nbsp;|&nbsp; entry ticket to follow by email</div>
+        <div class="conf-screenshot"><iframe src="confirmations/yahoo-tiesto.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec759c77ddb4fa" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ DINING ============ -->
+  <div class="conf-date-group">
+    <div class="conf-date">Dining Reservations &middot; June 21 to 26</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Plage Belle Plage</div>
+          <div class="conf-time-badge">Sun, Jun 21 &middot; 12:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach lunch</strong> &middot; party of 4<br><strong>Where:</strong> 31 Boulevard du Midi Jean Hibert, 06400 Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e1cd23ccbd5ca2" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">La Muse</div>
+          <div class="conf-time-badge">Mon, Jun 22 &middot; 5:30pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> 10 Boulevard Jean Hibert, 06400 Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e83ccd36f118a0" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Le 24 Suquet</div>
+          <div class="conf-time-badge">Tue, Jun 23 &middot; 8:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> 2 Rue du Suquet, 06400 Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e1ccb8d8c9a115" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Le Speakeasy Cannes</div>
+          <div class="conf-time-badge">Tue, Jun 23 &middot; 10:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Dinner with live music</strong> &middot; party of 5 &middot; 95&euro; per person<br>Live music from 8:30pm, DJ from midnight<br><strong>Where:</strong> 22 Rue Latour-Maubourg, 06400 Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e4a7876d98a827" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">L'Alba Beach Restaurant</div>
+          <div class="conf-time-badge">Wed, Jun 24 &middot; 4:30pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> 31 Boulevard Jean Hibert, 06400 Cannes &middot; party of 4</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e83fe13baf3bb4" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Ragazzi Cannes</div>
+          <div class="conf-time-badge">Wed, Jun 24 &middot; 9:15pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> 16 Rue Mac&eacute;, 06400 Cannes &middot; party of 4</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e99c5e49d8fd4c" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">UVA</div>
+          <div class="conf-time-badge">Thu, Jun 25 &middot; 7:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> 13 Boulevard de la R&eacute;publique, 06400 Cannes &middot; party of 4</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e1c597f42c5bdd" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Medusa Cannes</div>
+          <div class="conf-time-badge">Thu, Jun 25 &middot; 11:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Late table</strong> &middot; 11:00pm to 1:00am &middot; party of 4<br><strong>Where:</strong> Place Franklin Roosevelt, 06400 Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19eb3cf29111b6a9" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">La Table du Chef</div>
+          <div class="conf-time-badge">Fri, Jun 26 &middot; 7:30pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Where:</strong> 5 Rue Jean Daumas, 06400 Cannes &middot; party of 4</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e1c7af5a11f58f" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ ST TROPEZ DINING ============ -->
+  <div class="conf-date-group">
+    <div class="conf-date">St Tropez Dining &middot; June 18 to 21</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Zuma Saint-Tropez</div>
+          <div class="conf-time-badge">Thu, Jun 18 &middot; 8:15pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Main Restaurant</strong> &middot; party of 3 &middot; 8:15pm to 10:15pm<br>Confirmation #3E43L87Z4926<br><strong>Where:</strong> 25 Avenue du Mar&eacute;chal Foch, 83990 Saint-Tropez</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e8d3b448e2511d" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Jardin Tropezina</div>
+          <div class="conf-time-badge">Thu, Jun 18 &middot; 12:15pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach lunch</strong> &middot; party of 3 &middot; 12:15pm to 2:00pm<br>Confirmation #5XMBJW34X3LR<br><strong>Where:</strong> 4 Route du Pinet, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e5aab9e34a04bb" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Casa Amor Saint-Tropez</div>
+          <div class="conf-time-badge">Fri, Jun 19 &middot; 2:00pm</div>
+        </div>
+        <span class="conf-status status-pending">requested</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Request submitted</strong> &middot; party of 4 &middot; 2:00pm to 4:00pm<br>Not yet confirmed by the venue<br><strong>Where:</strong> Chemin de Matarane, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e8d3c7ec32d458" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Verde Beach</div>
+          <div class="conf-time-badge">Sat, Jun 20 &middot; 12:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach lunch</strong> &middot; party of 3<br><strong>Where:</strong> 149 Chemin de l'EPI, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e8dc465c922667" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Nikki Beach Saint Tropez</div>
+          <div class="conf-time-badge">Sat, Jun 20 &middot; 12:00pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Bed by the Pool</strong> &middot; party of 3<br>Confirmation #4RLNRJ33RYZP<br><strong>Where:</strong> 1093 Chemin de l'EPI, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e56cd087abbb96" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">La Petite Plage Saint-Tropez</div>
+          <div class="conf-time-badge">Sun, Jun 21 &middot; 12:30pm</div>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Lunch</strong> &middot; party of 3<br><strong>Where:</strong> 9 Quai Jean Jaur&egrave;s, 83990 Saint-Tropez</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e83c632abae1b5" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ WAITLIST ============ -->
+  <div class="conf-date-group">
+    <div class="conf-date">Waitlist &middot; Not Yet Confirmed</div>
+
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">AU Apr&egrave;s Dark</div>
+          <div class="conf-time-badge">TBC</div>
+        </div>
+        <span class="conf-status status-pending">waitlist</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Interest received. Space is limited; an official invitation with details will follow if a spot opens.</div>
+        <div class="conf-screenshot"><iframe src="confirmations/au-apres-dark.html" loading="lazy"></iframe></div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec75c03cbdfa15" target="_blank">Open email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-mini">
+  <p>See you on the Croisette.</p>
+</div>
+
+</body>
+</html>
