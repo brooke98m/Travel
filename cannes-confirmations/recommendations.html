@@ -34,19 +34,23 @@
 
   .daynav { position:sticky; top:0; z-index:10; background:rgba(248,245,240,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--contrast-lt); padding:12px 20px; }
   .daynav-inner { max-width:780px; margin:0 auto; display:flex; flex-wrap:wrap; gap:8px 14px; justify-content:center; }
-  .daynav a { font-family:'Jost', sans-serif; font-weight:300; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--contrast); text-decoration:none; white-space:nowrap; transition:color 0.2s; }
+  .daynav a { font-family:'Jost', sans-serif; font-weight:400; font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--contrast); text-decoration:none; white-space:nowrap; transition:color 0.2s; }
   .daynav a:hover { color:var(--primary); }
 
   .recs-wrapper { max-width:780px; margin:0 auto; padding:40px 20px 80px; }
 
-  .rec-city { margin-bottom:64px; scroll-margin-top:70px; }
-  .rec-city-name { font-family:'Playfair Display', serif; font-size:clamp(1.7rem,4vw,2.5rem); font-style:italic; font-weight:400; color:var(--deep); }
-  .rec-city-sub { font-family:'Cormorant Garamond', serif; font-size:1.05rem; font-style:italic; color:var(--mid); margin-top:6px; padding-bottom:14px; border-bottom:1px solid var(--contrast-lt); margin-bottom:8px; }
-  .rec-source { display:inline-block; margin-top:14px; font-family:'Jost', sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--contrast); text-decoration:none; border-bottom:1px solid rgba(74,124,155,0.3); padding-bottom:2px; transition:color 0.2s, border-color 0.2s; }
-  .rec-source:hover { color:var(--primary); border-color:var(--primary); }
+  .rec-city { margin-bottom:70px; scroll-margin-top:64px; }
+  .rec-city-name { font-family:'Playfair Display', serif; font-size:clamp(1.9rem,4.5vw,2.7rem); font-style:italic; font-weight:400; color:var(--deep); }
+  .rec-city-sub { font-family:'Cormorant Garamond', serif; font-size:1.08rem; font-style:italic; color:var(--mid); margin-top:6px; }
 
-  .rec-cat { font-family:'Jost', sans-serif; font-weight:200; font-size:0.74rem; letter-spacing:0.34em; text-transform:uppercase; color:var(--contrast-dk); margin:38px 0 16px; padding-bottom:9px; border-bottom:1px solid rgba(168,200,218,0.5); }
-  .rec-cat-note { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1rem; color:var(--light-mid); margin:-6px 0 18px; }
+  .cat-jump { display:flex; flex-wrap:wrap; gap:8px 10px; margin:18px 0 28px; padding-top:16px; border-top:1px solid var(--contrast-lt); }
+  .cat-jump a { font-family:'Jost', sans-serif; font-weight:400; font-size:0.66rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--contrast-dk); text-decoration:none; padding:6px 13px; border:1px solid rgba(74,124,155,0.25); border-radius:20px; transition:background 0.2s, color 0.2s, border-color 0.2s; }
+  .cat-jump a:hover { color:#fff; background:var(--contrast); border-color:var(--contrast); }
+
+  .rec-block { background:rgba(255,255,255,0.55); border:1px solid rgba(74,124,155,0.12); border-left:3px solid var(--primary-lt); border-radius:10px; padding:22px 24px 12px; margin-bottom:16px; scroll-margin-top:72px; }
+  .rec-cat { display:flex; align-items:center; gap:13px; font-family:'Jost', sans-serif; font-weight:400; font-size:0.8rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--primary-dk); margin-bottom:16px; }
+  .rec-cat::before { content:''; flex:0 0 auto; width:22px; height:2px; background:var(--primary); }
+  .rec-cat-note { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1rem; color:var(--light-mid); margin:-6px 0 16px; }
 
   .spot-list { list-style:none; }
   .spot { padding:13px 0; border-bottom:1px solid rgba(74,124,155,0.1); }
@@ -57,9 +61,12 @@
   .spot-desc { font-family:'Jost', sans-serif; font-weight:300; font-size:0.85rem; color:var(--mid); line-height:1.65; margin-top:4px; }
   .spot-hours { font-family:'Jost', sans-serif; font-weight:300; font-size:0.74rem; color:var(--contrast-dk); margin-top:5px; }
 
-  .name-grid { display:flex; flex-wrap:wrap; gap:8px 10px; margin-top:4px; }
-  .name-chip { display:inline-block; font-family:'Jost', sans-serif; font-weight:300; font-size:0.82rem; letter-spacing:0.02em; color:var(--deep); background:rgba(255,255,255,0.65); border:1px solid rgba(74,124,155,0.14); border-left:3px solid var(--primary); padding:8px 14px; text-decoration:none; transition:background 0.2s, color 0.2s, border-color 0.2s; }
-  a.name-chip:hover { background:#fff; color:var(--primary-dk); border-color:rgba(184,150,90,0.5); border-left-color:var(--primary); }
+  .name-grid { display:flex; flex-wrap:wrap; gap:8px 10px; }
+  .name-chip { display:inline-block; font-family:'Jost', sans-serif; font-weight:300; font-size:0.82rem; letter-spacing:0.02em; color:var(--deep); background:#fff; border:1px solid rgba(74,124,155,0.14); border-left:3px solid var(--primary); padding:8px 14px; border-radius:4px; text-decoration:none; transition:background 0.2s, color 0.2s, border-color 0.2s; }
+  a.name-chip:hover { background:var(--bg2); color:var(--primary-dk); border-color:rgba(184,150,90,0.5); border-left-color:var(--primary); }
+
+  .rec-source { display:inline-block; margin-top:14px; font-family:'Jost', sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--contrast); text-decoration:none; border-bottom:1px solid rgba(74,124,155,0.3); padding-bottom:2px; transition:color 0.2s, border-color 0.2s; }
+  .rec-source:hover { color:var(--primary); border-color:var(--primary); }
 
   .footer-mini { text-align:center; padding:30px 20px 60px; }
   .footer-mini p { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1rem; color:var(--light-mid); }
@@ -68,7 +75,7 @@
 <body>
 
 <div class="page-header">
-  <p class="page-eyebrow">Cannes Lions 2026 &middot; Where to Go</p>
+  <p class="page-eyebrow">Cannes Lions 2026 · Where to Go</p>
   <h1 class="page-title">Recommendations</h1>
   <p class="page-sub">Beach clubs, tables, cocktails, and late nights across the Riviera</p>
   <a class="page-back" href="index.html">&larr; Back to confirmations</a>
@@ -85,11 +92,14 @@
 
 <div class="recs-wrapper">
 
-  <!-- ============ ANTIBES ============ -->
   <section class="rec-city" id="antibes">
     <h2 class="rec-city-name">Antibes &amp; Juan-les-Pins</h2>
     <p class="rec-city-sub">Where to drink and go out, from our Jetstream guide</p>
-
+    <div class="cat-jump">
+      <a href="#ant-cocktails">Cocktails</a>
+      <a href="#ant-latenight">Late Night</a>
+    </div>
+  <div class="rec-block" id="ant-cocktails">
     <div class="rec-cat">Afternoon Cocktails</div>
     <ul class="spot-list">
       <li class="spot">
@@ -98,17 +108,18 @@
         <div class="spot-hours">Open daily, noon to 1:00am</div>
       </li>
       <li class="spot">
-        <div class="spot-name"><a href="https://www.bellesrives.com/en/the-fitzgerald-bar.html" target="_blank">Bar Fitzgerald at H&ocirc;tel Belles Rives</a></div>
+        <div class="spot-name"><a href="https://www.bellesrives.com/en/the-fitzgerald-bar.html" target="_blank">Bar Fitzgerald at Hôtel Belles Rives</a></div>
         <div class="spot-desc">Where F. Scott Fitzgerald lived and wrote. Art Deco glamour right on the water.</div>
         <div class="spot-hours">Closes at 11:00pm</div>
       </li>
       <li class="spot">
-        <div class="spot-name"><a href="https://plagelajetee.com" target="_blank">Plage la Jet&eacute;e</a></div>
+        <div class="spot-name"><a href="https://plagelajetee.com" target="_blank">Plage la Jetée</a></div>
         <div class="spot-desc">Beach bar with feet-in-the-sand cocktails on the Juan-les-Pins waterfront.</div>
         <div class="spot-hours">Closes at 6:00pm</div>
       </li>
     </ul>
-
+  </div>
+  <div class="rec-block" id="ant-latenight">
     <div class="rec-cat">After Dinner &amp; Late Night</div>
     <ul class="spot-list">
       <li class="spot">
@@ -128,7 +139,7 @@
       </li>
       <li class="spot">
         <div class="spot-name">Le Village</div>
-        <div class="spot-desc">The proper club. Fri/Sat only with a real door policy (no shorts, no sneakers for guys). &euro;20 entry includes a drink.</div>
+        <div class="spot-desc">The proper club. Fri/Sat only with a real door policy (no shorts, no sneakers for guys). €20 entry includes a drink.</div>
         <div class="spot-hours">Fri to Sat, midnight to 5:00am</div>
       </li>
       <li class="spot">
@@ -139,16 +150,24 @@
       <li class="spot">
         <div class="spot-name"><a href="https://www.facebook.com/LaSuiteWineBar/" target="_blank">La Suite Wine Bar</a></div>
         <div class="spot-desc">For an actual nightcap with grown-up energy. Wine-forward, low-key, and the right way to end a night.</div>
-        <div class="spot-hours">Mon to Sat, 6:30pm to 12:30am &middot; Closed Sunday</div>
+        <div class="spot-hours">Mon to Sat, 6:30pm to 12:30am · Closed Sunday</div>
       </li>
     </ul>
+  </div>
   </section>
 
-  <!-- ============ ST TROPEZ ============ -->
   <section class="rec-city" id="st-tropez">
     <h2 class="rec-city-name">Saint-Tropez</h2>
     <p class="rec-city-sub">The 2026 guide from The Nightfall Group</p>
-
+    <div class="cat-jump">
+      <a href="#st-beach">Beach Clubs</a>
+      <a href="#st-dinner">Dinner</a>
+      <a href="#st-hidden">Hidden Spots</a>
+      <a href="#st-breakfast">Breakfast</a>
+      <a href="#st-sunset">Sunset</a>
+      <a href="#st-latenight">Late Night</a>
+    </div>
+  <div class="rec-block" id="st-beach">
     <div class="rec-cat">Best Beach Clubs</div>
     <div class="name-grid">
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Club+55+Saint-Tropez" target="_blank">Club 55</a>
@@ -158,33 +177,15 @@
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Shellona+Saint-Tropez" target="_blank">Shellona</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Casa+Amor+Saint-Tropez" target="_blank">Casa Amor</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Jardin+Tropezina+Saint-Tropez" target="_blank">Jardin Tropezina</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=%C3%89pi+Baie+de+Pampelonne+Saint-Tropez" target="_blank">&Eacute;pi Baie de Pampelonne</a>
+      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=%C3%89pi+Baie+de+Pampelonne+Saint-Tropez" target="_blank">Épi Baie de Pampelonne</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Moorea+Saint-Tropez" target="_blank">Moorea</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Nikki+Beach+Saint-Tropez" target="_blank">Nikki Beach</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=La+Sauvageonne+Saint-Tropez" target="_blank">La Sauvageonne</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Playa+Amigos+Saint-Tropez" target="_blank">Playa Amigos</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Salto+Saint-Tropez" target="_blank">Salto (coming soon)</a>
     </div>
-
-    <div class="rec-cat">Best Hotels &middot; Luxury</div>
-    <div class="name-grid">
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Cheval+Blanc+Saint-Tropez" target="_blank">Cheval Blanc</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=La+R%C3%A9serve+Saint-Tropez" target="_blank">La R&eacute;serve</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Ch%C3%A2teau+de+la+Messardi%C3%A8re+Saint-Tropez" target="_blank">Ch&acirc;teau de la Messardi&egrave;re</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Lannier+Saint-Tropez" target="_blank">Lannier</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Villa+Belrose+Saint-Tropez" target="_blank">Villa Belrose</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Hotel+Sezz+Saint-Tropez" target="_blank">Hotel Sezz</a>
-    </div>
-
-    <div class="rec-cat">Best Hotels &middot; Boutique</div>
-    <div class="name-grid">
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Lily+of+the+Valley+Saint-Tropez" target="_blank">Lily of the Valley</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Lou+Pinet+Saint-Tropez" target="_blank">Lou Pinet</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Villa+Marie+Saint-Tropez" target="_blank">Villa Marie</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Airelles+Pan+Dei+Palais+Saint-Tropez" target="_blank">Airelles Pan Dei Palais</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Arev+Saint-Tropez" target="_blank">Arev</a>
-    </div>
-
+  </div>
+  <div class="rec-block" id="st-dinner">
     <div class="rec-cat">Classic Dinner Spots</div>
     <div class="name-grid">
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Cipriani+Saint-Tropez" target="_blank">Cipriani</a>
@@ -199,8 +200,9 @@
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Gaio+Saint-Tropez" target="_blank">Gaio</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Nobu+Saint-Tropez" target="_blank">Nobu</a>
     </div>
-
-    <div class="rec-cat">Hidden Spots &middot; Not Your Typical Dinner</div>
+  </div>
+  <div class="rec-block" id="st-hidden">
+    <div class="rec-cat">Hidden Spots · Not Your Typical Dinner</div>
     <div class="name-grid">
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Gaio+Saint-Tropez" target="_blank">Gaio</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Villa+Azur+Saint-Tropez" target="_blank">Villa Azur</a>
@@ -213,20 +215,22 @@
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=La+Forge+Saint-Tropez" target="_blank">La Forge</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Les+Moulins+Saint-Tropez" target="_blank">Les Moulins</a>
     </div>
-
-    <div class="rec-cat">Breakfast &amp; Caf&eacute;s</div>
+  </div>
+  <div class="rec-block" id="st-breakfast">
+    <div class="rec-cat">Breakfast &amp; Cafés</div>
     <div class="name-grid">
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=S%C3%A9n%C3%A9quier+Saint-Tropez" target="_blank">S&eacute;n&eacute;quier</a>
+      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=S%C3%A9n%C3%A9quier+Saint-Tropez" target="_blank">Sénéquier</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Dior+des+Lices+Saint-Tropez" target="_blank">Dior des Lices</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Cedric+Grolet+Saint-Tropez" target="_blank">Cedric Grolet</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Mame+Saint-Tropez" target="_blank">Mame</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=La+Table+Trop%C3%A9zienne+Saint-Tropez" target="_blank">La Table Trop&eacute;zienne</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=H%C3%B4tel+La+Ponche+Saint-Tropez" target="_blank">H&ocirc;tel La Ponche</a>
-      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+des+Arts+Saint-Tropez" target="_blank">Caf&eacute; des Arts</a>
+      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=La+Table+Trop%C3%A9zienne+Saint-Tropez" target="_blank">La Table Tropézienne</a>
+      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=H%C3%B4tel+La+Ponche+Saint-Tropez" target="_blank">Hôtel La Ponche</a>
+      <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9+des+Arts+Saint-Tropez" target="_blank">Café des Arts</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Les+Terrasses+Saint-Tropez" target="_blank">Les Terrasses</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Bar+le+Gorille+Saint-Tropez" target="_blank">Bar le Gorille</a>
     </div>
-
+  </div>
+  <div class="rec-block" id="st-sunset">
     <div class="rec-cat">Sunset &amp; Before Dark</div>
     <div class="name-grid">
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Gigi+Rigolatto+Saint-Tropez" target="_blank">Gigi Rigolatto</a>
@@ -239,7 +243,8 @@
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=Club+l%27Indochine+Saint-Tropez" target="_blank">Club l'Indochine</a>
       <a class="name-chip" href="https://www.google.com/maps/search/?api=1&query=La+Palmarie+Saint-Tropez" target="_blank">La Palmarie</a>
     </div>
-
+  </div>
+  <div class="rec-block" id="st-latenight">
     <div class="rec-cat">Late Night</div>
     <ul class="spot-list">
       <li class="spot">
@@ -247,112 +252,121 @@
         <div class="spot-desc">The club in the space that was once the legendary VIP Room. The late-night spot when you want to keep going.</div>
       </li>
     </ul>
-
-    <p class="rec-cat-note" style="margin-top:24px;">A couple of these have changed hands recently (locals note Cucina is now Zuma), so call ahead before you set your heart on one.</p>
-    <a class="rec-source" href="https://www.instagram.com/p/DYpUblbDh5s/" target="_blank">Source &middot; The Nightfall Group on Instagram &rarr;</a>
+  </div>
+    <p class="rec-cat-note" style="margin-top:6px;">A couple of these have changed hands recently (locals note Cucina is now Zuma), so call ahead before you set your heart on one.</p>
+    <a class="rec-source" href="https://www.instagram.com/p/DYpUblbDh5s/" target="_blank">Source · The Nightfall Group on Instagram &rarr;</a>
   </section>
 
-  <!-- ============ CANNES ============ -->
   <section class="rec-city" id="cannes">
     <h2 class="rec-city-name">Cannes</h2>
     <p class="rec-city-sub">A few picks for the festival week, curated for us</p>
-
+    <div class="cat-jump">
+      <a href="#can-dinner">Dinner</a>
+      <a href="#can-cocktails">Cocktails</a>
+      <a href="#can-latenight">Late Night</a>
+      <a href="#can-worldcup">World Cup</a>
+    </div>
+  <div class="rec-block" id="can-dinner">
     <div class="rec-cat">Dinner</div>
     <ul class="spot-list">
       <li class="spot">
-        <div class="spot-name">La Palme d'Or</div>
-        <div class="spot-desc">Two Michelin stars inside H&ocirc;tel Martinez, with a bay-view terrace. The special-occasion table on the Croisette. Book well ahead.</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=La+Palme+d%27Or+Cannes" target="_blank">La Palme d'Or</a></div>
+        <div class="spot-desc">Two Michelin stars inside Hôtel Martinez, with a bay-view terrace. The special-occasion table on the Croisette. Book well ahead.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Da Laura</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Da+Laura+Cannes" target="_blank">Da Laura</a></div>
         <div class="spot-desc">The cult Italian everyone lines up for. No reservations, generous plates, worth the wait.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Astoux et Brun</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Astoux+et+Brun+Cannes" target="_blank">Astoux et Brun</a></div>
         <div class="spot-desc">The classic seafood institution near the old port. Towering plateaux de fruits de mer, open late, always buzzing.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">La M&ocirc;me</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=La+M%C3%B4me+Cannes" target="_blank">La Môme</a></div>
         <div class="spot-desc">Mediterranean plates and a see-and-be-seen crowd. Peak festival-week energy.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Vesuvio</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Vesuvio+Cannes" target="_blank">Vesuvio</a></div>
         <div class="spot-desc">The Croisette pizza and Italian institution. Reliable, lively, and open late.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Le Park 45</div>
-        <div class="spot-desc">Refined dining at the Grand H&ocirc;tel with a garden terrace set back from the boulevard.</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Le+Park+45+Cannes" target="_blank">Le Park 45</a></div>
+        <div class="spot-desc">Refined dining at the Grand Hôtel with a garden terrace set back from the boulevard.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Bobo Bistro</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Bobo+Bistro+Cannes" target="_blank">Bobo Bistro</a></div>
         <div class="spot-desc">Trendy, low-lit bistro up in Le Suquet. Great for a lively group dinner in the old town.</div>
       </li>
     </ul>
-
+  </div>
+  <div class="rec-block" id="can-cocktails">
     <div class="rec-cat">Cocktails &amp; Rooftops</div>
     <ul class="spot-list">
       <li class="spot">
-        <div class="spot-name">Le Panorama at JW Marriott</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Le+Panorama+at+JW+Marriott+Cannes" target="_blank">Le Panorama at JW Marriott</a></div>
         <div class="spot-desc">360-degree rooftop over the sea and the hills, reopening for summer 2026. The view drink.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">La Californie at H&ocirc;tel Martinez</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=La+Californie+at+H%C3%B4tel+Martinez+Cannes" target="_blank">La Californie at Hôtel Martinez</a></div>
         <div class="spot-desc">Chic and exclusive, with sweeping Croisette and sea views. Dress the part.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Le Roof at Five Seas Hotel</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Le+Roof+at+Five+Seas+Hotel+Cannes" target="_blank">Le Roof at Five Seas Hotel</a></div>
         <div class="spot-desc">Sleek rooftop with a pool and a stylish crowd. A sophisticated pre-dinner drink.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Sky Lounge at Radisson Blu 1835</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Sky+Lounge+at+Radisson+Blu+1835+Cannes" target="_blank">Sky Lounge at Radisson Blu 1835</a></div>
         <div class="spot-desc">Sweeping views over the bay and the old port. An easy, less fussy rooftop option.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">L'Amiral at H&ocirc;tel Martinez</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=L%27Amiral+at+H%C3%B4tel+Martinez+Cannes" target="_blank">L'Amiral at Hôtel Martinez</a></div>
         <div class="spot-desc">The classic piano bar. Proper cocktails, live music, old-Riviera glamour.</div>
       </li>
     </ul>
-
+  </div>
+  <div class="rec-block" id="can-latenight">
     <div class="rec-cat">Late Night</div>
     <ul class="spot-list">
       <li class="spot">
-        <div class="spot-name">Le B&acirc;oli</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Le+B%C3%A2oli+Cannes" target="_blank">Le Bâoli</a></div>
         <div class="spot-desc">The legendary dinner-into-club on Port Canto. Starts as a restaurant, ends as the night out.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Gotha Club</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Gotha+Club+Cannes" target="_blank">Gotha Club</a></div>
         <div class="spot-desc">The big-name nightclub when you want a proper late one. Festival pop-ups and DJs.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">La Folie Douce Cannes</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=La+Folie+Douce+Cannes" target="_blank">La Folie Douce Cannes</a></div>
         <div class="spot-desc">High-energy party with performers and a champagne-soaked crowd. Goes from afternoon to late.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Jimmy'z</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Jimmy%27z+Cannes" target="_blank">Jimmy'z</a></div>
         <div class="spot-desc">A polished club option for dancing without the chaos.</div>
       </li>
     </ul>
-
+  </div>
+  <div class="rec-block" id="can-worldcup">
     <div class="rec-cat">Where to Watch the World Cup</div>
     <p class="rec-cat-note">The 2026 World Cup runs through festival week, so matches will be on during our stay. These pubs put it on the big screens.</p>
     <ul class="spot-list">
       <li class="spot">
-        <div class="spot-name">Morrison's Irish Pub</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Morrison%27s+Irish+Pub+Cannes" target="_blank">Morrison's Irish Pub</a></div>
         <div class="spot-desc">The original Cannes pub, central, with six screens for every match. Live music most nights too.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">The Quays</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=The+Quays+Cannes" target="_blank">The Quays</a></div>
         <div class="spot-desc">On the old port, big screens, a classic spot to watch football with a Guinness.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Ma Nolan's</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Ma+Nolan%27s+Cannes" target="_blank">Ma Nolan's</a></div>
         <div class="spot-desc">Irish pub with live sport, food, and a reliably loud match-day crowd.</div>
       </li>
       <li class="spot">
-        <div class="spot-name">Station Tavern &amp; Parry's Pub</div>
+        <div class="spot-name"><a href="https://www.google.com/maps/search/?api=1&query=Station+Tavern+Cannes" target="_blank">Station Tavern</a> &amp; <a href="https://www.google.com/maps/search/?api=1&query=Parry%27s+Pub+Cannes" target="_blank">Parry's Pub</a></div>
         <div class="spot-desc">Two no-frills pubs by the train station that screen the big matches. Good backup if the Croisette spots are packed.</div>
       </li>
     </ul>
+  </div>
   </section>
 
 </div>
