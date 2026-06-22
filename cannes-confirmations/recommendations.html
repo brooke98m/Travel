@@ -68,6 +68,40 @@
   .rec-source { display:inline-block; margin-top:14px; font-family:'Jost', sans-serif; font-weight:300; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--contrast); text-decoration:none; border-bottom:1px solid rgba(74,124,155,0.3); padding-bottom:2px; transition:color 0.2s, border-color 0.2s; }
   .rec-source:hover { color:var(--primary); border-color:var(--primary); }
 
+  .conf-date-group { margin-bottom:50px; scroll-margin-top:70px; }
+  .conf-date { font-family:'Jost', sans-serif; font-weight:200; font-size:0.78rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--contrast-dk); padding-bottom:10px; border-bottom:1px solid var(--contrast-lt); margin-bottom:18px; }
+
+  details.conf-card { background:rgba(255,255,255,0.6); border:1px solid rgba(74,124,155,0.12); margin-bottom:10px; }
+  details.conf-card[open] { background:rgba(255,255,255,0.85); }
+  details.conf-card.confirmed { border-left:3px solid var(--primary); }
+  details.conf-card.pending { border-left:3px solid var(--contrast-lt); }
+
+  summary.conf-summary { padding:18px 24px; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  summary.conf-summary::-webkit-details-marker { display:none; }
+  summary.conf-summary::after { content:'\25BC'; font-size:0.6rem; color:var(--light-mid); transition:transform 0.2s; flex-shrink:0; }
+  details.conf-card[open] summary.conf-summary::after { transform:rotate(180deg); }
+
+  .conf-summary-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .conf-venue { font-family:'Playfair Display', serif; font-size:1.1rem; color:var(--deep); font-style:italic; }
+  .conf-time-badge { font-family:'Jost', sans-serif; font-weight:300; font-size:0.78rem; color:var(--contrast-dk); }
+  .conf-party { font-family:'Jost', sans-serif; font-weight:300; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:3px 9px; border-radius:20px; background:rgba(184,150,90,0.16); color:var(--primary-dk); white-space:nowrap; }
+  .conf-status { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; padding:3px 9px; border-radius:20px; font-family:'Jost', sans-serif; font-weight:300; white-space:nowrap; }
+  .status-booked { background:rgba(90,140,90,0.15); color:#4A7A4A; }
+  .status-pending { background:rgba(158,170,180,0.15); color:var(--light-mid); }
+  .status-info { background:rgba(74,124,155,0.15); color:var(--contrast-dk); }
+
+  .conf-body { padding:0 24px 20px; }
+  .conf-details { font-family:'Jost', sans-serif; font-weight:300; font-size:0.85rem; color:var(--mid); line-height:1.7; }
+  .conf-details strong { font-weight:400; color:var(--deep); }
+  .conf-email-link { display:inline-block; margin-top:12px; font-family:'Jost', sans-serif; font-weight:300; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--contrast); text-decoration:none; border-bottom:1px solid rgba(74,124,155,0.3); padding-bottom:2px; transition:color 0.2s, border-color 0.2s; }
+  .conf-email-link:hover { color:var(--primary); border-color:var(--primary); }
+
+  @media (max-width:680px) {
+    summary.conf-summary { flex-direction:column; align-items:flex-start; gap:8px; }
+    summary.conf-summary::after { position:absolute; right:20px; top:22px; }
+    details.conf-card { position:relative; }
+  }
+
   .footer-mini { text-align:center; padding:30px 20px 60px; }
   .footer-mini p { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1rem; color:var(--light-mid); }
 </style>
@@ -83,6 +117,7 @@
 
 <nav class="daynav">
   <div class="daynav-inner">
+    <a href="#st-plans">Our Plans</a>
     <a href="#antibes">Antibes</a>
     <a href="#st-tropez">St Tropez</a>
     <a href="#cannes">Cannes</a>
@@ -91,6 +126,189 @@
 </nav>
 
 <div class="recs-wrapper">
+
+  <section class="rec-city" id="st-plans">
+    <h2 class="rec-city-name">Saint-Tropez Plans</h2>
+    <p class="rec-city-sub">Our booked tables and beach clubs, June 15 to 21</p>
+  <!-- ============ MON JUN 15 ============ -->
+  <div class="conf-date-group" id="jun15">
+    <div class="conf-date">Monday, June 15 &middot; Antibes</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Baba Antibes</div>
+          <div class="conf-time-badge">1:00pm</div>
+          <span class="conf-party">party of 2</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Lunch</strong> &middot; party of 2 &middot; card guarantee on file<br><strong>Where:</strong> 10 Boulevard Mar&eacute;chal Juin, 06160 Antibes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec7821f1e4758c" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ WED JUN 17 ============ -->
+  <div class="conf-date-group" id="jun17">
+    <div class="conf-date">Wednesday, June 17 &middot; St Tropez</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Playamigos Ramatuelle</div>
+          <div class="conf-time-badge">3:15pm</div>
+          <span class="conf-party">party of 2</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach club</strong> &middot; party of 2<br>Confirmation #92CKDD3T5TWU<br><strong>Where:</strong> Chemin des Tamaris, Plage de Pampelonne, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19ec77d990ab4936" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ THU JUN 18 ============ -->
+  <div class="conf-date-group" id="jun18">
+    <div class="conf-date">Thursday, June 18 &middot; St Tropez</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Jardin Tropezina</div>
+          <div class="conf-time-badge">12:15pm</div>
+          <span class="conf-party">party of 3</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach lunch</strong> &middot; party of 3 &middot; 12:15pm to 2:00pm<br>Confirmation #5XMBJW34X3LR<br><strong>Where:</strong> 4 Route du Pinet, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e5aab9e34a04bb" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Zuma Saint-Tropez</div>
+          <div class="conf-time-badge">8:15pm</div>
+          <span class="conf-party">party of 3</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Main Restaurant</strong> &middot; party of 3 &middot; 8:15pm to 10:15pm<br>Confirmation #3E43L87Z4926<br><strong>Where:</strong> 25 Avenue du Mar&eacute;chal Foch, 83990 Saint-Tropez</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e8d3b448e2511d" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ FRI JUN 19 ============ -->
+  <div class="conf-date-group" id="jun19">
+    <div class="conf-date">Friday, June 19 &middot; St Tropez</div>
+
+    <details class="conf-card pending">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Casa Amor Saint-Tropez</div>
+          <div class="conf-time-badge">2:00pm</div>
+          <span class="conf-party">party of 4</span>
+        </div>
+        <span class="conf-status status-pending">requested</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Request submitted</strong> &middot; party of 4 &middot; 2:00pm to 4:00pm<br>Not yet confirmed by the venue<br><strong>Where:</strong> Chemin de Matarane, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e8d3c7ec32d458" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ SAT JUN 20 ============ -->
+  <div class="conf-date-group" id="jun20">
+    <div class="conf-date">Saturday, June 20 &middot; St Tropez</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Verde Beach</div>
+          <div class="conf-time-badge">12:00pm</div>
+          <span class="conf-party">party of 3</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach lunch</strong> &middot; party of 3<br><strong>Where:</strong> 149 Chemin de l'EPI, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e8dc465c922667" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Nikki Beach Saint Tropez</div>
+          <div class="conf-time-badge">12:00pm</div>
+          <span class="conf-party">party of 3</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Bed by the Pool</strong> &middot; party of 3<br>Confirmation #4RLNRJ33RYZP<br><strong>Where:</strong> 1093 Chemin de l'EPI, 83350 Ramatuelle</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e56cd087abbb96" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ SUN JUN 21 ============ -->
+  <div class="conf-date-group" id="jun21">
+    <div class="conf-date">Sunday, June 21 &middot; St Tropez to Cannes</div>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Plage Belle Plage</div>
+          <div class="conf-time-badge">12:00pm &middot; Cannes</div>
+          <span class="conf-party">party of 4</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Beach lunch</strong> &middot; party of 4<br><strong>Where:</strong> 31 Boulevard du Midi Jean Hibert, 06400 Cannes</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e1cd23ccbd5ca2" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">La Petite Plage Saint-Tropez</div>
+          <div class="conf-time-badge">12:30pm &middot; St Tropez</div>
+          <span class="conf-party">party of 3</span>
+        </div>
+        <span class="conf-status status-booked">reserved</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details"><strong>Lunch</strong> &middot; party of 3<br><strong>Where:</strong> 9 Quai Jean Jaur&egrave;s, 83990 Saint-Tropez</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19e83c632abae1b5" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+
+    <details class="conf-card confirmed">
+      <summary class="conf-summary">
+        <div class="conf-summary-left">
+          <div class="conf-venue">Digital Culture Group Dinner</div>
+          <div class="conf-time-badge">6:30pm &middot; Cannes</div>
+        </div>
+        <span class="conf-status status-booked">RSVP'd</span>
+      </summary>
+      <div class="conf-body">
+        <div class="conf-details">Dinner with Crystal Foote and the Digital Culture Group &middot; 6:30 to 8:30pm CEST (12:30 to 2:30pm EDT)<br><strong>Where:</strong> 6 Chem. des Carraires, 06400 Cannes (location updated)</div>
+        <a class="conf-email-link" href="https://mail.google.com/mail/u/0/#all/19eea49f33ed8a3c" target="_blank">Open confirmation email &rarr;</a>
+      </div>
+    </details>
+  </div>
+  </section>
 
   <section class="rec-city" id="antibes">
     <h2 class="rec-city-name">Antibes &amp; Juan-les-Pins</h2>
