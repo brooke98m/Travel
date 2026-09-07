@@ -246,6 +246,21 @@
     pointer-events: none;
   }
   .pin.dance text.num { fill: var(--rose-ink); }
+  .pin text.lbl {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: .02em;
+    fill: var(--text-2);
+    dominant-baseline: middle;
+    paint-order: stroke fill;
+    stroke: var(--map-bg);
+    stroke-width: 3.5px;
+    stroke-linejoin: round;
+    transition: fill .16s ease;
+  }
+  .pin:hover text.lbl,
+  .pin:focus-visible text.lbl,
+  .pin.on text.lbl { fill: var(--text); }
   .pin:hover circle.body,
   .pin:focus-visible circle.body,
   .pin.on circle.body { fill: var(--amber); stroke-width: 2.4; }
@@ -502,7 +517,7 @@
     .clock { grid-template-columns: 1fr 1fr; }
     .tick { border-bottom: 1px solid var(--line-soft); }
     .legend { font-size: 10px; gap: 12px; }
-    svg.map { width: 780px; max-width: none; }
+    svg.map { width: 940px; max-width: none; }
   }
   @media (max-width: 560px) {
     .wrap { padding: 0 18px; }
@@ -555,20 +570,11 @@
           <path class="lm-mark" d="M232,414 L238,395 L244,414 M234,407 L242,407" />
           <text class="lm-text" x="238" y="430" text-anchor="middle">Eiffel</text>
 
-          <path class="lm-mark" d="M231,250 h21 v-13 h-21 z M236,250 v-8 M247,250 v-8" />
-          <text class="lm-text" x="241" y="266" text-anchor="middle">Étoile</text>
-
           <path class="lm-mark" d="M563,113 q10,-16 20,0 z M573,97 v-6" />
           <text class="lm-text" x="573" y="129" text-anchor="middle">Sacré-Coeur</text>
 
           <path class="lm-mark" d="M612,461 h16 M614,461 v-9 M626,461 v-9 M620,452 v-7" />
           <text class="lm-text" x="620" y="447" text-anchor="middle">Notre-Dame</text>
-
-          <path class="lm-mark" d="M484,264 h20 M486,264 v-10 M502,264 v-10 M494,254 q-8,-2 0,-8 q8,6 0,8" />
-          <text class="lm-text" x="494" y="280" text-anchor="middle">Opéra</text>
-
-          <path class="lm-mark" d="M420,581 h15 v-20 h-15 z" />
-          <text class="lm-text" x="428" y="597" text-anchor="middle">Montparnasse</text>
 
           <path class="lm-mark" d="M748,466 v-16 M744,450 h9" />
           <text class="lm-text" x="753" y="481" text-anchor="middle">Bastille</text>
@@ -808,91 +814,91 @@
   ];
 
   var PLACES = [
-    { n:1, cat:"views", name:"Perruche", addr:"Printemps Haussmann, 2 rue du Havre, 9e", x:461, y:241,
+    { n:1, cat:"views", name:"Perruche", addr:"Printemps Haussmann, 2 rue du Havre, 9e", x:461, y:241, lx:479, ly:245, an:"start",
       d:"Five hundred square metres of planted rooftop over the Grands Magasins, with the Opéra dome on one side and the Eiffel Tower on the other. The easiest big view in Paris to actually get into, and the food is better than it has to be.",
       w:"Open year round. Golden hour, 19:00 to 21:00. Ask for the terrace and not the interior when you book.", b:"Book ahead" },
 
-    { n:2, cat:"views", name:"Terraza Mikuna", addr:"BHV Marais, 1 rue des Archives, 4e", x:645, y:415,
+    { n:2, cat:"views", name:"Terraza Mikuna", addr:"BHV Marais, 1 rue des Archives, 4e", x:645, y:415, lx:663, ly:419, an:"start",
       d:"The BHV roof turned into a 300 square metre Peruvian terrace on the sixth and seventh floors. Ceviche, tiraditos and pisco, with a full turn over the Marais rooftops, the Hôtel de Ville and Notre-Dame.",
       w:"Seasonal, roughly April to October. Weekday sunset is the move. Weekends are full by 18:00.", b:"Book ahead" },
 
-    { n:3, cat:"views", name:"Skybar Paris", addr:"Pullman Montparnasse, 32nd floor, 14e", x:410, y:585,
+    { n:3, cat:"views", name:"Skybar Paris", addr:"Pullman Montparnasse, 32nd floor, 14e", x:410, y:585, lx:428, ly:589, an:"start",
       d:"The highest open-air bar in the city at 115 metres. Montparnasse has the best skyline in Paris for one reason, which is that it is the only view without the Montparnasse tower in it. Eiffel Tower dead centre.",
       w:"Late spring to early autumn for the open air. Arrive thirty minutes before sunset, which is about 21:50 in June and 20:00 in early September.", b:"Book ahead" },
 
-    { n:4, cat:"views", name:"Gigi", addr:"15 avenue Montaigne, 8e, 7th floor", x:282, y:336,
+    { n:4, cat:"views", name:"Gigi", addr:"15 avenue Montaigne, 8e, 7th floor", x:282, y:336, lx:264, ly:340, an:"end",
       d:"Paris Society's Italian on the roof of the 1913 Théâtre des Champs-Élysées, with the Eiffel Tower framed like someone placed it there. Riviera food, a Bellini bar, and live music that tips the room over around midnight.",
       w:"Book 21:00 or later if you want the second half of the evening. Terrace season is May to October, and Thursday to Saturday for the music.", b:"Book weeks ahead" },
 
-    { n:5, cat:"table", name:"Girafe", addr:"1 place du Trocadéro, 16e", x:197, y:363,
+    { n:5, cat:"table", name:"Girafe", addr:"1 place du Trocadéro, 16e", x:197, y:363, lx:215, ly:367, an:"start",
       d:"An art deco seafood room inside the Palais de Chaillot, so the Eiffel Tower fills the window rather than sitting off in the distance. Caviar, plateaux, marble and brass. The most photographed table in the city, deservedly.",
       w:"The 21:00 seating, and ask for a window. Winter reads better than summer because the tower carries harder against a dark sky. It sparkles for five minutes on every hour.", b:"Book weeks ahead" },
 
-    { n:6, cat:"table", name:"Lapérouse", addr:"51 quai des Grands Augustins, 6e", x:564, y:435,
+    { n:6, cat:"table", name:"Lapérouse", addr:"51 quai des Grands Augustins, 6e", x:564, y:435, lx:546, ly:439, an:"end",
       d:"Open since 1766, on the Seine, with private salons upstairs where the mirrors are scratched by women who were testing whether the jewellery they had just been given was real. Restored, gilded, and genuinely strange in the best way.",
       w:"Dinner at 20:30. Ask for a salon particulier when you book, not when you arrive. Winter suits the room.", b:"Book weeks ahead" },
 
-    { n:7, cat:"table", name:"Les Enfants du Marché", addr:"39 rue de Bretagne, 3e", x:707, y:358,
+    { n:7, cat:"table", name:"Les Enfants du Marché", addr:"39 rue de Bretagne, 3e", x:707, y:358, lx:725, ly:366, an:"start", short:"Enfants du Marché",
       d:"A standing counter inside the oldest covered market in Paris, run with a Japanese hand. Caviar tartelettes, karaage, whole fish, offal, natural wine. No reservations and no apology about the prices.",
       w:"Tuesday to Saturday 12:00 to 20:00, Sunday to 17:00, closed Monday. Go right at opening or around 17:00. Peak lunch is a scrum.", b:"Walk in only" },
 
-    { n:8, cat:"scene", name:"L'Avenue", addr:"41 avenue Montaigne, 8e", x:312, y:322,
+    { n:8, cat:"scene", name:"L'Avenue", addr:"41 avenue Montaigne, 8e", x:312, y:322, lx:330, ly:326, an:"start",
       d:"Costes group, on the corner of the most expensive shopping street in Paris. Nobody is here for the food. The terrace is the entire proposition and the people-watching is the menu.",
       w:"Lunch 13:00 to 15:00 for the fashion crowd, or a drink at 19:00. Unbookable during the collections.", b:"Book ahead" },
 
-    { n:9, cat:"scene", name:"Hôtel Costes", addr:"239 rue Saint-Honoré, 1er", x:471, y:312,
+    { n:9, cat:"scene", name:"Hôtel Costes", addr:"239 rue Saint-Honoré, 1er", x:471, y:312, lx:489, ly:316, an:"start",
       d:"The dark red Napoleon III courtyard that invented the sound of 2000s Paris. Low light, heavy curtains, the compilation playing, service that is famously unbothered. You are buying a mood and it is still intact.",
       w:"23:00 onward. Courtyard from May to September, the salons the rest of the year.", b:"Book ahead" },
 
-    { n:10, cat:"scene", name:"L'Arc", addr:"12 rue de Presbourg, 16e", x:231, y:246,
+    { n:10, cat:"scene", name:"L'Arc", addr:"12 rue de Presbourg, 16e", x:231, y:246, lx:249, ly:250, an:"start",
       d:"Restaurant into club, pressed against the Arc de Triomphe with a terrace looking straight at it. Dinner becomes a dance floor without anyone having to change rooms.",
       w:"Dinner 21:00, club from 00:30, Thursday to Saturday. Table service or a name on the list. Otherwise the door is a wall.", b:"Guest list or table" },
 
-    { n:11, cat:"scene", name:"Bonnie", addr:"SO/ Paris, 10 rue Agrippa d'Aubigné, 4e", x:710, y:484,
+    { n:11, cat:"scene", name:"Bonnie", addr:"SO/ Paris, 10 rue Agrippa d'Aubigné, 4e", x:710, y:484, lx:692, ly:488, an:"end",
       d:"The only fully glassed-in rooftop club in the city, on floors 15 and 16 of the Morland tower. Eiffel Tower, Panthéon and Notre-Dame all visible from one seat. Restaurant and bar below, disco above.",
       w:"Bar daily 11:00 to midnight. Club Wednesday to Saturday, 22:30 to 02:00, electro and sixties and seventies disco. Works in winter because it is under glass.", b:"Book ahead" },
 
-    { n:12, cat:"bar", name:"Pigalle", addr:"Quartier, 9e and 18e", x:534, y:154,
+    { n:12, cat:"bar", name:"Pigalle", addr:"Quartier, 9e and 18e", x:534, y:154, lx:516, ly:158, an:"end",
       d:"The old red-light district, now the best bar quartier in Paris. South Pigalle is six streets of cocktail rooms and late doors. Rue Frochot, rue Victor Massé and rue Henry Monnier are the spine of it.",
       w:"Start at 21:00 and let it run. Wednesday to Saturday. The good rooms fill after 23:00.", b:"Walk in" },
 
-    { n:13, cat:"bar", name:"Dirty Dick", addr:"10 rue Frochot, 9e", x:556, y:176,
+    { n:13, cat:"bar", name:"Dirty Dick", addr:"10 rue Frochot, 9e", x:556, y:176, lx:574, ly:180, an:"start",
       d:"A former hostess bar turned full tiki temple. Bamboo, puffer fish, rum served in vessels that are not glasses. Loud and funny, and the drinks are serious underneath the theatre.",
       w:"Opens around 18:00. Be there by 20:00 or it is standing room. Lulu White, two doors down, is the same team doing absinthe.", b:"Walk in" },
 
-    { n:14, cat:"bar", name:"Candelaria", addr:"52 rue de Saintonge, 3e", x:733, y:332,
+    { n:14, cat:"bar", name:"Candelaria", addr:"52 rue de Saintonge, 3e", x:733, y:332, lx:733, ly:312, an:"middle",
       d:"A nine-seat taqueria in front, then a door in the back wall into one of the best agave bars in Europe. Mezcal, tequila and the Guêpe Verte that every other bar in Paris has since copied.",
       w:"Tacos from 18:00, back bar until 02:00. Weeknights before 21:00 if you want a seat rather than a corner.", b:"Walk in" },
 
-    { n:15, cat:"dance", name:"Les Quais de Seine", addr:"Jardin Tino Rossi, quai Saint-Bernard, 5e", x:695, y:527,
+    { n:15, cat:"dance", name:"Les Quais de Seine", addr:"Jardin Tino Rossi, quai Saint-Bernard, 5e", x:695, y:527, lx:713, ly:531, an:"start", short:"Quais de Seine",
       d:"The best free thing in Paris. Stone amphitheatres cut into the riverbank, each running a different dance, and the Cuban salsa alvéole packed with people who are very good. Bring flat shoes and something to drink.",
       w:"Summer only, late June to the end of August. Sunday 18:00 to 23:00 for salsa cubana, and the Bal Latino most evenings 19:30 to 23:30 from July. Cancelled in rain.", b:"Free, walk in" },
 
-    { n:16, cat:"dance", name:"Cubana Café", addr:"47 rue Vavin, 6e", x:483, y:566,
+    { n:16, cat:"dance", name:"Cubana Café", addr:"47 rue Vavin, 6e", x:483, y:566, lx:501, ly:570, an:"start",
       d:"Thirty years old this year. Dark wood, cigar smoke, mojitos, half Havana bar and half neighbourhood restaurant, then a Latin club after 22:00 that does not stop.",
       w:"Salsa lesson on Tuesdays. DJs from 22:00. Open to 04:00 in the week and 05:00 at the weekend.", b:"Walk in" },
 
-    { n:17, cat:"dance", name:"Le Balajo", addr:"9 rue de Lappe, 11e", x:798, y:455,
+    { n:17, cat:"dance", name:"Le Balajo", addr:"9 rue de Lappe, 11e", x:798, y:455, lx:816, ly:459, an:"start",
       d:"A 1936 bal musette hall off Bastille with the original ceiling, where Piaf's Paris danced. It now runs a salsa, bachata and kizomba night in the same room.",
       w:"Thursday SBK night. Lesson early, social until late. Around 10 to 12 euros.", b:"Walk in" },
 
-    { n:18, cat:"dance", name:"La Pachanga", addr:"8 rue Vandamme, 14e", x:443, y:612,
+    { n:18, cat:"dance", name:"La Pachanga", addr:"8 rue Vandamme, 14e", x:443, y:612, lx:461, ly:616, an:"start",
       d:"The one that is an actual salsa club rather than a bar with a salsa night. Small, hot, open four nights a week, and the level on the floor is high enough to be worth travelling for.",
       w:"Tuesday through Friday, around 12 euros. Lessons before the social most nights.", b:"Walk in" },
 
-    { n:19, cat:"dance", name:"Vendôme Club", addr:"Opéra, 2e", x:486, y:278,
+    { n:19, cat:"dance", name:"Vendôme Club", addr:"Opéra, 2e", x:486, y:278, lx:468, ly:282, an:"end",
       d:"Sunday night casino and rueda de casino, the Cuban circle form where a caller shouts the moves and the whole floor rotates partners. If you love salsa, this is the room that will teach you something.",
       w:"Sundays, around 12 euros. Confirm the night on the organiser's page the week you are here, because it moves.", b:"Walk in" },
 
-    { n:20, cat:"dance", name:"Café Oz Grands Boulevards", addr:"Grands Boulevards, 9e", x:569, y:267,
+    { n:20, cat:"dance", name:"Café Oz Grands Boulevards", addr:"Grands Boulevards, 9e", x:569, y:267, lx:587, ly:271, an:"start", short:"Café Oz",
       d:"The big, loud, nearly free Sunday salsa. Not technical and not precious, several hundred people, and the easiest room in the city to walk into on your own and get dances all night.",
       w:"Sunday evenings. Free to about 10 euros.", b:"Walk in" },
 
-    { n:21, cat:"dance", name:"Ave Maria", addr:"1 rue Jean-Pierre Timbaud, 11e", x:817, y:328,
+    { n:21, cat:"dance", name:"Ave Maria", addr:"1 rue Jean-Pierre Timbaud, 11e", x:817, y:328, lx:835, ly:332, an:"start",
       d:"Tropical, tiny, decorated like a fever dream, cocktails in tin cups, Latin and Afro-Caribbean plates. No reservations, and by midnight people are dancing between the tables.",
       w:"Dinner from 19:30 or drinks after 23:00. Give your name and wait at the bar.", b:"Walk in" },
 
-    { n:22, cat:"dance", name:"La Java", addr:"105 rue du Faubourg du Temple, 10e", x:772, y:280,
+    { n:22, cat:"dance", name:"La Java", addr:"105 rue du Faubourg du Temple, 10e", x:772, y:280, lx:790, ly:284, an:"start",
       d:"The tiled basement dance hall where Piaf first sang, low and loud and sweaty, now running cumbia, tropical and Latin nights alongside everything else on the programme.",
       w:"Check the programme before you go. Latin nights land Friday and Saturday, doors around 23:30.", b:"Tickets online" }
   ];
@@ -973,7 +979,13 @@
     t.setAttribute("x", p.x); t.setAttribute("y", p.y + 0.5);
     t.textContent = String(p.n);
 
-    g.appendChild(hit); g.appendChild(body); g.appendChild(t);
+    var lb = document.createElementNS(SVGNS, "text");
+    lb.setAttribute("class", "lbl");
+    lb.setAttribute("x", p.lx); lb.setAttribute("y", p.ly);
+    lb.setAttribute("text-anchor", p.an);
+    lb.textContent = p.short || p.name;
+
+    g.appendChild(hit); g.appendChild(lb); g.appendChild(body); g.appendChild(t);
     pinLayer.appendChild(g);
     pinEls[p.n] = g;
 
@@ -1004,7 +1016,7 @@
   });
 
   var readout = document.getElementById("readout");
-  var restingReadout = "Hover a pin for the short version. Click it to jump to the entry.";
+  var restingReadout = "Hover a pin for hours and the best time. Click it to jump to the entry.";
   readout.innerHTML = restingReadout;
 
   /* ----- filters ----- */
