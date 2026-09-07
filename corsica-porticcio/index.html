@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corsica · 27 Sept – 1 Oct</title>
+<meta name="description" content="Four nights at Le Maquis, Porticcio, on the Gulf of Ajaccio. 27 September to 1 October 2026.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Crect width='32' height='32' fill='%23092B39'/%3E%3Ccircle cx='16' cy='13' r='5' fill='%23D9A521'/%3E%3Cpath d='M2 23c4-3 6 1 10-1s6 2 10-1' stroke='%2312556B' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M2 28c4-3 6 1 10-1s6 2 10-1' stroke='%2312556B' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gulf:#0E3F52;
+    --gulf-deep:#092B39;
+    --maquis:#3E5B48;
+    --granite:#B9AFA2;
+    --immortelle:#D9A521;
+    --paper:#FAF9F6;
+    --ink:#16232A;
+    --ink-soft:#54646C;
+    --rule:#DFDAD1;
+    --measure:66ch;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Karla",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--gulf-deep);
+    color:#EFEDE7;
+    padding:56px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero h1{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;
+    font-size:clamp(3.6rem,15vw,7rem);
+    line-height:.92;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+  .hero h1 em{font-style:italic;color:var(--immortelle);}
+  .dates{
+    font-size:1.05rem;
+    color:#9FB6BF;
+    margin:14px 0 0;
+    letter-spacing:.01em;
+  }
+  .hero .lede{
+    max-width:44ch;
+    margin:20px 0 40px;
+    color:#C6D4D9;
+    font-size:1.02rem;
+  }
+  .gulf{display:block;width:100%;height:auto;}
+
+  /* ---------- key facts ---------- */
+  .facts{
+    background:var(--gulf);
+    color:#E7EEF0;
+    padding:26px 0;
+  }
+  .facts dl{
+    margin:0;display:grid;gap:20px 32px;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  }
+  .facts dt{font-size:.82rem;color:#8FAAB4;margin-bottom:3px;}
+  .facts dd{margin:0;font-size:1.02rem;}
+  .facts a{color:#E7EEF0;}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0;}
+  h2{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;
+    font-size:2.1rem;
+    line-height:1.15;
+    margin:0 0 6px;
+  }
+  .sub{color:var(--ink-soft);margin:0 0 30px;max-width:var(--measure);}
+  p{max-width:var(--measure);}
+
+  /* ---------- days ---------- */
+  .day{
+    border-top:1px solid var(--rule);
+    padding:28px 0 30px;
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:24px;
+  }
+  .day:last-of-type{border-bottom:1px solid var(--rule);}
+  .daymark{position:relative;}
+  .daymark .dd{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:2.5rem;line-height:1;
+    display:block;
+  }
+  .daymark .wd{font-size:.85rem;color:var(--ink-soft);letter-spacing:.04em;}
+  .daymark .tag{
+    display:inline-block;margin-top:12px;
+    font-size:.74rem;line-height:1.4;
+    padding:3px 8px;border-radius:2px;
+    background:var(--band,var(--granite));
+    color:#fff;
+  }
+  .shape{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-size:1.45rem;line-height:1.3;
+    margin:0 0 16px;
+  }
+  ol.stops{list-style:none;margin:0;padding:0;}
+  ol.stops li{
+    display:grid;grid-template-columns:74px 1fr;gap:14px;
+    padding:11px 0;border-top:1px dotted var(--rule);
+  }
+  ol.stops li:first-child{border-top:none;}
+  .t{color:var(--ink-soft);font-size:.88rem;padding-top:2px;font-variant-numeric:tabular-nums;}
+  .n{font-weight:700;}
+  .n a{color:inherit;text-decoration-color:var(--granite);text-underline-offset:3px;}
+  .d{color:var(--ink-soft);font-size:.93rem;display:block;margin-top:2px;}
+  .flag{color:#8A4B1E;font-weight:500;}
+
+  /* ---------- lists ---------- */
+  ul.plain{list-style:none;margin:0;padding:0;max-width:var(--measure);}
+  ul.plain li{
+    padding:14px 0;border-top:1px solid var(--rule);
+    display:grid;grid-template-columns:22px 1fr;gap:12px;
+  }
+  ul.plain li:last-child{border-bottom:1px solid var(--rule);}
+  .box{
+    width:14px;height:14px;margin-top:6px;
+    border:1.5px solid var(--maquis);border-radius:2px;
+  }
+  ul.plain b{display:block;}
+  ul.plain span{color:var(--ink-soft);font-size:.93rem;}
+
+  .notes{background:#F0EEE7;padding:52px 0;}
+  .notes h3{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+    font-size:1.35rem;margin:26px 0 6px;
+  }
+  .notes h3:first-of-type{margin-top:0;}
+  .notes p{margin:0;color:#3C4B52;}
+
+  .numbers{padding:44px 0 60px;}
+  .numbers ul{list-style:none;margin:0;padding:0;
+    display:grid;gap:2px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+  .numbers li{padding:12px 0;border-top:1px solid var(--rule);}
+  .numbers b{display:block;font-size:.95rem;}
+  .numbers a{
+    font-family:"Instrument Serif",Georgia,serif;font-size:1.3rem;
+    color:var(--gulf);text-decoration:none;
+  }
+  .numbers a:hover{text-decoration:underline;}
+
+  footer{background:var(--gulf-deep);color:#7E97A1;padding:30px 0;font-size:.88rem;}
+
+  a:focus-visible,li:focus-visible{outline:2px solid var(--immortelle);outline-offset:3px;}
+
+  @media (max-width:560px){
+    body{font-size:16px;}
+    .wrap{padding:0 18px;}
+    .day{grid-template-columns:1fr;gap:10px;}
+    .daymark{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+    .daymark .dd{font-size:1.9rem;}
+    .daymark .tag{margin-top:0;}
+    ol.stops li{grid-template-columns:64px 1fr;gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Corsica<br><em>Porticcio</em></h1>
+    <p class="dates">Sunday 27 September – Thursday 1 October 2026</p>
+    <p class="lede">Four nights at Le Maquis, on the south shore of the Gulf of Ajaccio. Sea in the mornings, the city across the water at night.</p>
+  </div>
+  <svg class="gulf" viewBox="0 0 760 130" preserveAspectRatio="none" role="img" aria-label="The Gulf of Ajaccio, with Ajaccio on the north shore and Porticcio on the south, connected by the shuttle route">
+    <path d="M0,14 C90,10 150,26 232,30 C300,33 340,22 400,26 C470,31 540,20 620,16 C680,13 730,17 760,15 L760,0 L0,0 Z" fill="#12556B"/>
+    <path d="M0,128 C70,110 130,96 210,92 C300,88 350,100 430,96 C520,92 600,104 680,112 C716,116 740,122 760,126 L760,130 L0,130 Z" fill="#12556B"/>
+    <circle cx="252" cy="30" r="4.5" fill="#D9A521"/>
+    <text x="264" y="26" fill="#B7CBD3" font-family="Karla,sans-serif" font-size="12">Ajaccio</text>
+    <circle cx="470" cy="95" r="4.5" fill="#D9A521"/>
+    <text x="482" y="99" fill="#B7CBD3" font-family="Karla,sans-serif" font-size="12">Porticcio</text>
+    <path d="M470,95 C420,78 320,52 252,30" stroke="#D9A521" stroke-width="1.2" stroke-dasharray="4 5" fill="none" opacity=".8"/>
+    <text x="336" y="72" fill="#8FAAB4" font-family="Karla,sans-serif" font-size="11" transform="rotate(-19 336 72)">20 min by boat</text>
+  </svg>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <dl>
+      <div><dt>Staying at</dt><dd><a href="https://www.lemaquis.com/">Le Maquis</a>, Porticcio</dd></div>
+      <div><dt>Airport</dt><dd>Ajaccio Napoléon Bonaparte, 20 min</dd></div>
+      <div><dt>Getting to town</dt><dd>Maritime shuttle, €5 each way</dd></div>
+      <div><dt>Sea temperature</dt><dd>About 23°C / 74°F</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="wrap">
+  <h2>The shape of it</h2>
+  <p class="sub">Four nights, built around two fixed reservations and one boat. Monday is the big day and Tuesday is the big night, with a quiet stretch in between so the second one is enjoyable.</p>
+
+  <div class="day" style="--band:#7C8B93">
+    <div class="daymark"><span class="dd">27</span><span class="wd">Sunday</span><span class="tag">Arrive</span></div>
+    <div>
+      <p class="shape">Land, swim, eat close to home.</p>
+      <ol class="stops">
+        <li><span class="t">Afternoon</span><span><span class="n">Ajaccio airport → Le Maquis</span><span class="d">Collect the car, twenty minutes south around the gulf.</span></span></li>
+        <li><span class="t">4:00</span><span><span class="n">Settle in</span><span class="d">Swim off the hotel cove. Nothing else planned, deliberately.</span></span></li>
+        <li><span class="t">7:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+Bona+Stella+Porticcio">A Bona Stella</a> · booked</span><span class="d">Best food in Porticcio, owner-run, five minutes away. Two covers confirmed.</span></span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="day" style="--band:#12556B">
+    <div class="daymark"><span class="dd">28</span><span class="wd">Monday</span><span class="tag">Sea &amp; mountains</span></div>
+    <div>
+      <p class="shape">Out on the water first thing, then up the river valley for dinner.</p>
+      <ol class="stops">
+        <li><span class="t">9:00</span><span><span class="n">Half-day boat, off the hotel beach</span><span class="d">Saxdor 400 with skipper, four hours, €1,400. Morning because the water is glassiest before the afternoon breeze builds.</span></span></li>
+        <li><span class="t">Morning</span><span><span class="n">South toward Capo di Muro</span><span class="d">Ask for Cala d'Orzu and the creeks below Coti-Chiavari. No road reaches them, so no one else is there.</span></span></li>
+        <li><span class="t">1:00</span><span><span class="n">Back at the hotel</span><span class="d">Late lunch, then nothing at all.</span></span></li>
+        <li><span class="t">3:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Gorges+du+Prunelli+Tolla+Corsica">Gorges du Prunelli</a> · optional</span><span class="d">Forty-five minutes inland for red granite walls and the dam lake at Tolla. Skip it if the boat has finished you off.</span></span></li>
+        <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auberge+du+Prunelli+Bastelicaccia">Auberge du Prunelli</a></span><span class="d">Riverside terrace, suckling pig, sometimes live guitar. Twenty minutes inland, so <span class="flag">take a taxi both ways</span>. Closed Tuesdays, which is why it is tonight.</span></span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="day" style="--band:#1E2C4F">
+    <div class="daymark"><span class="dd">29</span><span class="wd">Tuesday</span><span class="tag">Across the water</span></div>
+    <div>
+      <p class="shape">An empty day on purpose, then the one proper night out.</p>
+      <ol class="stops">
+        <li><span class="t">Morning</span><span><span class="n">Beach, spa, nothing</span><span class="d">Saving yourselves. Tonight runs late.</span></span></li>
+        <li><span class="t">6:15</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Porticcio+embarcadere+navette+maritime">Maritime shuttle from Porticcio</a></span><span class="d">Five minutes up the coast from the hotel, then twenty across. <span class="flag">Buy two singles, not a return</span> — return tickets lock you to a sailing time.</span></span></li>
+        <li><span class="t">7:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Don+Ba+4+Rue+Letizia+Ajaccio">Le Don Ba'</a></span><span class="d">4 Rue Letizia, three minutes from the quay, down an alley behind Napoleon's birthplace. Bastien lived in New York, so English is easy.</span></span></li>
+        <li><span class="t">8:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Mostra+Ajaccio">La Mostra</a> · booked</span><span class="d">Small menu, and the octopus everyone talks about. Two covers confirmed.</span></span></li>
+        <li><span class="t">10:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=10+rue+des+Halles+Ajaccio">10 rue des Halles</a></span><span class="d">Live music until 2am, every night of the week. The one real dance floor on this side of the island.</span></span></li>
+        <li><span class="t">11:00</span><span><span class="n">Last boat, or stay out</span><span class="d">The 23:00 sailing, or a taxi round the bay. The singles are what buy you the choice.</span></span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="day" style="--band:#B07A2A">
+    <div class="daymark"><span class="dd">30</span><span class="wd">Wednesday</span><span class="tag">Sunset coast</span></div>
+    <div>
+      <p class="shape">The corniche west of the city, ending facing the islands.</p>
+      <ol class="stops">
+        <li><span class="t">Held</span><span><span class="n">Weather alternate for the boat</span><span class="d">If Monday blows out, everything below moves and the boat comes here instead.</span></span></li>
+        <li><span class="t">11:30</span><span><span class="n">Route des Sanguinaires</span><span class="d">Thirty-five minutes round the bay to the coast road west of Ajaccio.</span></span></li>
+        <li><span class="t">12:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Paillotte+du+Scudo+Ajaccio">Paillotte du Scudo</a></span><span class="d">On the sand, full bar, open from eight in the morning. Swim between courses.</span></span></li>
+        <li><span class="t">6:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Pointe+de+la+Parata+Ajaccio">Pointe de la Parata</a></span><span class="d">Genoese tower facing the blood-red islands. An 800m walk out. Sunset around 7:15.</span></span></li>
+        <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Week+End+restaurant+Ajaccio+Sanguinaires">Le Week End</a></span><span class="d">Right there facing the Sanguinaires. Ceviche and burrata are what people order.</span></span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="day" style="--band:#7C8B93">
+    <div class="daymark"><span class="dd">1</span><span class="wd">Thursday</span><span class="tag">Home</span></div>
+    <div>
+      <p class="shape">No rush. The airport is twenty minutes away.</p>
+      <ol class="stops">
+        <li><span class="t">Morning</span><span><span class="n">Breakfast on the terrace</span><span class="d">One last swim before you pack.</span></span></li>
+        <li><span class="t">Midday</span><span><span class="n">Drive to Ajaccio airport</span><span class="d">Twenty minutes from Porticcio.</span></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Still to confirm</h2>
+  <p class="sub">Everything here goes to Mathilda at the hotel, who has offered to arrange all of it.</p>
+  <ul class="plain">
+    <li><span class="box"></span><span><b>Book the boat for Monday morning</b><span>Half day, €1,400. Ask her to hold Wednesday as the weather alternate, and confirm what a weather cancellation costs.</span></span></li>
+    <li><span class="box"></span><span><b>Reserve Auberge du Prunelli, Monday 8pm</b><span>Two covers, plus a taxi each way. It fills up and is worth booking now.</span></span></li>
+    <li><span class="box"></span><span><b>Check the 23:00 shuttle from Ajaccio</b><span>Tuesday night depends on it. Evening sailings are the first thing cut at the end of the season.</span></span></li>
+    <li><span class="box"></span><span><b>Ask what's still open that week</b><span>Pool, spa, restaurant, beach service. Late September is when things quietly start closing.</span></span></li>
+    <li><span class="box"></span><span><b>Jet skis, once you arrive</b><span>She'll check which bases are still running. Easy yes with the money saved on the half day.</span></span></li>
+  </ul>
+</section>
+
+<div class="notes">
+  <div class="wrap">
+    <h2>Worth knowing</h2>
+    <h3>Buy shuttle tickets one way at a time</h3>
+    <p>A return costs €8 but you have to choose your sailing when you buy, and it can't be changed. Two singles at €5 each cost €2 more per person and let you leave when you feel like it.</p>
+    <h3>Monday is statistically the driest day of the month</h3>
+    <p>28 September averages the least rain and the lowest humidity of any day in September in Ajaccio. Pleasant coincidence, not a forecast.</p>
+    <h3>But late September can turn</h3>
+    <p>Highs sit around 22°C / 73°F, lows near 18°C / 63°F, and the sea holds about 23°C. September averages 45mm of rain and October jumps to 90mm, so you're arriving at the hinge. Pack one warm layer for the boat and evenings, and a light rain jacket.</p>
+    <h3>Ajaccio shuts on Mondays</h3>
+    <p>Le Don Ba', La Mostra and most of the good kitchens in town are closed. That's why Monday stays on this side of the water.</p>
+  </div>
+</div>
+
+<section class="wrap numbers">
+  <h2>Numbers</h2>
+  <p class="sub">Worth saving to your phone before you fly.</p>
+  <ul>
+    <li><b>Le Maquis</b><a href="tel:+33495250555">+33 4 95 25 05 55</a></li>
+    <li><b>Auberge du Prunelli</b><a href="tel:+33495200275">+33 4 95 20 02 75</a></li>
+    <li><b>Le Don Ba'</b><a href="tel:+33672216799">+33 6 72 21 67 99</a></li>
+  </ul>
+</section>
+
+<footer>
+  <div class="wrap">Corsica, 27 September to 1 October 2026.</div>
+</footer>
+
+</body>
+</html>
