@@ -133,17 +133,29 @@
 
   /* ---------- lists ---------- */
   ul.plain{list-style:none;margin:0;padding:0;max-width:var(--measure);}
-  ul.plain li{
-    padding:14px 0;border-top:1px solid var(--rule);
-    display:grid;grid-template-columns:22px 1fr;gap:12px;
-  }
+  ul.plain li{border-top:1px solid var(--rule);}
   ul.plain li:last-child{border-bottom:1px solid var(--rule);}
-  .box{
-    width:14px;height:14px;margin-top:6px;
-    border:1.5px solid var(--maquis);border-radius:2px;
+  ul.plain label{
+    display:grid;grid-template-columns:22px 1fr;gap:12px;
+    padding:14px 0;cursor:pointer;
   }
-  ul.plain b{display:block;}
-  ul.plain span{color:var(--ink-soft);font-size:.93rem;}
+  ul.plain input{position:absolute;width:1px;height:1px;opacity:0;}
+  .box{
+    width:14px;height:14px;margin-top:6px;position:relative;
+    border:1.5px solid var(--maquis);border-radius:2px;
+    transition:background .12s ease;
+  }
+  input:checked + .box{background:var(--maquis);border-color:var(--maquis);}
+  input:checked + .box::after{
+    content:"";position:absolute;left:3.5px;top:.5px;
+    width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;
+    transform:rotate(45deg);
+  }
+  input:focus-visible + .box{outline:2px solid var(--immortelle);outline-offset:3px;}
+  .txt b{display:block;}
+  .txt span{color:var(--ink-soft);font-size:.93rem;}
+  input:checked ~ .txt b{text-decoration:line-through;}
+  input:checked ~ .txt{opacity:.5;}
 
   .notes{background:#F0EEE7;padding:52px 0;}
   .notes h3{
@@ -222,7 +234,7 @@
         <li><span class="t">Afternoon</span><span><span class="n">Ajaccio airport → Le Maquis</span><span class="d">Collect the car, twenty minutes south around the gulf.</span></span></li>
         <li><span class="t">4:00</span><span><span class="n">Settle in</span><span class="d">Swim off the hotel cove.</span></span></li>
         <li><span class="t">7:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+Bona+Stella+Porticcio">A Bona Stella</a> · booked</span><span class="d">Best food in Porticcio, owner-run, five minutes away. Two covers confirmed.</span></span></li>
-        <li><span class="t">10:00</span><span><span class="n">Drinks on <a href="https://www.google.com/maps/search/?api=1&amp;query=Plage+de+la+Viva+Porticcio">Plage de la Viva</a></span><span class="d">Same stretch of sand as dinner, two minutes on foot. <a href="https://www.google.com/maps/search/?api=1&amp;query=La+Plage+Blanche+Porticcio">La Plage Blanche</a> runs to 2am, <a href="https://www.google.com/maps/search/?api=1&amp;query=L+Escale+Porticcio">L'Escale</a> to midnight. The view beats the kitchen, but you'll have already eaten.</span></span></li>
+        <li><span class="t">10:00</span><span><span class="n">Drinks on <a href="https://www.google.com/maps/search/?api=1&amp;query=Plage+de+la+Viva+Porticcio">Plage de la Viva</a></span><span class="d">Same stretch of sand as dinner, two minutes on foot. <a href="https://www.google.com/maps/search/?api=1&amp;query=L+Escale+Porticcio">L'Escale</a> to midnight and <a href="https://www.google.com/maps/search/?api=1&amp;query=La+Plage+Blanche+Porticcio">La Plage Blanche</a> runs to 2am.</span></span></li>
       </ol>
     </div>
   </div>
@@ -232,11 +244,10 @@
     <div>
       <p class="shape">Out on the water first thing, then up the river valley for dinner.</p>
       <ol class="stops">
-        <li><span class="t">9:00</span><span><span class="n">Half-day boat, off the hotel beach</span><span class="d">Saxdor 400 with skipper, four hours, €1,400. Morning because the water is glassiest before the afternoon breeze builds.</span></span></li>
+        <li><span class="t">10:30</span><span><span class="n">Half-day boat, off the hotel beach</span><span class="d">Saxdor 400 with skipper, four hours, €1,400. Morning because the water is glassiest before the afternoon breeze builds.</span></span></li>
         <li><span class="t">Morning</span><span><span class="n">South toward Capo di Muro</span><span class="d">Ask for Cala d'Orzu and the creeks below Coti-Chiavari. No road reaches them, so no one else is there.</span></span></li>
-        <li><span class="t">1:00</span><span><span class="n">Back at the hotel</span><span class="d">Late lunch, then nothing at all.</span></span></li>
-        <li><span class="t">3:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Gorges+du+Prunelli+Tolla+Corsica">Gorges du Prunelli</a> · optional</span><span class="d">Forty-five minutes inland for red granite walls and the dam lake at Tolla. Skip it if the boat has finished you off.</span></span></li>
-        <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auberge+du+Prunelli+Bastelicaccia">Auberge du Prunelli</a></span><span class="d">Riverside terrace, suckling pig, sometimes live guitar. Twenty minutes inland, so <span class="flag">take a taxi both ways</span>. Closed Tuesdays, which is why it is tonight.</span></span></li>
+        <li><span class="t">2:30</span><span><span class="n">Back at the hotel</span><span class="d">Late lunch, then nothing at all.</span></span></li>
+        <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auberge+du+Prunelli+Bastelicaccia">Auberge du Prunelli</a></span><span class="d">Riverside terrace and live guitar. Twenty minutes from the hotel, so <span class="flag">take a taxi both ways</span>. Closed Tuesdays, which is why it is tonight.</span></span></li>
       </ol>
     </div>
   </div>
@@ -247,6 +258,7 @@
       <p class="shape">An empty day on purpose, then the one proper night out.</p>
       <ol class="stops">
         <li><span class="t">Morning</span><span><span class="n">Beach, spa, nothing</span><span class="d">Saving yourselves. Tonight runs late.</span></span></li>
+        <li><span class="t">11:00</span><span><span class="n">Jet skis · optional</span><span class="d">Off the hotel beach, if a base is still running that week. Mathilda will know when you arrive.</span></span></li>
         <li><span class="t">6:15</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Porticcio+embarcadere+navette+maritime">Maritime shuttle from Porticcio</a></span><span class="d">Five minutes up the coast from the hotel, then twenty across. <span class="flag">Buy two singles, not a return</span> — return tickets lock you to a sailing time.</span></span></li>
         <li><span class="t">7:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Don+Ba+4+Rue+Letizia+Ajaccio">Le Don Ba'</a></span><span class="d">4 Rue Letizia, three minutes from the quay, down an alley behind Napoleon's birthplace. Bastien lived in New York, so English is easy.</span></span></li>
         <li><span class="t">8:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Mostra+Ajaccio">La Mostra</a> · booked</span><span class="d">Small menu, and the octopus everyone talks about. Two covers confirmed.</span></span></li>
@@ -263,7 +275,7 @@
       <ol class="stops">
         <li><span class="t">Held</span><span><span class="n">Weather alternate for the boat</span><span class="d">If Monday blows out, everything below moves and the boat comes here instead.</span></span></li>
         <li><span class="t">11:30</span><span><span class="n">Route des Sanguinaires</span><span class="d">Thirty-five minutes round the bay to the coast road west of Ajaccio.</span></span></li>
-        <li><span class="t">12:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Paillotte+du+Scudo+Ajaccio">Paillotte du Scudo</a></span><span class="d">On the sand, full bar, open from eight in the morning. Swim between courses.</span></span></li>
+        <li><span class="t">1:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Paillotte+du+Scudo+Ajaccio">Paillotte du Scudo</a></span><span class="d">On the sand, full bar, open from eight in the morning. Swim between courses.</span></span></li>
         <li><span class="t">6:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Pointe+de+la+Parata+Ajaccio">Pointe de la Parata</a></span><span class="d">Genoese tower facing the blood-red islands. An 800m walk out. Sunset around 7:15.</span></span></li>
         <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Week+End+restaurant+Ajaccio+Sanguinaires">Le Week End</a></span><span class="d">Right there facing the Sanguinaires. Ceviche and burrata are what people order.</span></span></li>
       </ol>
@@ -286,11 +298,11 @@
   <h2>Still to confirm</h2>
   <p class="sub">Everything here goes to Mathilda at the hotel, who has offered to arrange all of it.</p>
   <ul class="plain">
-    <li><span class="box"></span><span><b>Book the boat for Monday morning</b><span>Half day, €1,400. Ask her to hold Wednesday as the weather alternate, and confirm what a weather cancellation costs.</span></span></li>
-    <li><span class="box"></span><span><b>Reserve Auberge du Prunelli, Monday 8pm</b><span>Two covers, plus a taxi each way. It fills up and is worth booking now.</span></span></li>
-    <li><span class="box"></span><span><b>Get the evening shuttle times, Sunday and Tuesday</b><span>Both nights depend on them, and evening sailings are the first thing cut at the end of the season. Ask what a taxi round the bay costs while you're at it.</span></span></li>
-    <li><span class="box"></span><span><b>Ask what's still open that week</b><span>Pool, spa, restaurant, beach service. Late September is when things quietly start closing.</span></span></li>
-    <li><span class="box"></span><span><b>Jet skis, once you arrive</b><span>She'll check which bases are still running. Easy yes with the money saved on the half day.</span></span></li>
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b>Book the boat for Monday morning</b><span>Half day, €1,400. Ask her to hold Wednesday as the weather alternate, and confirm what a weather cancellation costs.</span></span></label></li>
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b>Reserve Auberge du Prunelli, Monday 8pm</b><span>Two covers, plus a taxi each way. It fills up and is worth booking now.</span></span></label></li>
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b>Get the evening shuttle times, Sunday and Tuesday</b><span>Both nights depend on them, and evening sailings are the first thing cut at the end of the season. Ask what a taxi round the bay costs while you're at it.</span></span></label></li>
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b>Ask what's still open that week</b><span>Pool, spa, restaurant, beach service. Late September is when things quietly start closing.</span></span></label></li>
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b>Jet skis, once you arrive</b><span>She'll check which bases are still running. Easy yes with the money saved on the half day.</span></span></label></li>
   </ul>
 </section>
 
@@ -308,6 +320,15 @@
   </div>
 </div>
 
+<section class="wrap">
+  <h2>Optional ideas</h2>
+  <p class="sub">Nothing here is scheduled. Pick one up if a day wants filling.</p>
+  <ul class="plain">
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b><a href="https://www.google.com/maps/search/?api=1&amp;query=Gorges+du+Prunelli+Tolla+Corsica">Gorges du Prunelli</a></b><span>Forty-five minutes inland for red granite walls and the dam lake at Tolla. Half an afternoon, and it pairs with the Auberge if you go early.</span></span></label></li>
+    <li><label><input type="checkbox"><span class="box" aria-hidden="true"></span><span class="txt"><b>Jet skis off the hotel beach</b><span>Pencilled in for Tuesday at 11, but it works any morning a base is running.</span></span></label></li>
+  </ul>
+</section>
+
 <section class="wrap numbers">
   <h2>Numbers</h2>
   <p class="sub">Worth saving to your phone before you fly.</p>
@@ -322,5 +343,21 @@
   <div class="wrap">Corsica, 27 September to 1 October 2026.</div>
 </footer>
 
+<script>
+(function(){
+  var KEY='corsica-checks', saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){}
+  document.querySelectorAll('ul.plain label').forEach(function(l){
+    var b=l.querySelector('input'), t=l.querySelector('.txt b');
+    if(!b||!t)return;
+    var k=t.textContent.trim().slice(0,60);
+    if(saved[k])b.checked=true;
+    b.addEventListener('change',function(){
+      saved[k]=b.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+    });
+  });
+})();
+</script>
 </body>
 </html>
