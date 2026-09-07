@@ -131,6 +131,22 @@
   .d{color:var(--ink-soft);font-size:.93rem;display:block;margin-top:2px;}
   .flag{color:#8A4B1E;font-weight:500;}
 
+  .bk{
+    display:inline-block;margin-left:7px;vertical-align:2px;
+    font-family:"Karla",system-ui,sans-serif;
+    font-size:.66rem;font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;line-height:1.4;
+    padding:2px 9px;border-radius:999px;cursor:pointer;
+    border:1.5px solid #B07A2A;background:#FBF2DF;color:#8A5A12;
+    transition:background .12s ease,color .12s ease,border-color .12s ease;
+  }
+  .bk:hover{background:#F4E4C4;}
+  .bk[aria-pressed="true"]{
+    background:var(--maquis);border-color:var(--maquis);color:#fff;
+  }
+  .bk[aria-pressed="true"]::before{content:"\2713\00a0";}
+  .bk:focus-visible{outline:2px solid var(--immortelle);outline-offset:2px;}
+
   /* ---------- lists ---------- */
   ul.plain{list-style:none;margin:0;padding:0;max-width:var(--measure);}
   ul.plain li{border-top:1px solid var(--rule);}
@@ -233,7 +249,7 @@
       <ol class="stops">
         <li><span class="t">Afternoon</span><span><span class="n">Ajaccio airport → Le Maquis</span><span class="d">Collect the car, twenty minutes south around the gulf.</span></span></li>
         <li><span class="t">4:00</span><span><span class="n">Settle in</span><span class="d">Swim off the hotel cove.</span></span></li>
-        <li><span class="t">7:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+Bona+Stella+Porticcio">A Bona Stella</a> · booked</span><span class="d">Best food in Porticcio, owner-run, five minutes away. Two covers confirmed.</span></span></li>
+        <li><span class="t">7:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+Bona+Stella+Porticcio">A Bona Stella</a> <button type="button" class="bk" data-bk="bona-stella" aria-pressed="true">Confirmed</button></span><span class="d">Best food in Porticcio, owner-run, five minutes away. Two covers confirmed.</span></span></li>
         <li><span class="t">10:00</span><span><span class="n">Drinks on <a href="https://www.google.com/maps/search/?api=1&amp;query=Plage+de+la+Viva+Porticcio">Plage de la Viva</a></span><span class="d">Same stretch of sand as dinner, two minutes on foot. <a href="https://www.google.com/maps/search/?api=1&amp;query=L+Escale+Porticcio">L'Escale</a> to midnight and <a href="https://www.google.com/maps/search/?api=1&amp;query=La+Plage+Blanche+Porticcio">La Plage Blanche</a> runs to 2am.</span></span></li>
       </ol>
     </div>
@@ -244,10 +260,10 @@
     <div>
       <p class="shape">Out on the water first thing, then up the river valley for dinner.</p>
       <ol class="stops">
-        <li><span class="t">10:30</span><span><span class="n">Half-day boat, off the hotel beach</span><span class="d">Saxdor 400 with skipper, four hours, €1,400. Morning because the water is glassiest before the afternoon breeze builds.</span></span></li>
+        <li><span class="t">10:30</span><span><span class="n">Half-day boat, off the hotel beach <button type="button" class="bk" data-bk="boat" aria-pressed="false">To book</button></span><span class="d">Saxdor 400 with skipper, four hours, €1,400. Morning because the water is glassiest before the afternoon breeze builds.</span></span></li>
         <li><span class="t">Morning</span><span><span class="n">South toward Capo di Muro</span><span class="d">Ask for Cala d'Orzu and the creeks below Coti-Chiavari. No road reaches them, so no one else is there.</span></span></li>
-        <li><span class="t">2:30</span><span><span class="n">Back at the hotel</span><span class="d">Late lunch, then nothing at all.</span></span></li>
-        <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auberge+du+Prunelli+Bastelicaccia">Auberge du Prunelli</a></span><span class="d">Riverside terrace and live guitar. Twenty minutes from the hotel, so <span class="flag">take a taxi both ways</span>. Closed Tuesdays, which is why it is tonight.</span></span></li>
+        <li><span class="t">3&ndash;3:30</span><span><span class="n">Back at the hotel</span><span class="d">Late lunch, then nothing at all.</span></span></li>
+        <li><span class="t">8:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Auberge+du+Prunelli+Bastelicaccia">Auberge du Prunelli</a> <button type="button" class="bk" data-bk="auberge" aria-pressed="false">To book</button></span><span class="d">Riverside terrace and live guitar. Twenty minutes from the hotel, so <span class="flag">take a taxi both ways</span>. Closed Tuesdays, which is why it is tonight.</span></span></li>
       </ol>
     </div>
   </div>
@@ -258,10 +274,10 @@
       <p class="shape">An empty day on purpose, then the one proper night out.</p>
       <ol class="stops">
         <li><span class="t">Morning</span><span><span class="n">Beach, spa, nothing</span><span class="d">Saving yourselves. Tonight runs late.</span></span></li>
-        <li><span class="t">11:00</span><span><span class="n">Jet skis · optional</span><span class="d">Off the hotel beach, if a base is still running that week. Mathilda will know when you arrive.</span></span></li>
+        <li><span class="t">11:00</span><span><span class="n">Jet skis · optional <button type="button" class="bk" data-bk="jetski" aria-pressed="false">To book</button></span><span class="d">Off the hotel beach, if a base is still running that week. Mathilda will know when you arrive.</span></span></li>
         <li><span class="t">6:15</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Porticcio+embarcadere+navette+maritime">Maritime shuttle from Porticcio</a></span><span class="d">Five minutes up the coast from the hotel, then twenty across. <span class="flag">Buy two singles, not a return</span> — return tickets lock you to a sailing time.</span></span></li>
         <li><span class="t">7:00</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Don+Ba+4+Rue+Letizia+Ajaccio">Le Don Ba'</a></span><span class="d">4 Rue Letizia, three minutes from the quay, down an alley behind Napoleon's birthplace. Bastien lived in New York, so English is easy.</span></span></li>
-        <li><span class="t">8:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Mostra+Ajaccio">La Mostra</a> · booked</span><span class="d">Small menu, and the octopus everyone talks about. Two covers confirmed.</span></span></li>
+        <li><span class="t">8:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Mostra+Ajaccio">La Mostra</a> <button type="button" class="bk" data-bk="la-mostra" aria-pressed="true">Confirmed</button></span><span class="d">Small menu, and the octopus everyone talks about. Two covers confirmed.</span></span></li>
         <li><span class="t">10:30</span><span><span class="n"><a href="https://www.google.com/maps/search/?api=1&amp;query=10+rue+des+Halles+Ajaccio">10 rue des Halles</a></span><span class="d">Live music until 2am, every night of the week. The one real dance floor on this side of the island.</span></span></li>
         <li><span class="t">11:00</span><span><span class="n">Last boat, or stay out</span><span class="d">The 23:00 sailing, or a taxi round the bay. The singles are what buy you the choice.</span></span></li>
       </ol>
@@ -357,6 +373,22 @@
       try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
     });
   });
+
+  var BK='corsica-bookings', bk={};
+  try{bk=JSON.parse(localStorage.getItem(BK))||{};}catch(e){}
+  document.querySelectorAll('.bk').forEach(function(btn){
+    var k=btn.dataset.bk;
+    if(k in bk)set(btn,bk[k]);
+    btn.addEventListener('click',function(){
+      var on=btn.getAttribute('aria-pressed')!=='true';
+      set(btn,on); bk[k]=on;
+      try{localStorage.setItem(BK,JSON.stringify(bk));}catch(e){}
+    });
+  });
+  function set(btn,on){
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    btn.textContent=on?'Confirmed':'To book';
+  }
 })();
 </script>
 </body>
