@@ -1,0 +1,1031 @@
+<title>Paris After Nine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg:        #0D1016;
+    --bg-2:      #11161E;
+    --surface:   #171D27;
+    --surface-2: #1D2531;
+    --line:      #2A3341;
+    --line-soft: #202834;
+    --text:      #E9ECF1;
+    --text-2:    #9AA5B4;
+    --text-3:    #6E7A8A;
+    --amber:     #F2A63B;
+    --amber-ink: #F2A63B;
+    --amber-soft: rgba(242,166,59,.13);
+    --rose:      #E9526F;
+    --rose-ink:  #E9526F;
+    --rose-soft: rgba(233,82,111,.13);
+    --river:     #26445F;
+    --map-bg:    #101620;
+    --shadow:    0 1px 0 rgba(255,255,255,.03), 0 18px 40px -28px rgba(0,0,0,.9);
+
+    --ff-display: "Bodoni Moda", "Didot", "Times New Roman", serif;
+    --ff-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --ff-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg:        #EDEFF3;
+      --bg-2:      #FFFFFF;
+      --surface:   #FFFFFF;
+      --surface-2: #F4F6F9;
+      --line:      #D6DBE3;
+      --line-soft: #E3E7ED;
+      --text:      #121822;
+      --text-2:    #56616F;
+      --text-3:    #7B8695;
+      --amber:     #E09024;
+      --amber-ink: #96590A;
+      --amber-soft: rgba(224,144,36,.14);
+      --rose:      #C42A50;
+      --rose-ink:  #A81F42;
+      --rose-soft: rgba(196,42,80,.10);
+      --river:     #B3C8DC;
+      --map-bg:    #FFFFFF;
+      --shadow:    0 1px 0 rgba(255,255,255,.6), 0 16px 34px -26px rgba(20,30,50,.45);
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg:        #EDEFF3;
+    --bg-2:      #FFFFFF;
+    --surface:   #FFFFFF;
+    --surface-2: #F4F6F9;
+    --line:      #D6DBE3;
+    --line-soft: #E3E7ED;
+    --text:      #121822;
+    --text-2:    #56616F;
+    --text-3:    #7B8695;
+    --amber:     #E09024;
+    --amber-ink: #96590A;
+    --amber-soft: rgba(224,144,36,.14);
+    --rose:      #C42A50;
+    --rose-ink:  #A81F42;
+    --rose-soft: rgba(196,42,80,.10);
+    --river:     #B3C8DC;
+    --map-bg:    #FFFFFF;
+    --shadow:    0 1px 0 rgba(255,255,255,.6), 0 16px 34px -26px rgba(20,30,50,.45);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    padding: 76px 0 54px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--amber-ink);
+    margin: 0 0 22px;
+  }
+  h1 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 132px);
+    line-height: .88;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--amber-ink);
+  }
+  .hero-lede {
+    margin: 30px 0 0;
+    max-width: 60ch;
+    font-size: 18px;
+    color: var(--text-2);
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 34px;
+    margin-top: 34px;
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: .06em;
+    color: var(--text-3);
+  }
+  .hero-meta b {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ---------- section frame ---------- */
+
+  section { padding: 62px 0; }
+  section + section { border-top: 1px solid var(--line-soft); }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  h2 {
+    font-family: var(--ff-display);
+    font-weight: 400;
+    font-size: clamp(30px, 4.4vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .sec-count {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  h3 {
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0;
+    letter-spacing: -.01em;
+  }
+
+  /* ---------- map ---------- */
+
+  .map-shell {
+    background: var(--map-bg);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .map-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line-soft);
+    background: var(--surface);
+  }
+  #readout {
+    font-family: var(--ff-mono);
+    font-size: 12.5px;
+    color: var(--text-2);
+    min-height: 20px;
+    letter-spacing: .01em;
+  }
+  #readout b { color: var(--text); font-weight: 500; }
+  .legend {
+    display: flex;
+    gap: 18px;
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .dot.a { background: var(--amber); }
+  .dot.r { background: var(--rose); }
+
+  .map-scroll { overflow-x: auto; overflow-y: hidden; }
+  svg.map { display: block; width: 100%; height: auto; background: var(--map-bg); }
+
+  .seine { fill: none; stroke: var(--river); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+  .isle { fill: var(--map-bg); stroke: var(--river); stroke-width: 2; }
+  .lm-mark { fill: none; stroke: var(--text-3); stroke-width: 1.4; opacity: .75; }
+  .lm-text {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: .13em;
+    fill: var(--text-3);
+    text-transform: uppercase;
+  }
+
+  .pin { cursor: pointer; }
+  .pin circle.hit { fill: transparent; }
+  .pin circle.body {
+    fill: var(--amber-soft);
+    stroke: var(--amber);
+    stroke-width: 1.6;
+    transition: fill .16s ease, stroke-width .16s ease;
+  }
+  .pin.dance circle.body { fill: var(--rose-soft); stroke: var(--rose); }
+  .pin text.num {
+    font-family: var(--ff-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    fill: var(--amber-ink);
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+  }
+  .pin.dance text.num { fill: var(--rose-ink); }
+  .pin:hover circle.body,
+  .pin:focus-visible circle.body,
+  .pin.on circle.body { fill: var(--amber); stroke-width: 2.4; }
+  .pin.dance:hover circle.body,
+  .pin.dance:focus-visible circle.body,
+  .pin.dance.on circle.body { fill: var(--rose); }
+  .pin:hover text.num,
+  .pin:focus-visible text.num,
+  .pin.on text.num { fill: #0D1016; }
+  .pin:focus { outline: none; }
+  .pin:focus-visible circle.body { stroke: var(--text); }
+  .pin.dim { opacity: .17; }
+
+  /* ---------- filters ---------- */
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 26px 0 0;
+  }
+  .chip {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .chip:hover { color: var(--text); border-color: var(--text-3); }
+  .chip[aria-pressed="true"] {
+    color: var(--bg);
+    background: var(--amber);
+    border-color: var(--amber);
+  }
+  .chip[aria-pressed="true"][data-cat="dance"] {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: #fff;
+  }
+  .chip:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+  /* ---------- place list ---------- */
+
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 4px;
+    padding-top: 14px;
+  }
+  .group-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line-soft);
+  }
+  .group-note {
+    color: var(--text-2);
+    max-width: 66ch;
+    margin: 10px 0 22px;
+    font-size: 15px;
+  }
+
+  .places { display: flex; flex-direction: column; gap: 0; }
+
+  .place {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr) 250px;
+    gap: 0 26px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line-soft);
+    scroll-margin-top: 24px;
+  }
+  .place.flash { animation: flash 1.5s ease; }
+  @keyframes flash {
+    0%, 22% { background: var(--amber-soft); }
+    100% { background: transparent; }
+  }
+  .place.dance.flash { animation: flashR 1.5s ease; }
+  @keyframes flashR {
+    0%, 22% { background: var(--rose-soft); }
+    100% { background: transparent; }
+  }
+
+  .p-num {
+    font-family: var(--ff-mono);
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--amber-ink);
+    padding-top: 6px;
+  }
+  .place.dance .p-num { color: var(--rose-ink); }
+
+  .p-name { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .p-addr {
+    font-family: var(--ff-mono);
+    font-size: 11.5px;
+    color: var(--text-3);
+    letter-spacing: .02em;
+  }
+  .p-desc {
+    margin: 10px 0 0;
+    color: var(--text-2);
+    max-width: 62ch;
+    font-size: 15.5px;
+  }
+
+  .p-side {
+    border-left: 1px solid var(--line-soft);
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .p-label {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .p-when { font-size: 14px; color: var(--text); }
+  .p-book {
+    font-family: var(--ff-mono);
+    font-size: 11.5px;
+    letter-spacing: .04em;
+    color: var(--amber-ink);
+  }
+  .place.dance .p-book { color: var(--rose-ink); }
+
+  /* ---------- night clock ---------- */
+
+  .clock {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .tick { padding: 20px 20px 22px; border-right: 1px solid var(--line-soft); }
+  .tick:last-child { border-right: none; }
+  .tick-h {
+    font-family: var(--ff-mono);
+    font-size: 20px;
+    color: var(--amber-ink);
+    letter-spacing: .02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .tick-w {
+    font-family: var(--ff-display);
+    font-size: 17px;
+    margin: 8px 0 6px;
+  }
+  .tick p { margin: 0; font-size: 13.5px; color: var(--text-2); line-height: 1.45; }
+
+  /* ---------- routes ---------- */
+
+  .routes { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); }
+  .route { background: var(--bg); padding: 24px 22px 26px; }
+  .route .quartier {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 10px;
+  }
+  .route ol { margin: 12px 0 0; padding: 0; list-style: none; }
+  .route li {
+    font-size: 14.5px;
+    color: var(--text-2);
+    padding: 7px 0 7px 20px;
+    position: relative;
+    border-top: 1px dotted var(--line);
+  }
+  .route li:first-child { border-top: none; }
+  .route li::before {
+    content: "";
+    position: absolute;
+    left: 3px; top: 15px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+  }
+  .route.dance li::before { background: var(--rose); }
+  .route li b { color: var(--text); font-weight: 500; }
+
+  /* ---------- more list ---------- */
+
+  .more { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 34px 44px; }
+  .more h3 { margin-bottom: 14px; }
+  .more dl { margin: 0; }
+  .more dt {
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 14px;
+  }
+  .more dt:first-child { margin-top: 0; }
+  .more dd {
+    margin: 3px 0 0;
+    font-size: 14px;
+    color: var(--text-2);
+  }
+  .more dd .a {
+    font-family: var(--ff-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: .02em;
+  }
+
+  /* ---------- notes ---------- */
+
+  .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 28px 40px; }
+  .note-h {
+    font-family: var(--ff-mono);
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--amber-ink);
+    margin-bottom: 9px;
+  }
+  .notes p { margin: 0; font-size: 14.5px; color: var(--text-2); max-width: 46ch; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 34px 0 60px;
+    font-family: var(--ff-mono);
+    font-size: 11.5px;
+    letter-spacing: .06em;
+    color: var(--text-3);
+  }
+
+  @media (max-width: 860px) {
+    .place { grid-template-columns: 34px minmax(0, 1fr); }
+    .p-side {
+      grid-column: 2;
+      border-left: none;
+      padding-left: 0;
+      padding-top: 16px;
+      margin-top: 14px;
+      border-top: 1px solid var(--line-soft);
+      flex-direction: row;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+    .clock { grid-template-columns: 1fr 1fr; }
+    .tick { border-bottom: 1px solid var(--line-soft); }
+    .legend { font-size: 10px; gap: 12px; }
+    svg.map { width: 780px; max-width: none; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    .clock { grid-template-columns: 1fr; }
+    .hero { padding: 48px 0 38px; }
+    section { padding: 44px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    html { scroll-behavior: auto; }
+  }
+  html { scroll-behavior: smooth; }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Rooftops, tables, late doors and salsa</p>
+    <h1>Paris<br><em>after nine</em></h1>
+    <p class="hero-lede">Everything on your list, checked against what is actually open, plus the rooms that pair with them and the places to dance. Nothing here opens before six. Most of it does not get good until eleven.</p>
+    <div class="hero-meta">
+      <span><b>22</b> places mapped</span>
+      <span><b>8</b> salsa and Latin nights</span>
+      <span>Verified <b>Sept 2026</b></span>
+    </div>
+  </header>
+
+  <section id="map-section">
+    <div class="sec-head">
+      <h2>The map</h2>
+      <span class="sec-count">Click a pin to jump to it</span>
+    </div>
+
+    <div class="map-shell">
+      <div class="map-bar">
+        <div id="readout">Hover a pin for the short version.</div>
+        <div class="legend">
+          <span><i class="dot a"></i> Eat, drink, view</span>
+          <span><i class="dot r"></i> Dancing</span>
+        </div>
+      </div>
+      <div class="map-scroll">
+      <svg class="map" viewBox="0 0 1000 690" role="img" aria-label="Map of central Paris showing the Seine and 22 numbered venues">
+        <g aria-hidden="true">
+          <path class="seine" d="M1000,629 L897,608 L828,577 L772,545 L731,524 L690,503 L648,484 L607,472 L552,446 L503,428 L462,409 L414,393 L366,383 L310,367 L262,367 L228,383 L207,409 L186,440 L159,472 L124,514 L97,556 L69,598 L41,629 L14,645" />
+          <ellipse class="isle" cx="612" cy="470" rx="35" ry="7.5" transform="rotate(16 612 470)" />
+          <ellipse class="isle" cx="657" cy="483" rx="20" ry="5.5" transform="rotate(16 657 483)" />
+
+          <path class="lm-mark" d="M232,414 L238,395 L244,414 M234,407 L242,407" />
+          <text class="lm-text" x="238" y="430" text-anchor="middle">Eiffel</text>
+
+          <path class="lm-mark" d="M231,250 h21 v-13 h-21 z M236,250 v-8 M247,250 v-8" />
+          <text class="lm-text" x="241" y="266" text-anchor="middle">Étoile</text>
+
+          <path class="lm-mark" d="M563,113 q10,-16 20,0 z M573,97 v-6" />
+          <text class="lm-text" x="573" y="129" text-anchor="middle">Sacré-Coeur</text>
+
+          <path class="lm-mark" d="M612,461 h16 M614,461 v-9 M626,461 v-9 M620,452 v-7" />
+          <text class="lm-text" x="620" y="447" text-anchor="middle">Notre-Dame</text>
+
+          <path class="lm-mark" d="M484,264 h20 M486,264 v-10 M502,264 v-10 M494,254 q-8,-2 0,-8 q8,6 0,8" />
+          <text class="lm-text" x="494" y="280" text-anchor="middle">Opéra</text>
+
+          <path class="lm-mark" d="M420,581 h15 v-20 h-15 z" />
+          <text class="lm-text" x="428" y="597" text-anchor="middle">Montparnasse</text>
+
+          <path class="lm-mark" d="M748,466 v-16 M744,450 h9" />
+          <text class="lm-text" x="753" y="481" text-anchor="middle">Bastille</text>
+
+          <circle class="lm-mark" cx="535" cy="382" r="5" />
+          <text class="lm-text" x="535" y="399" text-anchor="middle">Louvre</text>
+
+          <text class="lm-text" x="880" y="270" text-anchor="middle" style="letter-spacing:.3em">N</text>
+          <path class="lm-mark" d="M880,255 l0,-28 M873,236 l7,-9 l7,9" />
+        </g>
+        <g id="pins"></g>
+      </svg>
+      </div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="chip" data-cat="all" aria-pressed="true">All 22</button>
+      <button class="chip" data-cat="views" aria-pressed="false">Rooftops</button>
+      <button class="chip" data-cat="table" aria-pressed="false">Tables</button>
+      <button class="chip" data-cat="scene" aria-pressed="false">The scene</button>
+      <button class="chip" data-cat="bar" aria-pressed="false">Cocktails</button>
+      <button class="chip" data-cat="dance" aria-pressed="false">Dancing</button>
+    </div>
+  </section>
+
+  <section id="list"></section>
+
+  <section>
+    <div class="sec-head">
+      <h2>How a night actually stacks</h2>
+      <span class="sec-count">Local hours, not American ones</span>
+    </div>
+    <div class="clock">
+      <div class="tick">
+        <div class="tick-h">19:00</div>
+        <div class="tick-w">Apéro</div>
+        <p>Rooftops peak now. Sunset is 21:50 in June, 20:00 in early September, 17:00 in December.</p>
+      </div>
+      <div class="tick">
+        <div class="tick-h">21:00</div>
+        <div class="tick-w">Dinner</div>
+        <p>The real second seating. A 19:30 booking marks you as a tourist and gets you the bad table.</p>
+      </div>
+      <div class="tick">
+        <div class="tick-h">23:30</div>
+        <div class="tick-w">Bars</div>
+        <p>Pigalle and the Marais fill. Most cocktail rooms run to 02:00, a few to 04:00.</p>
+      </div>
+      <div class="tick">
+        <div class="tick-h">01:00</div>
+        <div class="tick-w">Floors open</div>
+        <p>Clubs and salsa socials do not really start before this. Last métro is 01:15, or 02:15 Friday and Saturday.</p>
+      </div>
+      <div class="tick">
+        <div class="tick-h">05:30</div>
+        <div class="tick-w">First métro</div>
+        <p>Between those two, it is Noctilien buses or a cab. Book the cab in the app before you walk out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Nights that string together</h2>
+      <span class="sec-count">Five routes, all walkable end to end</span>
+    </div>
+    <div class="routes">
+      <div class="route">
+        <div class="quartier">8e / 16e</div>
+        <h3>The avenue</h3>
+        <ol>
+          <li><b>L'Avenue</b> for a 19:00 drink on the terrace</li>
+          <li><b>Gigi</b> upstairs at 21:00, stay for the music</li>
+          <li><b>L'Arc</b> or <b>Costes</b> after midnight</li>
+        </ol>
+      </div>
+      <div class="route">
+        <div class="quartier">3e / 4e</div>
+        <h3>The Marais</h3>
+        <ol>
+          <li><b>Terraza Mikuna</b> at sunset on the BHV roof</li>
+          <li><b>Les Enfants du Marché</b> standing, early</li>
+          <li><b>Candelaria</b> through the back door until two</li>
+        </ol>
+      </div>
+      <div class="route">
+        <div class="quartier">9e / 18e</div>
+        <h3>Pigalle</h3>
+        <ol>
+          <li><b>Perruche</b> for the view, ten minutes downhill</li>
+          <li><b>Dirty Dick</b> by 20:00, before it fills</li>
+          <li><b>Lulu White</b>, then <b>Chez Moune</b> in the basement</li>
+        </ol>
+      </div>
+      <div class="route">
+        <div class="quartier">4e / 11e</div>
+        <h3>Bastille</h3>
+        <ol>
+          <li><b>Bonnie</b> for the glassed-in view and dinner</li>
+          <li><b>Le Balajo</b> on a Thursday for the SBK night</li>
+          <li><b>Ave Maria</b> if you want to keep going</li>
+        </ol>
+      </div>
+      <div class="route dance">
+        <div class="quartier">5e / 6e / 14e</div>
+        <h3>The salsa run</h3>
+        <ol>
+          <li><b>Quais de Seine</b> Sunday at 18:00, free, outdoors</li>
+          <li><b>Cubana Café</b> after, twenty minutes west</li>
+          <li><b>La Pachanga</b> Tuesday to Friday for the real floor</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>More, if there is room</h2>
+      <span class="sec-count">Not mapped, still worth it</span>
+    </div>
+    <div class="more">
+      <div>
+        <h3>Cocktails</h3>
+        <dl>
+          <dt>Little Red Door</dt>
+          <dd>60 rue Charlot, 3e. <span class="a">On every world's-best list, and it deserves it. Book online.</span></dd>
+          <dt>Bar Hemingway</dt>
+          <dd>The Ritz, 1er. <span class="a">Fifty seats, no reservations. Be at the door at 18:00 or forget it.</span></dd>
+          <dt>Danico</dt>
+          <dd>Galerie Vivienne, 2e. <span class="a">Through the back of a pasta bar, inside a covered arcade from 1823.</span></dd>
+          <dt>Le Syndicat</dt>
+          <dd>51 rue du Faubourg Saint-Denis, 10e. <span class="a">French spirits only. The scruffy facade is on purpose.</span></dd>
+          <dt>Moonshiner</dt>
+          <dd>5 rue Sedaine, 11e. <span class="a">Walk through the pizzeria and open the freezer door.</span></dd>
+          <dt>Lulu White</dt>
+          <dd>12 rue Frochot, 9e. <span class="a">Absinthe bar, same team as Dirty Dick, two doors down.</span></dd>
+        </dl>
+      </div>
+      <div>
+        <h3>Views and tables</h3>
+        <dl>
+          <dt>Créatures</dt>
+          <dd>Galeries Lafayette roof, 9e. <span class="a">The other department store rooftop, more garden and less scene than Perruche.</span></dd>
+          <dt>Madame Rêve</dt>
+          <dd>48 rue du Louvre, 1er. <span class="a">Terrace over the old central post office, looking at Saint-Eustache.</span></dd>
+          <dt>Le Perchoir Ménilmontant</dt>
+          <dd>14 rue Crespin du Gast, 11e. <span class="a">The original Paris rooftop. Queue, no bookings, worth it in summer.</span></dd>
+          <dt>Clamato and Septime</dt>
+          <dd>80 rue de Charonne, 11e. <span class="a">Clamato takes walk-ins. Septime opens bookings three weeks out at 10:00 sharp.</span></dd>
+          <dt>Chez Janou</dt>
+          <dd>2 rue Roger Verlomme, 3e. <span class="a">Provençal, packed, and the chocolate mousse arrives as a whole bowl.</span></dd>
+          <dt>Bambino</dt>
+          <dd>25 rue Amelot, 11e. <span class="a">Natural wine, small plates, vinyl. Standing room by 22:00.</span></dd>
+        </dl>
+      </div>
+      <div>
+        <h3>Late</h3>
+        <dl>
+          <dt>Silencio des Prés</dt>
+          <dd>50 rue Dauphine, 6e. <span class="a">David Lynch designed the original. Members until midnight, then open to everyone.</span></dd>
+          <dt>Chez Moune</dt>
+          <dd>54 rue Jean-Baptiste Pigalle, 9e. <span class="a">A 1936 lesbian cabaret turned basement club. Mirrored, small, sweaty.</span></dd>
+          <dt>Le Comptoir Général</dt>
+          <dd>80 quai de Jemmapes, 10e. <span class="a">Down a courtyard off the canal. Afro-Caribbean bar, ginger punch, occasional Latin nights.</span></dd>
+          <dt>Nouveau Casino</dt>
+          <dd>109 rue Oberkampf, 11e. <span class="a">Live room next to Café Charbon that turns into a club after the set.</span></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Before you book</h2>
+    </div>
+    <div class="notes">
+      <div>
+        <div class="note-h">Season</div>
+        <p>Rooftop season runs April to October. June and September are the two best months in Paris. August empties out and a lot of good kitchens close for three weeks.</p>
+      </div>
+      <div>
+        <div class="note-h">Fashion week</div>
+        <p>Late September and early March make the 8th arrondissement unbookable. L'Avenue, Costes and Gigi go to invitation and regulars only.</p>
+      </div>
+      <div>
+        <div class="note-h">Doors</div>
+        <p>At L'Arc and Bonnie, a dinner reservation is the way in. Turning up at the club door at 01:00 without a table or a name is how you stand outside.</p>
+      </div>
+      <div>
+        <div class="note-h">Salsa nights move</div>
+        <p>Paris socials shift venue and night more than most cities. Check salsa-paris.fr or the venue's own page the week you land, not before.</p>
+      </div>
+      <div>
+        <div class="note-h">Shoes</div>
+        <p>The Quais floor is stone and the Balajo floor is old parquet. Bring something with a suede or leather sole and leave the rubber at home.</p>
+      </div>
+      <div>
+        <div class="note-h">Cash</div>
+        <p>The outdoor Quais dances run on donations in a hat. Most bars are card, but carry twenty euros for the riverbank.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Paris After Nine. Hours and addresses checked September 2026. Nightlife moves. Call ahead.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var GROUPS = [
+    {
+      cat: "views",
+      title: "Rooftops and the long view",
+      note: "Every one of these is a terrace with a booking, not a bar you wander into. Paris rooftops open at lunch and are full by seven."
+    },
+    {
+      cat: "table",
+      title: "Tables worth the booking",
+      note: "Rooms where the room is the point. Two of the three want you three weeks out."
+    },
+    {
+      cat: "scene",
+      title: "See and be seen",
+      note: "The Costes universe and its neighbours. Expensive, indifferent, and very good at what they are."
+    },
+    {
+      cat: "bar",
+      title: "Cocktails after dark",
+      note: "Pigalle and the Haut Marais are the two quartiers that carry the late hours."
+    },
+    {
+      cat: "dance",
+      title: "Where to dance",
+      note: "Paris salsa is small but technical and leans Cuban, casino and rueda rather than LA line style. The riverbank in summer is the single best thing on this page, and it is free."
+    }
+  ];
+
+  var PLACES = [
+    { n:1, cat:"views", name:"Perruche", addr:"Printemps Haussmann, 2 rue du Havre, 9e", x:461, y:241,
+      d:"Five hundred square metres of planted rooftop over the Grands Magasins, with the Opéra dome on one side and the Eiffel Tower on the other. The easiest big view in Paris to actually get into, and the food is better than it has to be.",
+      w:"Open year round. Golden hour, 19:00 to 21:00. Ask for the terrace and not the interior when you book.", b:"Book ahead" },
+
+    { n:2, cat:"views", name:"Terraza Mikuna", addr:"BHV Marais, 1 rue des Archives, 4e", x:645, y:415,
+      d:"The BHV roof turned into a 300 square metre Peruvian terrace on the sixth and seventh floors. Ceviche, tiraditos and pisco, with a full turn over the Marais rooftops, the Hôtel de Ville and Notre-Dame.",
+      w:"Seasonal, roughly April to October. Weekday sunset is the move. Weekends are full by 18:00.", b:"Book ahead" },
+
+    { n:3, cat:"views", name:"Skybar Paris", addr:"Pullman Montparnasse, 32nd floor, 14e", x:410, y:585,
+      d:"The highest open-air bar in the city at 115 metres. Montparnasse has the best skyline in Paris for one reason, which is that it is the only view without the Montparnasse tower in it. Eiffel Tower dead centre.",
+      w:"Late spring to early autumn for the open air. Arrive thirty minutes before sunset, which is about 21:50 in June and 20:00 in early September.", b:"Book ahead" },
+
+    { n:4, cat:"views", name:"Gigi", addr:"15 avenue Montaigne, 8e, 7th floor", x:282, y:336,
+      d:"Paris Society's Italian on the roof of the 1913 Théâtre des Champs-Élysées, with the Eiffel Tower framed like someone placed it there. Riviera food, a Bellini bar, and live music that tips the room over around midnight.",
+      w:"Book 21:00 or later if you want the second half of the evening. Terrace season is May to October, and Thursday to Saturday for the music.", b:"Book weeks ahead" },
+
+    { n:5, cat:"table", name:"Girafe", addr:"1 place du Trocadéro, 16e", x:197, y:363,
+      d:"An art deco seafood room inside the Palais de Chaillot, so the Eiffel Tower fills the window rather than sitting off in the distance. Caviar, plateaux, marble and brass. The most photographed table in the city, deservedly.",
+      w:"The 21:00 seating, and ask for a window. Winter reads better than summer because the tower carries harder against a dark sky. It sparkles for five minutes on every hour.", b:"Book weeks ahead" },
+
+    { n:6, cat:"table", name:"Lapérouse", addr:"51 quai des Grands Augustins, 6e", x:564, y:435,
+      d:"Open since 1766, on the Seine, with private salons upstairs where the mirrors are scratched by women who were testing whether the jewellery they had just been given was real. Restored, gilded, and genuinely strange in the best way.",
+      w:"Dinner at 20:30. Ask for a salon particulier when you book, not when you arrive. Winter suits the room.", b:"Book weeks ahead" },
+
+    { n:7, cat:"table", name:"Les Enfants du Marché", addr:"39 rue de Bretagne, 3e", x:707, y:358,
+      d:"A standing counter inside the oldest covered market in Paris, run with a Japanese hand. Caviar tartelettes, karaage, whole fish, offal, natural wine. No reservations and no apology about the prices.",
+      w:"Tuesday to Saturday 12:00 to 20:00, Sunday to 17:00, closed Monday. Go right at opening or around 17:00. Peak lunch is a scrum.", b:"Walk in only" },
+
+    { n:8, cat:"scene", name:"L'Avenue", addr:"41 avenue Montaigne, 8e", x:312, y:322,
+      d:"Costes group, on the corner of the most expensive shopping street in Paris. Nobody is here for the food. The terrace is the entire proposition and the people-watching is the menu.",
+      w:"Lunch 13:00 to 15:00 for the fashion crowd, or a drink at 19:00. Unbookable during the collections.", b:"Book ahead" },
+
+    { n:9, cat:"scene", name:"Hôtel Costes", addr:"239 rue Saint-Honoré, 1er", x:471, y:312,
+      d:"The dark red Napoleon III courtyard that invented the sound of 2000s Paris. Low light, heavy curtains, the compilation playing, service that is famously unbothered. You are buying a mood and it is still intact.",
+      w:"23:00 onward. Courtyard from May to September, the salons the rest of the year.", b:"Book ahead" },
+
+    { n:10, cat:"scene", name:"L'Arc", addr:"12 rue de Presbourg, 16e", x:231, y:246,
+      d:"Restaurant into club, pressed against the Arc de Triomphe with a terrace looking straight at it. Dinner becomes a dance floor without anyone having to change rooms.",
+      w:"Dinner 21:00, club from 00:30, Thursday to Saturday. Table service or a name on the list. Otherwise the door is a wall.", b:"Guest list or table" },
+
+    { n:11, cat:"scene", name:"Bonnie", addr:"SO/ Paris, 10 rue Agrippa d'Aubigné, 4e", x:710, y:484,
+      d:"The only fully glassed-in rooftop club in the city, on floors 15 and 16 of the Morland tower. Eiffel Tower, Panthéon and Notre-Dame all visible from one seat. Restaurant and bar below, disco above.",
+      w:"Bar daily 11:00 to midnight. Club Wednesday to Saturday, 22:30 to 02:00, electro and sixties and seventies disco. Works in winter because it is under glass.", b:"Book ahead" },
+
+    { n:12, cat:"bar", name:"Pigalle", addr:"Quartier, 9e and 18e", x:534, y:154,
+      d:"The old red-light district, now the best bar quartier in Paris. South Pigalle is six streets of cocktail rooms and late doors. Rue Frochot, rue Victor Massé and rue Henry Monnier are the spine of it.",
+      w:"Start at 21:00 and let it run. Wednesday to Saturday. The good rooms fill after 23:00.", b:"Walk in" },
+
+    { n:13, cat:"bar", name:"Dirty Dick", addr:"10 rue Frochot, 9e", x:556, y:176,
+      d:"A former hostess bar turned full tiki temple. Bamboo, puffer fish, rum served in vessels that are not glasses. Loud and funny, and the drinks are serious underneath the theatre.",
+      w:"Opens around 18:00. Be there by 20:00 or it is standing room. Lulu White, two doors down, is the same team doing absinthe.", b:"Walk in" },
+
+    { n:14, cat:"bar", name:"Candelaria", addr:"52 rue de Saintonge, 3e", x:733, y:332,
+      d:"A nine-seat taqueria in front, then a door in the back wall into one of the best agave bars in Europe. Mezcal, tequila and the Guêpe Verte that every other bar in Paris has since copied.",
+      w:"Tacos from 18:00, back bar until 02:00. Weeknights before 21:00 if you want a seat rather than a corner.", b:"Walk in" },
+
+    { n:15, cat:"dance", name:"Les Quais de Seine", addr:"Jardin Tino Rossi, quai Saint-Bernard, 5e", x:695, y:527,
+      d:"The best free thing in Paris. Stone amphitheatres cut into the riverbank, each running a different dance, and the Cuban salsa alvéole packed with people who are very good. Bring flat shoes and something to drink.",
+      w:"Summer only, late June to the end of August. Sunday 18:00 to 23:00 for salsa cubana, and the Bal Latino most evenings 19:30 to 23:30 from July. Cancelled in rain.", b:"Free, walk in" },
+
+    { n:16, cat:"dance", name:"Cubana Café", addr:"47 rue Vavin, 6e", x:483, y:566,
+      d:"Thirty years old this year. Dark wood, cigar smoke, mojitos, half Havana bar and half neighbourhood restaurant, then a Latin club after 22:00 that does not stop.",
+      w:"Salsa lesson on Tuesdays. DJs from 22:00. Open to 04:00 in the week and 05:00 at the weekend.", b:"Walk in" },
+
+    { n:17, cat:"dance", name:"Le Balajo", addr:"9 rue de Lappe, 11e", x:798, y:455,
+      d:"A 1936 bal musette hall off Bastille with the original ceiling, where Piaf's Paris danced. It now runs a salsa, bachata and kizomba night in the same room.",
+      w:"Thursday SBK night. Lesson early, social until late. Around 10 to 12 euros.", b:"Walk in" },
+
+    { n:18, cat:"dance", name:"La Pachanga", addr:"8 rue Vandamme, 14e", x:443, y:612,
+      d:"The one that is an actual salsa club rather than a bar with a salsa night. Small, hot, open four nights a week, and the level on the floor is high enough to be worth travelling for.",
+      w:"Tuesday through Friday, around 12 euros. Lessons before the social most nights.", b:"Walk in" },
+
+    { n:19, cat:"dance", name:"Vendôme Club", addr:"Opéra, 2e", x:486, y:278,
+      d:"Sunday night casino and rueda de casino, the Cuban circle form where a caller shouts the moves and the whole floor rotates partners. If you love salsa, this is the room that will teach you something.",
+      w:"Sundays, around 12 euros. Confirm the night on the organiser's page the week you are here, because it moves.", b:"Walk in" },
+
+    { n:20, cat:"dance", name:"Café Oz Grands Boulevards", addr:"Grands Boulevards, 9e", x:569, y:267,
+      d:"The big, loud, nearly free Sunday salsa. Not technical and not precious, several hundred people, and the easiest room in the city to walk into on your own and get dances all night.",
+      w:"Sunday evenings. Free to about 10 euros.", b:"Walk in" },
+
+    { n:21, cat:"dance", name:"Ave Maria", addr:"1 rue Jean-Pierre Timbaud, 11e", x:817, y:328,
+      d:"Tropical, tiny, decorated like a fever dream, cocktails in tin cups, Latin and Afro-Caribbean plates. No reservations, and by midnight people are dancing between the tables.",
+      w:"Dinner from 19:30 or drinks after 23:00. Give your name and wait at the bar.", b:"Walk in" },
+
+    { n:22, cat:"dance", name:"La Java", addr:"105 rue du Faubourg du Temple, 10e", x:772, y:280,
+      d:"The tiled basement dance hall where Piaf first sang, low and loud and sweaty, now running cumbia, tropical and Latin nights alongside everything else on the programme.",
+      w:"Check the programme before you go. Latin nights land Friday and Saturday, doors around 23:30.", b:"Tickets online" }
+  ];
+
+  var byId = {};
+  var pinEls = {};
+
+  /* ----- render the list ----- */
+  var list = document.getElementById("list");
+  var frag = document.createDocumentFragment();
+
+  GROUPS.forEach(function (g) {
+    var items = PLACES.filter(function (p) { return p.cat === g.cat; });
+
+    var head = document.createElement("div");
+    head.className = "sec-head group-head";
+    head.setAttribute("data-group", g.cat);
+    head.innerHTML = '<h2>' + g.title + '</h2><span class="sec-count">' + items.length + '</span><span class="rule"></span>';
+    frag.appendChild(head);
+
+    var note = document.createElement("p");
+    note.className = "group-note";
+    note.setAttribute("data-group", g.cat);
+    note.textContent = g.note;
+    frag.appendChild(note);
+
+    var wrapEl = document.createElement("div");
+    wrapEl.className = "places";
+    wrapEl.setAttribute("data-group", g.cat);
+
+    items.forEach(function (p) {
+      var el = document.createElement("article");
+      el.className = "place" + (p.cat === "dance" ? " dance" : "");
+      el.id = "p" + p.n;
+      el.setAttribute("data-cat", p.cat);
+      el.innerHTML =
+        '<div class="p-num">' + (p.n < 10 ? "0" + p.n : p.n) + '</div>' +
+        '<div>' +
+          '<div class="p-name"><h3>' + p.name + '</h3><span class="p-addr">' + p.addr + '</span></div>' +
+          '<p class="p-desc">' + p.d + '</p>' +
+        '</div>' +
+        '<div class="p-side">' +
+          '<div><span class="p-label">Best time</span><span class="p-when">' + p.w + '</span></div>' +
+          '<div><span class="p-label">Getting in</span><span class="p-book">' + p.b + '</span></div>' +
+        '</div>';
+      wrapEl.appendChild(el);
+      byId[p.n] = el;
+    });
+
+    frag.appendChild(wrapEl);
+  });
+
+  list.appendChild(frag);
+
+  /* ----- render the pins ----- */
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var pinLayer = document.getElementById("pins");
+
+  PLACES.forEach(function (p) {
+    var g = document.createElementNS(SVGNS, "g");
+    g.setAttribute("class", "pin" + (p.cat === "dance" ? " dance" : ""));
+    g.setAttribute("tabindex", "0");
+    g.setAttribute("role", "button");
+    g.setAttribute("aria-label", p.name + ", " + p.addr);
+    g.setAttribute("data-cat", p.cat);
+    g.setAttribute("data-n", String(p.n));
+
+    var hit = document.createElementNS(SVGNS, "circle");
+    hit.setAttribute("class", "hit");
+    hit.setAttribute("cx", p.x); hit.setAttribute("cy", p.y); hit.setAttribute("r", "18");
+
+    var body = document.createElementNS(SVGNS, "circle");
+    body.setAttribute("class", "body");
+    body.setAttribute("cx", p.x); body.setAttribute("cy", p.y); body.setAttribute("r", "12.5");
+
+    var t = document.createElementNS(SVGNS, "text");
+    t.setAttribute("class", "num");
+    t.setAttribute("x", p.x); t.setAttribute("y", p.y + 0.5);
+    t.textContent = String(p.n);
+
+    g.appendChild(hit); g.appendChild(body); g.appendChild(t);
+    pinLayer.appendChild(g);
+    pinEls[p.n] = g;
+
+    function show() {
+      readout.innerHTML = '<b>' + p.name + '</b> &nbsp;·&nbsp; ' + p.addr + ' &nbsp;·&nbsp; ' + p.w;
+      g.classList.add("on");
+    }
+    function hide() {
+      g.classList.remove("on");
+      readout.innerHTML = restingReadout;
+    }
+    function go() {
+      var card = byId[p.n];
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+      Object.keys(byId).forEach(function (k) { byId[k].classList.remove("flash"); });
+      void card.offsetWidth;
+      card.classList.add("flash");
+    }
+
+    g.addEventListener("mouseenter", show);
+    g.addEventListener("mouseleave", hide);
+    g.addEventListener("focus", show);
+    g.addEventListener("blur", hide);
+    g.addEventListener("click", go);
+    g.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+    });
+  });
+
+  var readout = document.getElementById("readout");
+  var restingReadout = "Hover a pin for the short version. Click it to jump to the entry.";
+  readout.innerHTML = restingReadout;
+
+  /* ----- filters ----- */
+  document.getElementById("filters").addEventListener("click", function (e) {
+    var btn = e.target.closest(".chip");
+    if (!btn) return;
+    var cat = btn.getAttribute("data-cat");
+
+    Array.prototype.forEach.call(this.querySelectorAll(".chip"), function (c) {
+      c.setAttribute("aria-pressed", c === btn ? "true" : "false");
+    });
+
+    PLACES.forEach(function (p) {
+      var match = (cat === "all" || p.cat === cat);
+      byId[p.n].hidden = !match;
+      pinEls[p.n].classList.toggle("dim", !match);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-group]"), function (el) {
+      el.hidden = !(cat === "all" || el.getAttribute("data-group") === cat);
+    });
+  });
+})();
+</script>
